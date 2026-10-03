@@ -3,34 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#16130f">
+  <meta name="theme-color" content="#f6f7f8">
   <meta name="color-scheme" content="light">
   <title>cubos-mx — catálogo y tablas oficiales de INEGI</title>
   <meta name="description" content="Catálogo de cubos públicos de México y las tablas oficiales de la Balanza Comercial de Mercancías (INEGI), con fuentes oficiales y hechos calculados sobre cada archivo.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@16..72,500;16..72,650;16..72,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #efe8dc;
-      --bg-2: #f7f3ea;
-      --ink: #16130f;
-      --mute: #5c564c;
-      --line: rgba(22, 19, 15, 0.08);
-      --card: rgba(255, 252, 246, 0.92);
-      --accent: #0f4d3c;
-      --accent-ink: #e8f4ef;
-      --amber: #8a4b12;
-      --amber-soft: rgba(138, 75, 18, 0.1);
-      --ok: #0b5f4a;
-      --warn-bg: rgba(138, 75, 18, 0.12);
-      --warn-ink: #5c3d00;
-      --shadow: 0 10px 28px rgba(22, 19, 15, 0.08);
-      --shadow-lg: 0 18px 40px rgba(22, 19, 15, 0.12);
-      --r: 18px;
+      --bg: #f6f7f8;
+      --bg-2: #ffffff;
+      --ink: #111113;
+      --mute: #5c5f66;
+      --line: rgba(17, 17, 19, 0.08);
+      --card: #ffffff;
+      --accent: #111113;
+      --soft: #eef0f2;
+      --warn-bg: #fff6e5;
+      --warn-ink: #6a4b00;
+      --shadow: 0 1px 2px rgba(17, 17, 19, 0.04), 0 10px 28px rgba(17, 17, 19, 0.07);
+      --r: 14px;
       --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
       --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
       --press: 140ms;
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     }
     * { box-sizing: border-box; }
     html {
@@ -42,15 +37,15 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        radial-gradient(1200px 480px at 8% -8%, rgba(15, 77, 60, 0.08), transparent 55%),
-        var(--bg);
-      font: 16px/1.55 "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      font: 16px/1.5 var(--sans);
     }
-    a { color: var(--accent); overflow-wrap: anywhere; }
-    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-    code, .mono {
-      font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    a { color: inherit; overflow-wrap: anywhere; }
+    .lede a, .note a, p a { text-decoration: underline; text-underline-offset: 0.16em; }
+    a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    code, .mono, .cifra, .fact-n, .glance strong {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
       overflow-wrap: anywhere;
       word-break: break-word;
     }
@@ -62,38 +57,35 @@
     .bar {
       position: sticky; top: 0; z-index: 6;
       padding-top: env(safe-area-inset-top, 0px);
-      background: rgba(22, 19, 15, 0.88);
-      color: #f6f1e8;
-      backdrop-filter: saturate(1.4) blur(18px);
-      -webkit-backdrop-filter: saturate(1.4) blur(18px);
+      background: rgba(246, 247, 248, 0.82);
+      backdrop-filter: saturate(1.4) blur(16px);
+      -webkit-backdrop-filter: saturate(1.4) blur(16px);
     }
     .bar-in, .shell, .hero-in {
-      width: min(1180px, calc(100% - 1.5rem));
+      width: min(1120px, calc(100% - 1.5rem));
       margin-inline: auto;
     }
     .bar-in {
-      min-height: 64px;
+      min-height: 56px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 0.7rem 1rem;
-      padding: 0.7rem 0;
+      gap: 0.6rem 1rem;
+      padding: 0.55rem 0;
     }
     .logo {
       margin: 0;
-      font: 650 1.2rem/1 Newsreader, "IBM Plex Sans", serif;
+      font: 650 0.98rem/1 var(--sans);
       letter-spacing: -0.03em;
-      font-optical-sizing: auto;
     }
     .logo a { color: inherit; text-decoration: none; }
-    .bar nav { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .bar nav { display: flex; flex-wrap: wrap; gap: 0.15rem; }
     .bar nav a {
-      color: #f6f1e8;
+      color: var(--ink);
       text-decoration: none;
-      padding: 0.45rem 0.75rem;
+      padding: 0.45rem 0.7rem;
       border-radius: 999px;
-      background: rgba(255, 252, 246, 0.08);
       font-weight: 600;
       font-size: 0.9rem;
       touch-action: manipulation;
@@ -103,85 +95,66 @@
       transition: transform var(--press) var(--ease-out), background-color 160ms ease;
     }
     .bar nav a:active { transform: scale(0.97); }
-    .hero {
-      background:
-        radial-gradient(820px 380px at 92% -8%, rgba(15, 77, 60, 0.28), transparent 58%),
-        linear-gradient(180deg, #16130f 0%, #221c16 68%, var(--bg) 100%);
-      color: #f6f1e8;
-      padding: 2.2rem 0 3.2rem;
-    }
-    .hero-in {
-      display: grid;
-      gap: 1.6rem;
-    }
-    @media (min-width: 900px) {
-      .hero { padding: 3.2rem 0 4rem; }
-      .hero-in { grid-template-columns: 1.05fr 0.95fr; align-items: end; gap: 2.4rem; }
-    }
+    .hero { padding: 2rem 0 1.2rem; }
+    @media (min-width: 900px) { .hero { padding: 3rem 0 1.6rem; } }
     .kicker {
       margin: 0 0 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-weight: 650;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      font-size: 0.74rem;
-      color: #c9d8d1;
+      font-size: 0.72rem;
+      color: var(--mute);
     }
     .hero h1 {
-      margin: 0 0 0.8rem;
-      font: 650 clamp(2.05rem, 6vw, 3.7rem)/1.02 Newsreader, "IBM Plex Sans", serif;
-      letter-spacing: -0.035em;
-      font-optical-sizing: auto;
+      margin: 0 0 0.75rem;
+      font: 650 clamp(2rem, 5.4vw, 3.35rem)/1.05 var(--sans);
+      letter-spacing: -0.042em;
+      max-width: 18ch;
     }
-    .hero .lead { margin: 0; color: #d8d0c4; max-width: 36rem; font-size: 1.05rem; }
+    .hero .lead { margin: 0 0 1.1rem; color: var(--mute); max-width: 40rem; font-size: 1.05rem; }
     .rules {
       display: grid;
-      gap: 0.55rem;
-      margin: 1.2rem 0 0;
+      gap: 0.45rem;
+      margin: 0 0 1.4rem;
+      max-width: 40rem;
     }
     .rules p {
       margin: 0;
-      padding: 0.7rem 0.8rem;
-      background: rgba(255, 252, 246, 0.06);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      padding: 0.65rem 0.75rem;
+      background: var(--bg-2);
+      box-shadow: var(--shadow);
       border-radius: 12px;
-      color: #efe8dc;
     }
-    .rules strong { color: #fff; }
-    .dock { display: grid; gap: 0.65rem; }
+    .dock { display: grid; gap: 0.6rem; }
     .file {
       display: grid;
-      grid-template-columns: 8px 1fr auto;
-      gap: 0.75rem;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem 1rem;
       align-items: center;
       background: var(--card);
-      color: var(--ink);
-      border-radius: 14px;
-      padding: 0.85rem 0.85rem 0.85rem 0;
       box-shadow: var(--shadow);
+      border-radius: var(--r);
+      padding: 0.95rem 1rem;
       min-width: 0;
     }
-    .file i { display: block; height: 100%; min-height: 3.4rem; border-radius: 14px 0 0 14px; }
-    .file.mill i { background: var(--accent); }
-    .file.mil i { background: #c4843a; }
-    .file h2 { margin: 0; font-size: 0.98rem; line-height: 1.25; }
+    .file h2 { margin: 0; font-size: 1rem; letter-spacing: -0.02em; }
     .file h2 a { color: inherit; text-decoration: none; }
-    .file small { display: block; color: var(--mute); font-size: 0.78rem; margin-top: 0.15rem; }
+    .file small { display: block; color: var(--mute); font-size: 0.8rem; margin-top: 0.2rem; }
     .file .unit {
       display: inline-block;
-      margin-top: 0.25rem;
+      margin-top: 0.35rem;
       font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-weight: 650;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
+      color: var(--mute);
     }
-    .file.mill .unit { color: var(--accent); }
-    .file.mil .unit { color: var(--amber); }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 650;
       border-radius: 999px;
       padding: 0.7rem 0.95rem;
       min-height: 2.75rem;
@@ -190,19 +163,19 @@
       user-select: none;
       -webkit-user-select: none;
       -webkit-touch-callout: none;
-      transition: transform var(--press) var(--ease-out), background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+      transition: transform var(--press) var(--ease-out), background-color 160ms ease, box-shadow 160ms var(--ease-out);
     }
     .btn:active { transform: scale(0.97); }
-    .btn-dl { background: var(--accent); color: #fff; box-shadow: 0 8px 20px rgba(15, 77, 60, 0.22); }
-    .btn-ghost { background: var(--accent-ink); color: var(--accent); }
+    .btn-dl { background: var(--ink); color: #fff; }
+    .btn-ghost { background: var(--soft); color: var(--ink); }
     .btn-src {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.2rem;
+      gap: 0.15rem;
       width: 100%;
       text-decoration: none;
-      background: var(--bg-2);
+      background: var(--bg);
       box-shadow: var(--shadow);
       border-radius: 12px;
       padding: 0.7rem 0.8rem;
@@ -211,23 +184,19 @@
       transition: transform var(--press) var(--ease-out), box-shadow 180ms var(--ease-out);
     }
     .btn-src:active { transform: scale(0.97); }
-    .btn-src b { color: var(--accent); font-size: 0.88rem; }
-    .btn-src span { font: 400 0.75rem/1.35 "IBM Plex Mono", ui-monospace, monospace; color: var(--mute); }
-    .glance {
-      background: color-mix(in srgb, var(--bg-2) 86%, transparent);
-      box-shadow: inset 0 1px 0 rgba(255, 252, 246, 0.55);
-    }
-    .glance-in { padding: 1.3rem 0 1.5rem; }
+    .btn-src b { font-size: 0.88rem; }
+    .btn-src span { font: 400 0.75rem/1.35 var(--mono); color: var(--mute); }
+    .glance { padding: 0 0 2rem; }
+    .glance-in { padding: 0; }
     .glance h2 {
-      margin: 0 0 0.8rem;
-      font: 650 1.15rem/1.2 Newsreader, serif;
+      margin: 0 0 0.75rem;
+      font: 650 0.95rem/1.2 var(--sans);
       letter-spacing: -0.02em;
-      font-optical-sizing: auto;
     }
     .glance-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.7rem;
+      gap: 0.6rem;
     }
     @media (min-width: 900px) {
       .glance-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
@@ -235,7 +204,7 @@
     .glance a {
       display: block;
       background: var(--card);
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 0.85rem;
       text-decoration: none;
       color: inherit;
@@ -247,15 +216,10 @@
       transition: transform var(--press) var(--ease-out), box-shadow 180ms var(--ease-out);
     }
     .glance a:active { transform: scale(0.97); }
-    .glance strong {
-      display: block;
-      font: 500 clamp(1.2rem, 3vw, 1.55rem)/1.1 "IBM Plex Mono", ui-monospace, monospace;
-    }
+    .glance strong { display: block; font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 500; letter-spacing: -0.03em; }
     .glance em { display: block; font-style: normal; color: var(--mute); font-size: 0.78rem; margin-top: 0.35rem; }
     @media (prefers-reduced-motion: no-preference) {
-      .glance a {
-        animation: rise 280ms var(--ease-out) both;
-      }
+      .glance a { animation: rise 260ms var(--ease-out) both; }
       .glance a:nth-child(1) { animation-delay: 0ms; }
       .glance a:nth-child(2) { animation-delay: 40ms; }
       .glance a:nth-child(3) { animation-delay: 80ms; }
@@ -266,14 +230,14 @@
       from { opacity: 0; transform: translateY(8px) scale(0.97); }
       to { opacity: 1; transform: none; }
     }
-    .section { padding: 2.4rem 0; }
+    .section { padding: 2.6rem 0; }
+    .band { background: var(--bg-2); box-shadow: 0 1px 0 var(--line), 0 -1px 0 var(--line); }
     .section h2 {
-      margin: 0 0 0.45rem;
-      font: 650 clamp(1.7rem, 4vw, 2.45rem)/1.05 Newsreader, serif;
-      letter-spacing: -0.03em;
-      font-optical-sizing: auto;
+      margin: 0 0 0.4rem;
+      font: 650 clamp(1.55rem, 3.5vw, 2.1rem)/1.1 var(--sans);
+      letter-spacing: -0.035em;
     }
-    .section > .lede { margin: 0 0 1.2rem; color: var(--mute); max-width: 46rem; }
+    .section > .lede, .shell > .lede { margin: 0 0 1.15rem; color: var(--mute); max-width: 46rem; }
     .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.2rem; }
     .chips a {
       text-decoration: none;
@@ -282,7 +246,7 @@
       box-shadow: var(--shadow);
       border-radius: 999px;
       padding: 0.4rem 0.75rem;
-      font-weight: 600;
+      font-weight: 650;
       font-size: 0.88rem;
       touch-action: manipulation;
       user-select: none;
@@ -293,13 +257,12 @@
     .chips a:active { transform: scale(0.97); }
     .inst { margin: 0 0 2rem; }
     .inst h3 {
-      margin: 0 0 0.5rem;
-      font: 650 1.3rem/1.2 Newsreader, serif;
+      margin: 0 0 0.45rem;
+      font: 650 1.15rem/1.25 var(--sans);
       letter-spacing: -0.02em;
-      font-optical-sizing: auto;
     }
     .note { color: var(--mute); margin: 0 0 0.9rem; }
-    .grid { display: grid; gap: 0.8rem; }
+    .grid { display: grid; gap: 0.7rem; }
     @media (min-width: 720px) {
       .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -307,117 +270,105 @@
     .card {
       background: var(--card);
       border-radius: var(--r);
-      padding: 1rem 1.05rem 1.1rem;
+      padding: 0.95rem 1rem 1.05rem;
       box-shadow: var(--shadow);
       min-width: 0;
     }
-    .card h4 { margin: 0 0 0.4rem; font-size: 1.02rem; }
-    .card p { margin: 0 0 0.7rem; }
+    .band .card, .band .cut, .band .file-row, .band .btn-src { background: var(--bg); }
+    .card h4 { margin: 0 0 0.35rem; font-size: 1rem; letter-spacing: -0.015em; }
+    .card p { margin: 0 0 0.65rem; }
     .card p:last-child { margin-bottom: 0; }
     .tag {
       display: inline-block;
-      background: var(--accent-ink);
-      color: var(--accent);
+      background: var(--soft);
+      color: var(--ink);
       border-radius: 999px;
       padding: 0.15rem 0.5rem;
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 650;
       margin: 0 0.3rem 0.5rem 0;
     }
     .tag.warn { background: var(--warn-bg); color: var(--warn-ink); }
     .cut {
       background: var(--card);
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      margin: 0 0 1.2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      margin: 0 0 1rem;
       overflow: hidden;
     }
     .cut-top {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 0.8rem 1rem;
-      padding: 1.15rem 1.15rem 1rem;
-      box-shadow: 0 1px 0 var(--line);
+      gap: 0.7rem 1rem;
+      padding: 1.05rem 1.1rem 0.95rem;
     }
-    .cut-top h3 { margin: 0 0 0.25rem; font: 650 1.3rem/1.2 Newsreader, serif; letter-spacing: -0.02em; }
+    .cut-top h3 { margin: 0 0 0.2rem; font: 650 1.15rem/1.2 var(--sans); letter-spacing: -0.02em; }
     .badge {
       align-self: flex-start;
       border-radius: 999px;
-      padding: 0.4rem 0.7rem;
-      font-size: 0.75rem;
-      font-weight: 700;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      background: var(--soft);
+      color: var(--ink);
     }
-    .badge.mill { background: var(--accent-ink); color: var(--accent); }
-    .badge.mil { background: var(--amber-soft); color: var(--amber); }
-    .cut-body { padding: 1.1rem 1.15rem 1.25rem; }
+    .cut-body { padding: 0 1.1rem 1.15rem; }
     .split { display: grid; gap: 1rem; }
     @media (min-width: 860px) {
       .split { grid-template-columns: 0.95fr 1.05fr; align-items: start; }
     }
-    .meta { display: grid; gap: 0.55rem; margin: 0 0 1rem; }
+    .meta { display: grid; gap: 0.5rem; margin: 0 0 1rem; }
     .meta div {
-      background: var(--bg-2);
+      background: var(--bg);
       border-radius: 12px;
-      padding: 0.65rem 0.75rem;
+      padding: 0.6rem 0.75rem;
     }
     .meta dt {
-      margin: 0 0 0.15rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      margin: 0 0 0.12rem;
+      font-size: 0.7rem;
+      font-weight: 650;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--mute);
     }
     .meta dd { margin: 0; }
-    .facts { display: grid; gap: 0.65rem; }
+    .facts { display: grid; gap: 0.55rem; }
     @media (min-width: 560px) {
       .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     .fact {
-      background: var(--bg-2);
-      border-radius: 14px;
-      padding: 0.8rem;
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 0.75rem;
       min-width: 0;
     }
     .fact-l {
-      margin: 0 0 0.25rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      margin: 0 0 0.2rem;
+      font-size: 0.7rem;
+      font-weight: 650;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--mute);
     }
-    .fact-n {
-      margin: 0;
-      font: 500 clamp(1.15rem, 3vw, 1.5rem)/1.15 "IBM Plex Mono", ui-monospace, monospace;
-    }
+    .fact-n { margin: 0; font-size: clamp(1.1rem, 2.6vw, 1.4rem); font-weight: 500; letter-spacing: -0.03em; }
     .fact-u, .unidad { margin: 0.2rem 0 0; color: var(--mute); font-size: 0.86rem; }
     .fact p { margin: 0.35rem 0 0; }
-    .cifra { font-variant-numeric: tabular-nums; font-family: "IBM Plex Mono", ui-monospace, monospace; }
     .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
     .src-stack { display: grid; gap: 0.5rem; }
     footer {
-      background: #16130f;
-      color: #d8d0c4;
-      padding: 1.6rem 0 calc(2rem + env(safe-area-inset-bottom, 0px));
+      background: var(--ink);
+      color: #d4d6db;
+      padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom, 0px));
     }
-    footer a { color: #c9d8d1; }
+    footer a { color: #fff; }
     @media (max-width: 640px) {
-      .file { grid-template-columns: 8px 1fr; }
-      .file .btn { grid-column: 2; justify-self: start; }
+      .file { grid-template-columns: 1fr; }
+      .file .btn { justify-self: start; }
     }
-    .ph {
-      margin: 0.45rem 0 0;
-      padding: 0.65rem 0.75rem;
-      background: var(--warn-bg);
-      color: var(--warn-ink);
-      border-radius: 12px;
-      font-weight: 700;
-    }
-    .file-list { display: grid; gap: 0.55rem; margin: 0.8rem 0 0; }
+    .file-list { display: grid; gap: 0.5rem; margin: 0.8rem 0 0; }
     .file-row {
       display: grid;
       gap: 0.35rem 0.8rem;
@@ -433,26 +384,21 @@
     .file-row small { color: var(--mute); display: block; }
     .file-row .dl { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
     @media (hover: hover) and (pointer: fine) {
-      .bar nav a:hover { background: rgba(255, 252, 246, 0.16); }
-      .btn-dl:hover { box-shadow: 0 12px 26px rgba(15, 77, 60, 0.28); }
-      .btn-ghost:hover { background: #dceee7; }
+      .bar nav a:hover { background: var(--soft); }
+      .btn-dl:hover { box-shadow: 0 10px 22px rgba(17, 17, 19, 0.18); }
+      .btn-ghost:hover { background: #e4e6ea; }
       .btn-src:hover, .chips a:hover, .glance a:hover, .file:hover {
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 14px 32px rgba(17, 17, 19, 0.1);
       }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .glance a { animation: none; }
-      .btn, .btn-src, .bar nav a, .chips a, .glance a {
-        transition: none;
-      }
-      .btn:active, .btn-src:active, .bar nav a:active, .chips a:active, .glance a:active {
-        transform: none;
-      }
+      .btn, .btn-src, .bar nav a, .chips a, .glance a { transition: none; }
+      .btn:active, .btn-src:active, .bar nav a:active, .chips a:active, .glance a:active { transform: none; }
     }
     @media (prefers-reduced-transparency: reduce) {
-      .bar { background: #16130f; backdrop-filter: none; -webkit-backdrop-filter: none; }
-      .card, .cut, .file, .file-row, .glance a { background: #fffaf2; }
+      .bar { background: #f6f7f8; backdrop-filter: none; -webkit-backdrop-filter: none; }
     }
     @media (prefers-contrast: more) {
       .card, .cut, .file, .file-row, .btn-src, .chips a, .glance a {
@@ -470,6 +416,7 @@
       <nav aria-label="Secciones">
         <a href="#catalogo">Catálogo</a>
         <a href="#archivos">Archivos</a>
+        <a href="#hechos-mensuales">Hechos</a>
         <a href="#metodo">Método</a>
       </nav>
     </div>
@@ -488,8 +435,7 @@
         </div>
       </div>
       <div class="dock" id="descargas" aria-label="Descargas">
-        <div class="file mill">
-          <i></i>
+        <div class="file">
           <div>
             <h2><a href="#mtra">Mensual, modo de transporte</a></h2>
             <small>capítulo y aduana · ene 2012–jul 2026 · exportación e importación</small>
@@ -497,8 +443,7 @@
           </div>
           <a class="btn btn-dl" href="datos/mensual_mtra/conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv" download>Descargar CSV</a>
         </div>
-        <div class="file mil">
-          <i></i>
+        <div class="file">
           <div>
             <h2><a href="#paises">Mensual, país y tipo de bien</a></h2>
             <small>tres CSV · ene 2015–jul 2026 · exportación e importación</small>
@@ -506,8 +451,7 @@
           </div>
           <a class="btn btn-dl" href="datos/mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv" download>Descargar 2026</a>
         </div>
-        <div class="file mill">
-          <i></i>
+        <div class="file">
           <div>
             <h2><a href="#anual">Anual, tarifa × país</a></h2>
             <small>2003–2025 · un CSV por año · dólares FOB y pesos</small>
@@ -535,6 +479,7 @@
   <main id="contenido">
     <section class="section" id="catalogo">
       <div class="shell">
+        <p class="kicker">01 · Inventario</p>
         <h2>Catálogo de cubos</h2>
         <p class="lede">Inventario, no datos. Una fila es un cubo o una consulta nombrada. Texto de <a href="CATALOGO.md">CATALOGO.md</a>. Cognos del IMSS no abrió (timeout).</p>
         <nav class="chips" aria-label="Instituciones">
@@ -718,8 +663,9 @@
       </div>
     </section>
 
-    <section class="section" id="archivos" style="background:var(--bg-2)">
+    <section class="section band" id="archivos">
       <div class="shell">
+        <p class="kicker">02 · Descargas</p>
         <h2>Archivos oficiales de INEGI</h2>
         <p class="lede">Los tres ZIP de datos abiertos, enteros. Cada CSV, catálogo, diccionario, metadato y modelo del ZIP está aquí. Las seis tablas anuales de 100 MB o más son las tablas oficiales completas de INEGI; se descargan de su URL pública. El ZIP de origen va al lado. Sin credenciales. Detalle en <a href="datos/FUENTES.md">datos/FUENTES.md</a>.</p>
 
@@ -809,9 +755,10 @@
       </div>
     </section>
 
-    <section class="section" id="hechos-mensuales" style="background:var(--bg-2)">
+    <section class="section band" id="hechos-mensuales">
 
       <div class="shell">
+        <p class="kicker">03 · Cifras de 2025</p>
         <h2>Hechos de las tablas mensuales</h2>
         <p class="lede">Los hechos salen de las tablas oficiales publicadas arriba y de <a href="datos/FUENTES.md">datos/FUENTES.md</a>. Capítulo y país no se juntan. No hay CSV de capítulo por país en estos ZIP; ese cruce solo está en el cubo mensual de INEGI. El Excel no viene en estos ZIP.</p>
         <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp" style="margin-bottom:1.2rem"><b>Cubo capítulo × país (no está en estos CSV)</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
@@ -1032,6 +979,7 @@
 
     <section class="section" id="metodo">
       <div class="shell">
+        <p class="kicker">04 · Método</p>
         <h2>Cómo se calcularon los hechos</h2>
         <article class="card">
           <p>Se sumó <code>VAL_USD</code> del último año calendario con 12 meses en el mismo CSV; el denominador es la fila de total oficial de ese archivo; se excluyeron subtotales que volverían a contar el mismo valor.</p>
