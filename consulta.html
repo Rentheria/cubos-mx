@@ -15,7 +15,7 @@
       --mute: #5c5f66;
       --line: rgba(17, 17, 19, 0.08);
       --card: #ffffff;
-      --accent: #111113;
+      --accent: #1a5f73;
       --soft: #eef0f2;
       --warn-bg: #fff6e5;
       --warn-ink: #6a4b00;
@@ -103,7 +103,7 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       font-size: 0.72rem;
-      color: var(--mute);
+      color: var(--accent);
     }
     .hero h1 {
       margin: 0 0 0.75rem;
@@ -147,7 +147,7 @@
       font-weight: 650;
       letter-spacing: 0.02em;
       text-transform: uppercase;
-      color: var(--mute);
+      color: var(--accent);
     }
     .btn {
       display: inline-flex;
@@ -216,15 +216,31 @@
       transition: transform var(--press) var(--ease-out), box-shadow 180ms var(--ease-out);
     }
     .glance a:active { transform: scale(0.97); }
-    .glance strong { display: block; font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 500; letter-spacing: -0.03em; }
+    .glance strong { display: block; font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 500; letter-spacing: -0.03em; color: var(--accent); }
     .glance em { display: block; font-style: normal; color: var(--mute); font-size: 0.78rem; margin-top: 0.35rem; }
     @media (prefers-reduced-motion: no-preference) {
+      .hero .kicker { animation: rise 240ms var(--ease-out) both; }
+      .hero h1 { animation: rise 260ms var(--ease-out) 40ms both; }
+      .hero .lead { animation: rise 260ms var(--ease-out) 80ms both; }
+      .hero .rules { animation: rise 260ms var(--ease-out) 110ms both; }
+      .hero .dock .file { animation: rise 260ms var(--ease-out) both; }
+      .hero .dock .file:nth-child(1) { animation-delay: 140ms; }
+      .hero .dock .file:nth-child(2) { animation-delay: 180ms; }
+      .hero .dock .file:nth-child(3) { animation-delay: 220ms; }
+      .hero .dock .file:nth-child(4) { animation-delay: 260ms; }
       .glance a { animation: rise 260ms var(--ease-out) both; }
       .glance a:nth-child(1) { animation-delay: 0ms; }
       .glance a:nth-child(2) { animation-delay: 40ms; }
       .glance a:nth-child(3) { animation-delay: 80ms; }
       .glance a:nth-child(4) { animation-delay: 120ms; }
       .glance a:nth-child(5) { animation-delay: 160ms; }
+      .fact { animation: rise 240ms var(--ease-out) both; }
+      .fact:nth-child(1) { animation-delay: 30ms; }
+      .fact:nth-child(2) { animation-delay: 70ms; }
+      .fact:nth-child(3) { animation-delay: 110ms; }
+      .fact:nth-child(4) { animation-delay: 150ms; }
+      .fact:nth-child(5) { animation-delay: 190ms; }
+      .fact:nth-child(6) { animation-delay: 230ms; }
     }
     @keyframes rise {
       from { opacity: 0; transform: translateY(8px) scale(0.97); }
@@ -344,6 +360,7 @@
       border-radius: 12px;
       padding: 0.75rem;
       min-width: 0;
+      box-shadow: inset 3px 0 0 var(--accent);
     }
     .fact-l {
       margin: 0 0 0.2rem;
@@ -393,7 +410,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .glance a { animation: none; }
+      .glance a, .hero .kicker, .hero h1, .hero .lead, .hero .rules, .hero .dock .file, .fact { animation: none; }
       .btn, .btn-src, .bar nav a, .chips a, .glance a { transition: none; }
       .btn:active, .btn-src:active, .bar nav a:active, .chips a:active, .glance a:active { transform: none; }
     }
@@ -416,7 +433,10 @@
       <nav aria-label="Secciones">
         <a href="#catalogo">Catálogo</a>
         <a href="#archivos">Archivos</a>
+        <a href="#etef">ETEF</a>
+        <a href="#extractos">Cubos</a>
         <a href="#hechos-mensuales">Hechos</a>
+        <a href="#verificacion">Verificación</a>
         <a href="#metodo">Método</a>
       </nav>
     </div>
@@ -425,16 +445,24 @@
   <section class="hero">
     <div class="hero-in">
       <div>
-        <p class="kicker">Inventario 3 oct 2026 · INEGI BCMM en CSV</p>
+        <p class="kicker">Inventario 3 oct 2026 · ZIP oficiales y cubos</p>
         <h1>Cubos públicos y las tablas oficiales de INEGI</h1>
-        <p class="lead">Catálogo de cubos de México y los tres ZIP de datos abiertos de la Balanza Comercial de Mercancías. Aquí está cada archivo de esos ZIP. Los números son los publicados. Cada fuente lleva su URL oficial.</p>
+        <p class="lead">Catálogo de cubos y los ZIP de datos abiertos de la BCMM y de ETEF que se comprobaron en vivo el 3 de octubre de 2026. Cada entrada lleva URL oficial, unidad, periodo y si es ZIP o extracto de cubo. OLAP y Banxico no publicaron un CSV completo.</p>
         <div class="rules">
           <p><strong>Capítulo y país son tablas distintas.</strong> No se juntan.</p>
-          <p><strong>No se suman millones con miles.</strong> Cada archivo declara su unidad.</p>
-          <p>El mensual no trae capítulo por país; ese cruce está en el cubo de INEGI y en el ZIP anual (tarifa × país). El Excel no viene en estos ZIP.</p>
+          <p><strong>No se suman millones con miles ni con dólares.</strong> Cada archivo declara su unidad.</p>
+          <p>ETEF no se dobla en la BCMM. El cruce capítulo × país no está en los ZIP mensuales; el OLAP lo consulta en HTML paginado, no como CSV. El anual BCMM es tarifa × país.</p>
         </div>
       </div>
       <div class="dock" id="descargas" aria-label="Descargas">
+        <div class="file">
+          <div>
+            <h2><a href="#mensual">Mensual, agregados</a></h2>
+            <small>ZIP oficial · ene 2012–ago 2026 · cifras oportunas en agosto</small>
+            <span class="unit">millones de dólares FOB</span>
+          </div>
+          <a class="btn btn-dl" href="datos/mensual/conjunto_de_datos/bcmm_mensual_tr_cifra_2026.csv" download>Descargar 2026</a>
+        </div>
         <div class="file">
           <div>
             <h2><a href="#mtra">Mensual, modo de transporte</a></h2>
@@ -459,6 +487,14 @@
           </div>
           <a class="btn btn-dl" href="datos/anual/conjunto_de_datos/bcmm_anual_tr_cifra_2021.csv" download>Descargar 2021</a>
         </div>
+        <div class="file">
+          <div>
+            <h2><a href="#etef">ETEF, entidad × SCIAN</a></h2>
+            <small>ZIP oficiales · anual 2007–2025 · trimestral 2007-I–2026-II</small>
+            <span class="unit">miles (anual) · dólares FOB (trimestral)</span>
+          </div>
+          <a class="btn btn-dl" href="datos/etef_anual/conjunto_de_datos/eef_estatal_anual_tr_cifra_2007_2025.csv" download>Descargar anual</a>
+        </div>
       </div>
     </div>
   </section>
@@ -482,9 +518,10 @@
         <p class="kicker">01 · Inventario</p>
         <h2>Catálogo de cubos</h2>
         <p class="lede">Inventario, no datos. Una fila es un cubo o una consulta nombrada. Texto de <a href="CATALOGO.md">CATALOGO.md</a>. Cognos del IMSS no abrió (timeout).</p>
-        <nav class="chips" aria-label="Instituciones">
+          <nav class="chips" aria-label="Instituciones">
           <a href="#imss">IMSS</a>
           <a href="#bcmm">INEGI BCMM</a>
+          <a href="#etef-cat">ETEF</a>
           <a href="#banxico">Banxico</a>
           <a href="#enoe">ENOE</a>
           <a href="#sinba">SINBA</a>
@@ -578,15 +615,25 @@
               <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Abrir cubo</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
             </article>
           </div>
-          <p class="note" style="margin-top:0.8rem">Aparte, no es este cubo: exportaciones por entidad federativa (SCIAN, tabulados y BIE, no OLAP).</p>
-          <a class="btn-src" href="https://inegi.org.mx/temas/exportacionesef/"><b>Exportaciones por entidad</b><span>https://inegi.org.mx/temas/exportacionesef/</span></a>
+          <p class="note" style="margin-top:0.8rem">Datos abiertos BCMM, aparte de estos 9 cubos: el HTML de COMEXT (3 751 B, 3 oct 2026) no lista el ZIP mensual genérico; su schema.org nombra <code>bcmm_anual_csv.zip</code> (paquete hasta 2023). Los ZIP <code>conjunto_de_datos_bcmm_*</code> sí son zip reales. No hay ZIP de entidad ni municipio: esas URLs inventadas son HTML 2 263 B. Detalle en <a href="datos/FUENTES.md">datos/FUENTES.md</a>.</p>
+        </div>
+
+        <div class="inst" id="etef-cat">
+          <h3>INEGI, exportaciones por entidad federativa (ETEF)</h3>
+          <p class="note">No es el cubo OLAP de la BCMM. Consulta 3 oct 2026. El tema avisa que, desde el 30 de septiembre de 2025, el desglose SCIAN «solo se encuentra disponible en los tabulados interactivos y Banco de Información Económica (BIE)». El programa vivo publica ZIP de datos abiertos. BIE respondió HTTP 500. <code>/programas/exportacionesef/</code> ya no existe.</p>
+          <div class="grid cols-2 src-stack" style="margin-bottom:0.8rem">
+            <a class="btn-src" href="https://www.inegi.org.mx/temas/exportacionesef/"><b>Tema</b><span>https://www.inegi.org.mx/temas/exportacionesef/</span></a>
+            <a class="btn-src" href="https://www.inegi.org.mx/programas/exporta_ef/"><b>Programa vivo</b><span>https://www.inegi.org.mx/programas/exporta_ef/</span></a>
+            <a class="btn-src" href="https://www.inegi.org.mx/programas/exportacionesef/"><b>Programa muerto</b><span>https://www.inegi.org.mx/programas/exportacionesef/ · «Esta liga ya no existe»</span></a>
+            <a class="btn-src" href="https://www.inegi.org.mx/sistemas/bie/"><b>BIE · HTTP 500 el 3 oct 2026</b><span>https://www.inegi.org.mx/sistemas/bie/</span></a>
+          </div>
         </div>
 
         <div class="inst" id="banxico">
           <h3>Banxico</h3>
           <article class="card">
             <h4>Cubo de Comercio Exterior</h4>
-            <p>El tutorial usa desde enero 1993. No publica la fecha final. Valor en dólares (tratamiento estadístico) por flujo, periodo, región o país, y producto. Volumen solo a nivel fracción. Exportar el recorte: clic derecho, copiar datos, o Imprimir → Excel. Excel trunca si la consulta es muy grande. Preliminar; puede no coincidir con la BCMM.</p>
+            <p>Consulta 3 oct 2026. Se abrió esta página y ValorDolares / ValorDolaresAnual. Embebe tablero.banxico.org.mx. No hay ZIP ni CSV completo. El tutorial usa desde enero 1993. Las páginas abiertas no publican la fecha final. Valor en dólares (tratamiento estadístico). Volumen solo a nivel fracción. Clic derecho, copiar datos, o Imprimir → Excel. Excel trunca si la consulta supera el máximo de filas de Microsoft Office; la página no nombró ese máximo. Preliminar; puede no coincidir con la BCMM.</p>
             <a class="btn-src" href="https://www.banxico.org.mx/CuboComercioExterior/"><b>Abrir cubo</b><span>https://www.banxico.org.mx/CuboComercioExterior/</span></a>
           </article>
         </div>
@@ -596,11 +643,11 @@
           <div class="grid cols-2">
             <article class="card">
               <h4>BIE y SIE</h4>
-              <p>BIE (INEGI) y SIE (Banxico): series agregadas de la balanza, no cubos.</p>
+              <p>BIE (INEGI) y SIE (Banxico): series agregadas de la balanza, no cubos. El 3 oct 2026 https://www.inegi.org.mx/sistemas/bie/ respondió HTTP 500.</p>
             </article>
             <article class="card">
               <h4>Falta confirmar dentro del visor</h4>
-              <p>Cognos: si hay carpetas médicas además de Incorporación y Recaudación. OLAP INEGI: el botón real de exportación y qué se puede arrastrar. Banxico: último periodo cargado, y si el valor anual se corta a fracción. 2025: el anual dice definitivas y el mensual dice revisadas.</p>
+              <p>Cognos: si hay carpetas médicas además de Incorporación y Recaudación. OLAP INEGI: el 3 oct 2026 la consulta a MDXQueryDatos.asp devolvió HTML paginado (65 562 B), no un CSV del cruce; falta el botón de «exportar cubo completo». Banxico: último periodo cargado (las páginas no lo nombran). 2025: el anual OLAP dice definitivas y el mensual OLAP dice revisadas.</p>
             </article>
           </div>
         </div>
@@ -651,7 +698,7 @@
           <div class="grid cols-2">
             <article class="card">
               <h4>COMEX</h4>
-              <p>El PDF de consulta interactiva lista solo los 9 ya catalogados. No hay cubo aparte de aduana, modo de transporte ni entidad.</p>
+              <p>El PDF de consulta interactiva (3 oct 2026, application/pdf, 2 123 432 B) lista los 9 cubos. No hay cubo OLAP aparte de aduana, modo de transporte ni entidad. Los ZIP de datos abiertos son otra forma: hay mtra y agregados; no hay ZIP de entidad ni municipio.</p>
               <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/doc/descripcion.pdf"><b>PDF de descripción</b><span>https://www.inegi.org.mx/contenidos/programas/comext/doc/descripcion.pdf</span></a>
             </article>
             <article class="card">
@@ -667,7 +714,28 @@
       <div class="shell">
         <p class="kicker">02 · Descargas</p>
         <h2>Archivos oficiales de INEGI</h2>
-        <p class="lede">Los tres ZIP de datos abiertos, enteros. Cada CSV, catálogo, diccionario, metadato y modelo del ZIP está aquí. Las seis tablas anuales de 100 MB o más son las tablas oficiales completas de INEGI; se descargan de su URL pública. El ZIP de origen va al lado. Sin credenciales. Detalle en <a href="datos/FUENTES.md">datos/FUENTES.md</a>.</p>
+        <p class="lede">ZIP de datos abiertos comprobados el 3 de octubre de 2026 por <code>Content-Type: application/x-zip-compressed</code>. Cada CSV, catálogo y diccionario declara su ZIP, unidad y periodo. Las seis tablas anuales de 100 MB o más se descargan de su URL pública. Catálogos: <a href="datos/CATALOGOS.md">datos/CATALOGOS.md</a>. Inventario: <a href="datos/FUENTES.md">datos/FUENTES.md</a>.</p>
+
+        <article class="cut" id="mensual">
+          <div class="cut-top">
+            <div>
+              <h3>Mensual, agregados</h3>
+              <code>conjunto_de_datos_bcmm_mensual_csv.zip</code>
+            </div>
+            <span class="badge mill">millones de dólares FOB</span>
+          </div>
+          <div class="cut-body">
+            <p>ZIP oficial. Grandes agregados nacionales de exportación, importación y saldo. Enero 2012 a agosto 2026. Metadato 2026: cifras oportunas al mes de agosto. El HTML de COMEXT no lista este archivo; el 3 oct 2026 el URL fue zip real (62 602 B). No es capítulo, no es país, no es aduana. Un ZIP hermano <code>bcmm_mensual_csv.zip</code> (66 482 B) llega a 2025 y no se extrae aquí.</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_csv.zip"><b>ZIP oficial · consulta 3 oct 2026</b><span>https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_csv.zip</span></a>
+            <div class="file-list">
+              <div class="file-row"><div><b>bcmm_mensual_tr_cifra_2012_2022.csv</b><small>312 123 bytes · 2 376 filas · ene 2012–dic 2022 · millones de dólares FOB</small></div><a class="btn btn-dl" href="datos/mensual/conjunto_de_datos/bcmm_mensual_tr_cifra_2012_2022.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>bcmm_mensual_tr_cifra_2023_2025.csv</b><small>83 839 bytes · 648 filas · ene 2023–dic 2025 · millones de dólares FOB</small></div><a class="btn btn-dl" href="datos/mensual/conjunto_de_datos/bcmm_mensual_tr_cifra_2023_2025.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>bcmm_mensual_tr_cifra_2026.csv</b><small>18 131 bytes · 141 filas · ene–ago 2026 · última fila Cifras Oportunas</small></div><a class="btn btn-dl" href="datos/mensual/conjunto_de_datos/bcmm_mensual_tr_cifra_2026.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>diccionario_datos_bcmm_mensual_2012_2026.csv</b><small>ZIP oficial · 1 898 bytes · 8 filas · unidad de VAL_USD</small></div><a class="btn btn-ghost" href="datos/mensual/diccionario_de_datos/diccionario_datos_bcmm_mensual_2012_2026.csv" download>Diccionario</a></div>
+              <div class="file-row"><div><b>tc_periodo_mes.csv</b><small>catálogo · ZIP oficial · 170 bytes · 12 filas · 2012–2026</small></div><a class="btn btn-ghost" href="datos/mensual/catalogos/tc_periodo_mes.csv" download>Catálogo</a></div>
+            </div>
+          </div>
+        </article>
 
         <article class="cut" id="mtra">
           <div class="cut-top">
@@ -678,14 +746,15 @@
             <span class="badge mill">millones de dólares FOB</span>
           </div>
           <div class="cut-body">
-            <p>Capítulo por medio de transporte y aduana por medio de transporte. Exportación e importación en las mismas tablas. Enero 2012 a julio 2026. No es país.</p>
-            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip"><b>ZIP oficial</b><span>https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip</span></a>
+            <p>ZIP oficial. Capítulo por medio de transporte y aduana por medio de transporte. Exportación e importación en las mismas tablas. Enero 2012 a julio 2026. No es país. Consulta 3 oct 2026: zip real, 2 401 675 B.</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip"><b>ZIP oficial · consulta 3 oct 2026</b><span>https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip</span></a>
             <div class="file-list">
-              <div class="file-row"><div><b>bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv</b><small>26,752,913 bytes · 171,850 filas · capítulo × transporte, ambos flujos</small></div><a class="btn btn-dl" href="datos/mensual_mtra/conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv" download>Descargar CSV</a></div>
-              <div class="file-row"><div><b>bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv</b><small>1,842,836 bytes · 14,350 filas · aduana × transporte, ambos flujos</small></div><a class="btn btn-dl" href="datos/mensual_mtra/conjunto_de_datos/bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv" download>Descargar CSV</a></div>
-              <div class="file-row"><div><b>diccionario_datos_bcmm_mtra_mensual_2012_2026.csv</b><small>diccionario de columnas, unidad de VAL_USD</small></div><a class="btn btn-ghost" href="datos/mensual_mtra/diccionario_de_datos/diccionario_datos_bcmm_mtra_mensual_2012_2026.csv" download>Descargar</a></div>
-              <div class="file-row"><div><b>metadatos_bcmm_mtra_mensual_2012_2026.txt</b></div><a class="btn btn-ghost" href="datos/mensual_mtra/metadatos/metadatos_bcmm_mtra_mensual_2012_2026.txt" download>Descargar</a></div>
-              <div class="file-row"><div><b>tc_mtra.csv</b> y <b>tc_periodo_mes.csv</b></div><a class="btn btn-ghost" href="datos/mensual_mtra/catalogos/tc_mtra.csv" download>Catálogo MTRA</a></div>
+              <div class="file-row"><div><b>bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv</b><small>26,752,913 bytes · 171,850 filas · capítulo × transporte · millones de dólares FOB</small></div><a class="btn btn-dl" href="datos/mensual_mtra/conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv</b><small>1,842,836 bytes · 14,350 filas · aduana × transporte · millones de dólares FOB</small></div><a class="btn btn-dl" href="datos/mensual_mtra/conjunto_de_datos/bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>diccionario_datos_bcmm_mtra_mensual_2012_2026.csv</b><small>ZIP oficial · 2 709 bytes · 10 filas · VAL_USD en millones de dólares FOB</small></div><a class="btn btn-ghost" href="datos/mensual_mtra/diccionario_de_datos/diccionario_datos_bcmm_mtra_mensual_2012_2026.csv" download>Diccionario</a></div>
+              <div class="file-row"><div><b>metadatos_bcmm_mtra_mensual_2012_2026.txt</b><small>ZIP oficial · periodo 2012–2026</small></div><a class="btn btn-ghost" href="datos/mensual_mtra/metadatos/metadatos_bcmm_mtra_mensual_2012_2026.txt" download>Descargar</a></div>
+              <div class="file-row"><div><b>tc_mtra.csv</b><small>catálogo · ZIP oficial · 92 bytes · 5 filas</small></div><a class="btn btn-ghost" href="datos/mensual_mtra/catalogos/tc_mtra.csv" download>Catálogo MTRA</a></div>
+              <div class="file-row"><div><b>tc_periodo_mes.csv</b><small>catálogo · ZIP oficial · 170 bytes · 12 filas</small></div><a class="btn btn-ghost" href="datos/mensual_mtra/catalogos/tc_periodo_mes.csv" download>Catálogo mes</a></div>
               <div class="file-row"><div><b>modelo_er_bcmm_mtra_mensual_2012_2026.png</b></div><a class="btn btn-ghost" href="datos/mensual_mtra/modelo_entidad_relacion/modelo_er_bcmm_mtra_mensual_2012_2026.png">Ver</a></div>
             </div>
           </div>
@@ -700,14 +769,17 @@
             <span class="badge mil">miles de dólares FOB</span>
           </div>
           <div class="cut-body">
-            <p>País o zona por tipo de bien. INEGI parte la tabla en tres CSV. Cada uno trae exportación e importación. País vacío = total de zona. No es capítulo.</p>
-            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip"><b>ZIP oficial</b><span>https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip</span></a>
+            <p>ZIP oficial. País o zona por tipo de bien. INEGI parte la tabla en tres CSV. Cada uno trae exportación e importación. País vacío = total de zona. Enero 2015 a julio 2026. No es capítulo. Consulta 3 oct 2026: zip real, 1 666 349 B.</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip"><b>ZIP oficial · consulta 3 oct 2026</b><span>https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip</span></a>
             <div class="file-list">
-              <div class="file-row"><div><b>bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv</b><small>27,268,595 bytes · 148,680 filas</small></div><a class="btn btn-dl" href="datos/mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv" download>Descargar CSV</a></div>
-              <div class="file-row"><div><b>bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv</b><small>10,114,644 bytes · 55,728 filas</small></div><a class="btn btn-dl" href="datos/mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv" download>Descargar CSV</a></div>
-              <div class="file-row"><div><b>bcmm_paises_bien_mensual_tr_cifra_2026.csv</b><small>1,964,317 bytes · 10,836 filas</small></div><a class="btn btn-dl" href="datos/mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv" download>Descargar CSV</a></div>
-              <div class="file-row"><div><b>diccionario y metadatos 2015–2026</b></div><a class="btn btn-ghost" href="datos/mensual_paises_bien/diccionario_de_datos/diccionario_datos_paises_bien_mensual_2015_2026.csv" download>Diccionario</a></div>
-              <div class="file-row"><div><b>tc_pais.csv</b>, <b>tc_continente.csv</b>, <b>tc_region.csv</b>, <b>tc_periodo_mes.csv</b></div><a class="btn btn-ghost" href="datos/mensual_paises_bien/catalogos/tc_pais.csv" download>Catálogo de países</a></div>
+              <div class="file-row"><div><b>bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv</b><small>27,268,595 bytes · 148,680 filas · miles de dólares FOB</small></div><a class="btn btn-dl" href="datos/mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv</b><small>10,114,644 bytes · 55,728 filas · miles de dólares FOB</small></div><a class="btn btn-dl" href="datos/mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>bcmm_paises_bien_mensual_tr_cifra_2026.csv</b><small>1,964,317 bytes · 10,836 filas · ene–jul 2026 · miles de dólares FOB</small></div><a class="btn btn-dl" href="datos/mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>diccionario_datos_paises_bien_mensual_2015_2026.csv</b><small>ZIP oficial · 3 402 bytes · 12 filas · VAL_USD en miles de dólares FOB</small></div><a class="btn btn-ghost" href="datos/mensual_paises_bien/diccionario_de_datos/diccionario_datos_paises_bien_mensual_2015_2026.csv" download>Diccionario</a></div>
+              <div class="file-row"><div><b>tc_pais.csv</b><small>catálogo · ZIP oficial · 4 645 bytes · 263 filas</small></div><a class="btn btn-ghost" href="datos/mensual_paises_bien/catalogos/tc_pais.csv" download>Países</a></div>
+              <div class="file-row"><div><b>tc_continente.csv</b><small>catálogo · ZIP oficial · 92 bytes · 5 filas</small></div><a class="btn btn-ghost" href="datos/mensual_paises_bien/catalogos/tc_continente.csv" download>Continentes</a></div>
+              <div class="file-row"><div><b>tc_region.csv</b><small>catálogo · ZIP oficial · 375 bytes · 13 filas</small></div><a class="btn btn-ghost" href="datos/mensual_paises_bien/catalogos/tc_region.csv" download>Regiones</a></div>
+              <div class="file-row"><div><b>tc_periodo_mes.csv</b><small>catálogo · ZIP oficial · 170 bytes · 12 filas</small></div><a class="btn btn-ghost" href="datos/mensual_paises_bien/catalogos/tc_periodo_mes.csv" download>Meses</a></div>
             </div>
           </div>
         </article>
@@ -721,8 +793,8 @@
             <span class="badge mill">dólares FOB y pesos</span>
           </div>
           <div class="cut-body">
-            <p>Un CSV por año, 2003–2025. <code>VAL_USD</code> en dólares FOB, no en millones ni en miles. <code>VAL_MNX</code> en pesos. Trae <code>TARIFA</code> (TIGIE) y <code>PAIS_O_D</code>. No se suma con las tablas mensuales.</p>
-            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip"><b>ZIP oficial</b><span>https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip</span></a>
+            <p>ZIP oficial. Un CSV por año, 2003–2025. <code>VAL_USD</code> en dólares FOB, no en millones ni en miles. <code>VAL_MNX</code> en pesos. Trae <code>TARIFA</code> (TIGIE) y <code>PAIS_O_D</code>. No se suma con las tablas mensuales. Consulta 3 oct 2026: zip real, 129 367 989 B. El schema.org de COMEXT nombra <code>bcmm_anual_csv.zip</code> (117 456 482 B, hasta 2023); no es este paquete.</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip"><b>ZIP oficial · consulta 3 oct 2026</b><span>https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip</span></a>
             <div class="file-list">
               <div class="file-row"><div><b>bcmm_anual_tr_cifra_2003.csv</b><small>77,615,671 bytes · 477,762 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/anual/conjunto_de_datos/bcmm_anual_tr_cifra_2003.csv" download>Descargar CSV</a></div>
               <div class="file-row"><div><b>bcmm_anual_tr_cifra_2004.csv</b><small>80,306,977 bytes · 494,178 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/anual/conjunto_de_datos/bcmm_anual_tr_cifra_2004.csv" download>Descargar CSV</a></div>
@@ -747,9 +819,115 @@
               <div class="file-row"><div><b>2023 · tabla anual completa de INEGI</b><small>bcmm_anual_tr_cifra_2023.csv · 121,778,100 bytes · 842,912 filas · TIGIE × país, ambos flujos</small></div><div class="dl"><a class="btn btn-dl" href="https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2023.csv">Descargar CSV</a><a class="btn btn-ghost" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip">Fuente ZIP</a></div></div>
               <div class="file-row"><div><b>2024 · tabla anual completa de INEGI</b><small>bcmm_anual_tr_cifra_2024.csv · 120,315,175 bytes · 832,608 filas · TIGIE × país, ambos flujos</small></div><div class="dl"><a class="btn btn-dl" href="https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2024.csv">Descargar CSV</a><a class="btn btn-ghost" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip">Fuente ZIP</a></div></div>
               <div class="file-row"><div><b>2025 · tabla anual completa de INEGI</b><small>bcmm_anual_tr_cifra_2025.csv · 120,346,046 bytes · 832,768 filas · TIGIE × país, ambos flujos</small></div><div class="dl"><a class="btn btn-dl" href="https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2025.csv">Descargar CSV</a><a class="btn btn-ghost" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip">Fuente ZIP</a></div></div>
-              <div class="file-row"><div><b>tc_tigie.csv</b><small>60,660,819 bytes · catálogo de la tarifa</small></div><a class="btn btn-dl" href="datos/anual/catalogos/tc_tigie.csv" download>Descargar</a></div>
-              <div class="file-row"><div><b>diccionario_datos_bcmm_anual_2003_2025.csv</b></div><a class="btn btn-ghost" href="datos/anual/diccionario_de_datos/diccionario_datos_bcmm_anual_2003_2025.csv" download>Diccionario</a></div>
+              <div class="file-row"><div><b>tc_tigie.csv</b><small>catálogo · ZIP oficial · 60,660,819 bytes · 699,136 filas de datos (699,137 líneas)</small></div><a class="btn btn-dl" href="datos/anual/catalogos/tc_tigie.csv" download>Descargar</a></div>
+              <div class="file-row"><div><b>tc_codigo_pais.csv</b><small>catálogo · ZIP oficial · 4 639 bytes · 263 filas</small></div><a class="btn btn-ghost" href="datos/anual/catalogos/tc_codigo_pais.csv" download>Países</a></div>
+              <div class="file-row"><div><b>tc_unidad_medida.csv</b><small>catálogo · ZIP oficial · 226 bytes · 15 filas</small></div><a class="btn btn-ghost" href="datos/anual/catalogos/tc_unidad_medida.csv" download>UMED</a></div>
+              <div class="file-row"><div><b>diccionario_datos_bcmm_anual_2003_2025.csv</b><small>ZIP oficial · 3 806 bytes · 13 filas · VAL_USD en dólares FOB</small></div><a class="btn btn-ghost" href="datos/anual/diccionario_de_datos/diccionario_datos_bcmm_anual_2003_2025.csv" download>Diccionario</a></div>
             </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section band" id="etef">
+      <div class="shell">
+        <p class="kicker">02b · ETEF</p>
+        <h2>Exportaciones por entidad federativa</h2>
+        <p class="lede">ZIP oficiales del programa <a href="https://www.inegi.org.mx/programas/exporta_ef/">exporta_ef</a>, no de COMEXT. Consulta 3 oct 2026. El anual declara miles de dólares FOB; el trimestral declara dólares FOB. No se suman entre sí ni con la BCMM.</p>
+
+        <article class="cut" id="etef-anual">
+          <div class="cut-top">
+            <div>
+              <h3>ETEF anual, entidad × subsector</h3>
+              <code>conjunto_de_datos_eef_csv.zip</code>
+            </div>
+            <span class="badge mil">miles de dólares FOB</span>
+          </div>
+          <div class="cut-body">
+            <p>ZIP oficial. 2007–2025. SCIAN 2007. schema.org del programa nombra este ZIP. 203 969 B el 3 oct 2026.</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/conjunto_de_datos_eef_csv.zip"><b>ZIP oficial · consulta 3 oct 2026</b><span>https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/conjunto_de_datos_eef_csv.zip</span></a>
+            <div class="file-list">
+              <div class="file-row"><div><b>eef_estatal_anual_tr_cifra_2007_2025.csv</b><small>2 008 293 bytes · 16 416 filas · 2007–2025 · miles de dólares FOB</small></div><a class="btn btn-dl" href="datos/etef_anual/conjunto_de_datos/eef_estatal_anual_tr_cifra_2007_2025.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>diccionario_datos_eef_anual_2007_2025.csv</b><small>ZIP oficial · 2 383 bytes · 8 filas</small></div><a class="btn btn-ghost" href="datos/etef_anual/diccionario_de_datos/diccionario_datos_eef_anual_2007_2025.csv" download>Diccionario</a></div>
+              <div class="file-row"><div><b>tc_entidad.csv</b><small>catálogo · ZIP oficial · 543 bytes · 33 filas</small></div><a class="btn btn-ghost" href="datos/etef_anual/catalogos/tc_entidad.csv" download>Entidades</a></div>
+              <div class="file-row"><div><b>tc_scian.csv</b><small>catálogo · ZIP oficial · 1 526 bytes · 27 filas · SCIAN 2007</small></div><a class="btn btn-ghost" href="datos/etef_anual/catalogos/tc_scian.csv" download>SCIAN</a></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cut" id="etef-trimestral">
+          <div class="cut-top">
+            <div>
+              <h3>ETEF trimestral, entidad × subsector</h3>
+              <code>conjunto_de_datos_eef_trimestral_csv.zip</code>
+            </div>
+            <span class="badge mill">dólares FOB</span>
+          </div>
+          <div class="cut-body">
+            <p>ZIP oficial. 2007-I a 2026-II. El diccionario de este paquete declara dólares FOB, no miles. El schema.org del programa no nombra este ZIP; el 3 oct 2026 el URL fue zip real (406 425 B).</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/conjunto_de_datos_eef_trimestral_csv.zip"><b>ZIP oficial · consulta 3 oct 2026</b><span>https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/conjunto_de_datos_eef_trimestral_csv.zip</span></a>
+            <div class="file-list">
+              <div class="file-row"><div><b>eef_trimestral_tr_cifra_2007_2026.csv</b><small>9 371 975 bytes · 67 392 filas · 2007-I–2026-II · dólares FOB</small></div><a class="btn btn-dl" href="datos/etef_trimestral/conjunto_de_datos/eef_trimestral_tr_cifra_2007_2026.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>diccionario_datos_eef_trimestral_2007_2026.csv</b><small>ZIP oficial · 2 604 bytes · 11 filas · VAL_USD en dólares FOB</small></div><a class="btn btn-ghost" href="datos/etef_trimestral/diccionario_de_datos/diccionario_datos_eef_trimestral_2007_2026.csv" download>Diccionario</a></div>
+              <div class="file-row"><div><b>tc_entidad.csv</b><small>catálogo · ZIP oficial · 626 bytes · 32 filas · CVEGEO y CVE_ENT</small></div><a class="btn btn-ghost" href="datos/etef_trimestral/catalogos/tc_entidad.csv" download>Entidades</a></div>
+              <div class="file-row"><div><b>tc_scian.csv</b><small>catálogo · ZIP oficial · 1 526 bytes · 27 filas</small></div><a class="btn btn-ghost" href="datos/etef_trimestral/catalogos/tc_scian.csv" download>SCIAN</a></div>
+              <div class="file-row"><div><b>tc_periodo_mes.csv</b><small>catálogo · ZIP oficial · 108 bytes · 4 filas · trimestres</small></div><a class="btn btn-ghost" href="datos/etef_trimestral/catalogos/tc_periodo_mes.csv" download>Trimestres</a></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cut" id="etef-historico">
+          <div class="cut-top">
+            <div>
+              <h3>ETEF histórico 2007–2016</h3>
+              <code>eef_csv.zip</code>
+            </div>
+            <span class="badge mil">miles de dólares FOB</span>
+          </div>
+          <div class="cut-body">
+            <p>ZIP oficial viejo (metadato 2017-10-30). 80 976 B el 3 oct 2026. No sustituye al anual 2007–2025. La URL inventada <code>conjunto_de_datos_eef_historico_csv.zip</code> es HTML.</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/eef_csv.zip"><b>ZIP oficial · consulta 3 oct 2026</b><span>https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/eef_csv.zip</span></a>
+            <div class="file-list">
+              <div class="file-row"><div><b>eef_tr_cifra.csv</b><small>1 282 706 bytes · 8 000 filas · 2007–2016 · miles de dólares FOB</small></div><a class="btn btn-dl" href="datos/etef_historico_2007_2016/conjunto_de_datos/eef_tr_cifra.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>diccionario_de_datos_eef.csv</b><small>ZIP oficial · 2 193 bytes · 11 filas</small></div><a class="btn btn-ghost" href="datos/etef_historico_2007_2016/diccionario_de_datos/diccionario_de_datos_eef.csv" download>Diccionario</a></div>
+              <div class="file-row"><div><b>tc_entidad.csv</b><small>catálogo · ZIP oficial · 523 bytes · 32 filas</small></div><a class="btn btn-ghost" href="datos/etef_historico_2007_2016/catalogos/tc_entidad.csv" download>Entidades</a></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="extractos">
+      <div class="shell">
+        <p class="kicker">02c · Cubos</p>
+        <h2>Extractos de cubo (incompletos)</h2>
+        <p class="lede">No son ZIP oficiales. El 3 oct 2026 no salió un CSV completo. Un recorte truncado no se publica como el cubo. Notas en <a href="datos/extractos/README.md">datos/extractos/</a>.</p>
+        <article class="cut">
+          <div class="cut-top">
+            <div>
+              <h3>INEGI OLAP · capítulo × país × fracción</h3>
+              <code>extracto de cubo · no ZIP</code>
+            </div>
+            <span class="badge mill">dólares FOB y cantidad</span>
+          </div>
+          <div class="cut-body">
+            <p>Página abierta el 3 oct 2026: enero 2023 – julio 2026. TIGIE 12 dic 2022. Consulta a MDXQueryDatos.asp: HTML paginado de 65 562 B, no un CSV. No hay archivo de datos en este repo.</p>
+            <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Cubo OLAP mensual 2023</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
+            <p class="actions"><a class="btn btn-ghost" href="datos/extractos/OLAP_capitulo_pais_fraccion.md">Nota de la consulta</a></p>
+          </div>
+        </article>
+        <article class="cut">
+          <div class="cut-top">
+            <div>
+              <h3>Banxico · Cubo de Comercio Exterior</h3>
+              <code>extracto de cubo · no ZIP</code>
+            </div>
+            <span class="badge mill">dólares (tratamiento estadístico)</span>
+          </div>
+          <div class="cut-body">
+            <p>Páginas abiertas el 3 oct 2026. Sin ZIP ni CSV completo. El tutorial usa desde enero 1993; la fecha final no está en esas páginas. Excel puede truncar al máximo de filas de Office (la página no nombró el número).</p>
+            <a class="btn-src" href="https://www.banxico.org.mx/CuboComercioExterior/"><b>Cubo Banxico</b><span>https://www.banxico.org.mx/CuboComercioExterior/</span></a>
+            <p class="actions"><a class="btn btn-ghost" href="datos/extractos/BANXICO_cubo.md">Nota de la consulta</a></p>
           </div>
         </article>
       </div>
@@ -760,8 +938,8 @@
       <div class="shell">
         <p class="kicker">03 · Cifras de 2025</p>
         <h2>Hechos de las tablas mensuales</h2>
-        <p class="lede">Los hechos salen de las tablas oficiales publicadas arriba y de <a href="datos/FUENTES.md">datos/FUENTES.md</a>. Capítulo y país no se juntan. No hay CSV de capítulo por país en estos ZIP; ese cruce solo está en el cubo mensual de INEGI. El Excel no viene en estos ZIP.</p>
-        <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp" style="margin-bottom:1.2rem"><b>Cubo capítulo × país (no está en estos CSV)</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
+        <p class="lede">Los hechos salen de los ZIP oficiales de modo de transporte y de país (último mes julio 2026) y de <a href="hechos.json">hechos.json</a>. Consulta 3 oct 2026. Capítulo y país no se juntan. El mensual de agregados trae agosto 2026; no se usó para estos totales. El OLAP no publicó un CSV del cruce capítulo × país.</p>
+        <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp" style="margin-bottom:1.2rem"><b>Cubo OLAP · consulta HTML, no CSV</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
 
         <article class="cut" id="capitulo-exp">
           <div class="cut-top">
@@ -977,13 +1155,39 @@
       </div>
     </section>
 
+    <section class="section" id="verificacion">
+      <div class="shell">
+        <p class="kicker">04 · Verificación 3 oct 2026</p>
+        <h2>Qué desmintieron las páginas vivas</h2>
+        <p class="lede">Se abrieron las URLs. No se usó Wayback. No se inventaron filas. Detalle en <a href="datos/FUENTES.md">datos/FUENTES.md</a>.</p>
+        <div class="grid cols-2">
+          <article class="card">
+            <h4>Sí hay ZIP mensual genérico</h4>
+            <p><code>conjunto_de_datos_bcmm_mensual_csv.zip</code> es zip real (62 602 B) y trae agosto 2026 oportunas. El HTML de COMEXT no lo lista.</p>
+          </article>
+          <article class="card">
+            <h4>No hay ZIP de entidad ni municipio BCMM</h4>
+            <p>Las URLs inventadas <code>…entidad_csv.zip</code>, <code>…municipio_csv.zip</code> y <code>…aduana_csv.zip</code> (aparte de mtra) devolvieron HTML 2 263 B.</p>
+          </article>
+          <article class="card">
+            <h4>ETEF no vive en /programas/exportacionesef/</h4>
+            <p>Esa liga ya no existe. El programa es <a href="https://www.inegi.org.mx/programas/exporta_ef/">/programas/exporta_ef/</a>. BIE: HTTP 500.</p>
+          </article>
+          <article class="card">
+            <h4>OLAP y Banxico sin CSV completo</h4>
+            <p>El OLAP contestó HTML paginado. Banxico no ofrece ZIP. Excel puede truncar. No se publica un recorte como si fuera el cubo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="metodo">
       <div class="shell">
-        <p class="kicker">04 · Método</p>
+        <p class="kicker">05 · Método</p>
         <h2>Cómo se calcularon los hechos</h2>
         <article class="card">
           <p>Se sumó <code>VAL_USD</code> del último año calendario con 12 meses en el mismo CSV; el denominador es la fila de total oficial de ese archivo; se excluyeron subtotales que volverían a contar el mismo valor.</p>
-          <p class="note">Los hechos están escritos en esta página y en <a href="hechos.json">hechos.json</a>. Se regeneran con <code>python3 scripts/hechos_recortes.py</code>. Cada cifra lleva la unidad del archivo del que sale. Un total de capítulo no se compara con un total de país.</p>
+          <p class="note">Los hechos están escritos en esta página y en <a href="hechos.json">hechos.json</a> (consulta 3 oct 2026; forma: ZIP oficial). Se regeneran con <code>python3 scripts/hechos_recortes.py</code>. Cada cifra lleva la unidad del archivo del que sale. Un total de capítulo no se compara con un total de país. No hay hechos inventados para ETEF ni para el mensual de agregados.</p>
         </article>
       </div>
     </section>
@@ -991,8 +1195,8 @@
 
   <footer>
     <div class="shell">
-      <p>Los datos son de INEGI, IMSS, Banxico y la Secretaría de Salud. Este repositorio guarda el inventario y las tablas oficiales de INEGI que caben en GitHub.</p>
-      <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Cubo capítulo × país</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
+      <p>Los datos son de INEGI, IMSS, Banxico y la Secretaría de Salud. Inventario verificado el 3 oct 2026. Este repositorio guarda el catálogo y las tablas oficiales de INEGI que caben en GitHub.</p>
+      <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Cubo OLAP · no es un CSV</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
     </div>
   </footer>
 </body>

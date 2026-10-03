@@ -1,0 +1,9 @@
+PRODUCTO,COLUMNA,DESCRIPCION,TIPO_DATO,LONGITUD,COD_VALIDO
+Balanza Comercial de Mercancías de México. Mensual,PROD_EST,"Nombre del proyecto estadístico al que pertenecen los datos, en este caso aplica la denominación Balanza Comercial de Mercancías de México",varchar,250,
+Balanza Comercial de Mercancías de México. Mensual,COBERTURA,Área geográfica a la que están referidos los indicadores estadísticos,varchar,30,
+Balanza Comercial de Mercancías de México. Mensual,TIPO,"Leyenda que identifica al tipo de operación comercial registrada, es decir importación o exportación",varchar,30,
+Balanza Comercial de Mercancías de México. Mensual,ANIO,Año de referencia de la información,varchar,4,2012-2026
+Balanza Comercial de Mercancías de México. Mensual,MES,Identificador del mes o meses de referencia de la información,varchar,5,
+Balanza Comercial de Mercancías de México. Mensual,CONCEPTO,Descripción de los grandes agregados en que se agrupa la información,varchar,500,
+Balanza Comercial de Mercancías de México. Mensual,VAL_USD,"Es el valor de venta expresado en millones de dólares estadounidenses de las mercancías valoradas en término FOB (Free on Board), es el valor de transacción de los bienes, que excluye el costo del seguro y el flete con el que se trasladan las mercancías del país exportador hacia el país importador, cuando se incluya en el concepto CIF (Cost, Insurance and Freight), será el valor de transacción de los bienes, el cual incluye el costo de los bienes, el seguro y el flete del transporte para la entrega desde la frontera del país exportador hasta la frontera del país importador.",number,"24,3",
+Balanza Comercial de Mercancías de México. Mensual,ESTATUS,Estatus de las cifras conforme a los Lineamientos de Cambios a la información divulgada en las publicaciones estadísticas y geográficas del INEGI,varchar,18,

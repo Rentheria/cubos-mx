@@ -1,6 +1,6 @@
 # Catálogo de cubos (3 oct 2026)
 
-Inventario, no datos. Una fila es un cubo o una consulta nombrada. Cognos del IMSS no abrió (timeout).
+Inventario, no datos. Una fila es un cubo o una consulta nombrada. Cognos del IMSS no abrió (timeout). ZIP, catálogos y diccionarios: [datos/FUENTES.md](datos/FUENTES.md) y [datos/CATALOGOS.md](datos/CATALOGOS.md). Lo que sigue se contrastó con las páginas vivas el 3 de octubre de 2026.
 
 ## IMSS
 
@@ -47,23 +47,38 @@ No hay cubo mensual anterior a enero 2021.
 
 No son comparables de punta a punta. Un código de 6 dígitos puede cambiar de significado entre cubos.
 
-Aparte, no es este cubo: exportaciones por entidad federativa (SCIAN, tabulados y BIE, no OLAP). https://inegi.org.mx/temas/exportacionesef/
+Datos abiertos BCMM, aparte de estos 9 cubos, son ZIP (consulta 3 oct 2026). El HTML de https://www.inegi.org.mx/programas/comext/ (3 751 B) no lista el mensual genérico; su `schema.org` nombra `bcmm_anual_csv.zip` (paquete hasta 2023). Los ZIP `conjunto_de_datos_bcmm_*` sí son zip reales: mensual agregados (ene 2012–ago 2026, millones FOB), mtra (ene 2012–jul 2026, millones FOB), país × tipo de bien (ene 2015–jul 2026, miles FOB) y anual 2003–2025 (dólares FOB). URLs inventadas de entidad, municipio o aduana suelta devolvieron HTML 2 263 B. Inventario: [datos/FUENTES.md](datos/FUENTES.md).
+
+## INEGI, exportaciones por entidad federativa (ETEF)
+
+No es el cubo OLAP de la BCMM. No se junta con capítulo, país ni agregados COMEXT.
+
+- Tema abierto el 3 oct 2026: https://www.inegi.org.mx/temas/exportacionesef/ (HTML 2 656 B). Aviso en la página: desde el 30 de septiembre de 2025 el desglose trimestral y anual por sector y subsector SCIAN «solo se encuentra disponible en los tabulados interactivos y Banco de Información Económica (BIE)».
+- Programa vivo: https://www.inegi.org.mx/programas/exporta_ef/ (HTML 3 896 B). `schema.org` nombra `conjunto_de_datos_eef_csv.zip`.
+- Programa muerto: https://www.inegi.org.mx/programas/exportacionesef/ — «Esta liga ya no existe».
+- BIE: https://www.inegi.org.mx/sistemas/bie/ — HTTP 500 el 3 oct 2026.
+
+ZIP oficiales (no extractos de cubo), extraídos en `datos/etef_*`:
+
+1. Anual entidad × subsector SCIAN 2007–2025. Miles de dólares FOB. https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/conjunto_de_datos_eef_csv.zip
+2. Trimestral 2007-I–2026-II. El diccionario de este paquete declara `VAL_USD` en dólares FOB, no en miles. https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/conjunto_de_datos_eef_trimestral_csv.zip
+3. Histórico 2007–2016 (paquete `eef_csv.zip`, metadato 2017-10-30). Miles de dólares FOB. https://www.inegi.org.mx/contenidos/programas/exporta_ef/datosabiertos/eef_csv.zip
 
 ## Banxico
 
 Cubo de Comercio Exterior. https://www.banxico.org.mx/CuboComercioExterior/
-El tutorial usa desde enero 1993. No publica la fecha final. Valor en dólares (tratamiento estadístico) por flujo, periodo, región o país, y producto. Volumen solo a nivel fracción. Exportar el recorte: clic derecho, copiar datos, o Imprimir → Excel. Excel trunca si la consulta es muy grande. Preliminar; puede no coincidir con la BCMM.
+Consulta 3 oct 2026: se abrió esa página y `/ValorDolares/inicio`, `/ValorDolaresAnual/inicio`. Embebe `tablero.banxico.org.mx`. No hay ZIP ni CSV completo. El tutorial usa desde enero 1993. Las páginas abiertas no publican la fecha final. Valor en dólares (tratamiento estadístico) por flujo, periodo, región o país, y producto. Volumen solo a nivel fracción. Exportar el recorte: clic derecho, copiar datos, o Imprimir → Excel. Si la consulta cabe en más celdas que el máximo de filas de Microsoft Office, Excel trunca; la página no nombró ese máximo. Preliminar; puede no coincidir con la BCMM. Notas: `datos/extractos/BANXICO_cubo.md`.
 
 ## No son cubos
 
-BIE (INEGI) y SIE (Banxico): series agregadas de la balanza, no cubos.
+BIE (INEGI) y SIE (Banxico): series agregadas de la balanza, no cubos. El 3 oct 2026 https://www.inegi.org.mx/sistemas/bie/ respondió HTTP 500.
 
 ## Falta confirmar dentro del visor
 
 - Cognos: si hay carpetas médicas además de Incorporación y Recaudación.
-- OLAP INEGI: el botón real de exportación y qué se puede arrastrar.
-- Banxico: último periodo cargado, y si el valor anual se corta a fracción.
-- 2025: el anual dice definitivas y el mensual dice revisadas.
+- OLAP INEGI: el botón con nombre de «exportar cubo completo». El 3 oct 2026 la consulta a `MDXQueryDatos.asp` devolvió HTML paginado (65 562 B), no un CSV del cruce capítulo × país × fracción. Notas: `datos/extractos/OLAP_capitulo_pais_fraccion.md`.
+- Banxico: último periodo cargado (las páginas abiertas no lo nombran), y si el valor anual se corta a fracción.
+- 2025: el anual OLAP dice definitivas y el mensual OLAP dice revisadas.
 
 ## INEGI, ENOE (tabulados interactivos)
 
@@ -91,7 +106,7 @@ No es IMSS ni el OLAP de INEGI. Cada bloque es un cubo; cada año es un archivo 
 
 ## Buscado y no es otro cubo
 
-- COMEX: el PDF de consulta interactiva lista solo los 9 ya catalogados. No hay cubo aparte de aduana, modo de transporte ni entidad. https://www.inegi.org.mx/contenidos/programas/comext/doc/descripcion.pdf
+- COMEX: el PDF de consulta interactiva (abierto 3 oct 2026, `application/pdf` 2 123 432 B) lista los 9 cubos ya catalogados. No hay cubo OLAP aparte de aduana, modo de transporte ni entidad. Los ZIP de datos abiertos son otra forma: hay mtra y agregados; no hay ZIP de entidad ni municipio (URLs inventadas = HTML). https://www.inegi.org.mx/contenidos/programas/comext/doc/descripcion.pdf
 - IMSS: no hay un segundo visor. Cognos no abrió.
 - Banxico: valor y volumen son secciones del mismo cubo.
 - SAT/SNICE remite a Banxico e INEGI. CONEVAL son Excel, no OLAP.

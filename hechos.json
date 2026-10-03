@@ -28,7 +28,15 @@
     "excluidas": [
       "Exportación total",
       "filas de medio de transporte (Aéreo, Carretero, Ferroviario, Marítimo, Otros modos)"
-    ]
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "millones de dólares FOB",
+      "periodo": "2012-01 a 2026-07"
+    }
   },
   "importaciones_capitulo": {
     "archivo": "bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv",
@@ -58,7 +66,15 @@
     "excluidas": [
       "Importación total",
       "filas de medio de transporte (Aéreo, Carretero, Ferroviario, Marítimo, Otros modos)"
-    ]
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "millones de dólares FOB",
+      "periodo": "2012-01 a 2026-07"
+    }
   },
   "exportaciones_pais": {
     "archivos": [
@@ -92,7 +108,15 @@
     "unidad": "miles de dólares",
     "excluidas": [
       "PAIS_O_D vacío (total nacional, de continente o de zona; volvería a contar)"
-    ]
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "miles de dólares FOB",
+      "periodo": "2015-01 a 2026-07"
+    }
   },
   "importaciones_pais": {
     "archivos": [
@@ -126,7 +150,15 @@
     "unidad": "miles de dólares",
     "excluidas": [
       "PAIS_O_D vacío (total nacional, de continente o de zona; volvería a contar)"
-    ]
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "miles de dólares FOB",
+      "periodo": "2015-01 a 2026-07"
+    }
   },
   "aduana": {
     "archivo": "bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv",
@@ -171,6 +203,23 @@
       "Exportación total / Importación total",
       "filas de medio de transporte",
       "Otras aduanas (residual publicado, no es una aduana nombrada)"
-    ]
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "millones de dólares",
+      "periodo": "2012-01 a 2026-07"
+    }
+  },
+  "consulta": "2026-10-03",
+  "forma": "hechos calculados sobre CSV de ZIP oficiales; no son extractos de cubo",
+  "fuentes": {
+    "pagina_comext": "https://www.inegi.org.mx/programas/comext/",
+    "zip_mtra": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+    "zip_paises": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip",
+    "inventario": "datos/FUENTES.md",
+    "nota": "Los totales de 2025 salen de mensual_mtra y mensual_paises_bien (último mes julio 2026). El ZIP mensual de agregados trae agosto 2026; no se usó para estos hechos. No se inventaron filas."
   }
 }
