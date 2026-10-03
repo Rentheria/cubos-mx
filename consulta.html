@@ -7,6 +7,9 @@
   <meta name="color-scheme" content="light">
   <title>cubos-mx — catálogo y tablas oficiales de INEGI</title>
   <meta name="description" content="Catálogo de cubos públicos de México y las tablas oficiales de la Balanza Comercial de Mercancías (INEGI), con fuentes oficiales y hechos calculados sobre cada archivo.">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/cubo-icon.png" type="image/png" sizes="516x516">
+  <link rel="apple-touch-icon" href="assets/apple-touch.png" sizes="180x180">
   <style>
     :root {
       --bg: #f6f7f8;
@@ -79,7 +82,19 @@
       font: 650 0.98rem/1 var(--sans);
       letter-spacing: -0.03em;
     }
-    .logo a { color: inherit; text-decoration: none; }
+    .logo a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: inherit;
+      text-decoration: none;
+    }
+    .logo img {
+      display: block;
+      height: 28px;
+      width: auto;
+      background: none;
+    }
     .bar nav { display: flex; flex-wrap: wrap; gap: 0.15rem; }
     .bar nav a {
       color: var(--ink);
@@ -429,7 +444,7 @@
   <a class="skip" href="#contenido">Ir al contenido</a>
   <header class="bar">
     <div class="bar-in">
-      <p class="logo"><a href="https://github.com/Rentheria/cubos-mx">cubos-mx</a></p>
+      <p class="logo"><a href="https://github.com/Rentheria/cubos-mx"><img src="assets/cubo-logo.png" alt="" width="455" height="516">cubos-mx</a></p>
       <nav aria-label="Secciones">
         <a href="#catalogo">Catálogo</a>
         <a href="#archivos">Archivos</a>
