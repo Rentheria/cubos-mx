@@ -64,3 +64,35 @@ BIE (INEGI) y SIE (Banxico): series agregadas de la balanza, no cubos.
 - OLAP INEGI: el botón real de exportación y qué se puede arrastrar.
 - Banxico: último periodo cargado, y si el valor anual se corta a fracción.
 - 2025: el anual dice definitivas y el mensual dice revisadas.
+
+## INEGI, ENOE (tabulados interactivos)
+
+INEGI los llama cubos. Notas (26 ago 2025): https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/metadatos/enoe_notas_cubos.pdf
+Cobertura que declara cada página: I 2005–I 2020 y desde I 2023 (ENOE); III 2020–IV 2022 (ENOE N). No son la balanza.
+
+1. Población ocupada, 15 años y más. https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/po.asp?p=enoe_pe_ed15&proy=enoe_pe_ed15_po&s=est
+2. Población desocupada. https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pda.asp?p=enoe_pe_ed15&proy=enoe_pe_ed15_pda&s=est
+3. Población no económicamente activa. https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pnea.asp?p=enoe_pe_ed15&proy=enoe_pe_ed15_pnea&s=est
+4. Población total. https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pt.asp?p=enoe_pe_ed15&proy=enoe_pe_ed15_pt&s=est
+5. Trabajador subordinado y remunerado. https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/tsr.asp?p=enoe_pe_ed15&proy=enoe_pe_ed15_tsr&s=est
+
+Las notas también nombran Población subocupada y Trabajador independiente. No apareció una URL que abriera.
+
+## Secretaría de Salud, SINBA
+
+Una página: https://sinba.salud.gob.mx/CubosDinamicos
+No es IMSS ni el OLAP de INEGI. Cada bloque es un cubo; cada año es un archivo del mismo cubo.
+
+- Egresos hospitalarios (SAEH): SSA 2000–2026 (2026 preliminar; desde 2024 incluye IMSS-Bienestar); sector salud 2004–2024.
+- Defunciones INEGI/SS 1998–2024; muertes maternas 2002–2024; muertes fetales 1985–2024.
+- Lesiones y violencia, SSA/IMSS-Bienestar, 2010–2026 (2026 preliminar).
+- Nacidos vivos registrados, INEGI, 1990–2013. Nacimientos ocurridos, SINAC, 2008–agosto 2026.
+- Recursos humanos, físicos y financieros, servicios otorgados (SIS), urgencias 2007–2026, establecimientos 2012–2019, proyecciones CONAPO.
+
+## Buscado y no es otro cubo
+
+- COMEX: el PDF de consulta interactiva lista solo los 9 ya catalogados. No hay cubo aparte de aduana, modo de transporte ni entidad. https://www.inegi.org.mx/contenidos/programas/comext/doc/descripcion.pdf
+- IMSS: no hay un segundo visor. Cognos no abrió.
+- Banxico: valor y volumen son secciones del mismo cubo.
+- SAT/SNICE remite a Banxico e INEGI. CONEVAL son Excel, no OLAP.
+- DataMéxico (api.datamexico.org/ui) devolvió 500. Sin lista verificada.
