@@ -1,0 +1,51 @@
+
+identifier: MEX-INEGI.EEC6.03-BCMM-2026
+
+title: Balanza Comercial de Mercancías de México. 2012-2026, información mensual cifras revisadas al mes de julio.
+
+description: Descripción general
+Balanza Comercial de Mercancías de México. Información mensual de la Balanza Comercial de Mercancías de México por modo de transporte según principales aduanas o capítulos del Sistema Armonizado, referente al valor expresado en millones de dólares estadounidenses de las exportaciones e importaciones de México con el resto del mundo.
+
+La Balanza Comercial de Mercancías de México (BCMM) tiene como objetivo proporcionar información que permita conocer el intercambio comercial de mercancías que realiza México con el resto del mundo y que sirva como insumo para el Sistema de Cuentas Nacionales, los cálculos de la Balanza de Pagos y programas relacionados con la vinculación estadística.
+
+Es importante señalar que, durante el año 2012, la Junta de Gobierno del INEGI aprobó a la Balanza Comercial de Mercancías de México como Información de Interés Nacional (IIN), en virtud de que cumple con los criterios establecidos en el artículo 78 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG). Dicho acuerdo se publicó el 3 de agosto de 2012, en el Diario Oficial de la Federación (DOF).
+
+Diseño conceptual
+La valoración de las exportaciones e importaciones se realiza en términos de Libre a Bordo (Free on Board, FOB por sus siglas en inglés), que es el valor de transacción de los bienes, que excluye el costo del seguro y el flete con el que se trasladan las mercancías del país exportador hacia el país importador.
+
+Cobertura geográfica: Nacional.
+
+Conforme a los artículos 37 y 38 de la Ley del Sistema Nacional de Información Estadística y Geográfica (SNIEG) y en seguimiento a las buenas prácticas internacionales, se emplean mecanismos para el resguardo de la confidencialidad en el proceso de la generación y difusión de la información de la BCMM, por lo que se oculta el valor y cantidad de las operaciones realizadas por uno o dos informantes.
+
+La implementación de criterios de confidencialidad se aplica en las diferentes agregaciones de información de la BCMM, identificándose la información confidencial mediante un análisis escalonado por flujo y cada nivel de la TIGIE con su respectivo cruce de país y el total de país, utilizando registros encubridores, con el propósito de que no se puedan identificar de manera directa o indirecta las operaciones realizadas por uno o dos informantes.
+
+El mecanismo no contempla eliminar ninguna agregación de la base de datos o tabulados, en este sentido el usuario tiene la posibilidad de identificar la existencia de operaciones para todos los códigos arancelarios a cualquier nivel y sus variables relacionadas; sin embargo, el valor de dicha operación aparecerá representada con una “C”.
+
+Finalmente, la información de la BCMM se sujeta también al Artículo 47 de la Ley del SNIEG, el cual señala que "La información no queda sujeta a la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental".
+
+Fuente: INEGI con base en SAT, SE, BANXICO, INEGI. Balanza Comercial de Mercancías de México. SNIEG. Información de Interés Nacional.
+
+Aseguramiento de la calidad
+En el marco del Comité Técnico Especializado de Estadísticas de Comercio Exterior (CTEECE), conformado por INEGI, Banco de México, Secretaría de Economía y el Servicio de Administración Tributaria, y, como resultado del proceso de revisión de la información publicada, se realizaron ajustes a las cifras de comercio exterior de distintos periodos. Las principales revisiones correspondieron a los datos de importaciones de productos petroleros (comprendidas entre enero de 2022 y mayo de 2025); a las cifras de exportaciones de petróleo crudo (entre enero de 2022 y mayo de 2025); y a la información de exportaciones de bienes agropecuarios (entre abril de 2024 y abril de 2025). En el caso de las importaciones de productos petroleros, las revisiones a la estadística reflejan las modificaciones extraordinarias a los pedimentos aduanales históricos sustentadas en la “Ley de la Empresa Pública del Estado, Petróleos Mexicanos”, publicada en el Diario Oficial de la Federación el 18 de marzo de 2025. La información histórica revisada de la balanza comercial se encuentra disponible en la página de internet del INEGI. Por lo anterior, la información del periodo 2022-2024 se presenta con el estatus de cifras ajustada.
+
+modified: 2026-09-23T06:00
+
+publisher: INEGI con base en Servicio de Administración Tributaria (SAT), Secretaría de Economía (SE), Banco de México (BANXICO) e Instituto Nacional de Estadística y Geografía (INEGI).
+
+mbox: atencion.usuarios@inegi.org.mx
+
+license: https://www.inegi.org.mx/inegi/terminos.html
+
+dataDictionary: 
+
+keyword: "comercio exterior", "importaciones", "exportaciones", "fracción arancelaria", "modo de transporte", "aduanas", "sistema armonizado"
+
+contactPoint: Mtro. J. Armando Aguiar Rodríguez, 800 111 4634
+
+temporal: 2012-01-01-2026-07-31
+
+spatial: Estados Unidos Mexicanos
+
+accrualPeriodicity: Mensualmente
+
+distribution: https://www.inegi.org.mx/programas/comext/

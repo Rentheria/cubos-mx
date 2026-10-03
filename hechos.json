@@ -1,7 +1,7 @@
 {
-  "metodo": "Se sumó VAL_USD del último año calendario con 12 meses en el mismo CSV; el denominador es la fila de total oficial de ese recorte; se excluyeron subtotales que volverían a contar el mismo valor.",
+  "metodo": "Se sumó VAL_USD del último año calendario con 12 meses en la misma tabla oficial; el denominador es la fila de total oficial de ese archivo; se excluyeron subtotales que volverían a contar el mismo valor.",
   "exportaciones_capitulo": {
-    "archivo": "exportaciones_capitulo_transporte_2012_2026.csv",
+    "archivo": "bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv",
     "filas": 85925,
     "periodo": {
       "primero": "2012-01",
@@ -31,7 +31,7 @@
     ]
   },
   "importaciones_capitulo": {
-    "archivo": "importaciones_capitulo_transporte_2012_2026.csv",
+    "archivo": "bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv",
     "filas": 85925,
     "periodo": {
       "primero": "2012-01",
@@ -61,7 +61,12 @@
     ]
   },
   "exportaciones_pais": {
-    "archivo": "exportaciones_pais_tipo_bien_2015_2026.csv",
+    "archivos": [
+      "bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2026.csv"
+    ],
+    "tipo": "Exportaciones",
     "filas": 107622,
     "periodo": {
       "primero": "2015-01",
@@ -90,7 +95,12 @@
     ]
   },
   "importaciones_pais": {
-    "archivo": "importaciones_pais_tipo_bien_2015_2026.csv",
+    "archivos": [
+      "bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2026.csv"
+    ],
+    "tipo": "Importaciones",
     "filas": 107622,
     "periodo": {
       "primero": "2015-01",
@@ -119,7 +129,7 @@
     ]
   },
   "aduana": {
-    "archivo": "aduana_transporte_2012_2026.csv",
+    "archivo": "bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv",
     "filas": 14350,
     "periodo": {
       "primero": "2012-01",

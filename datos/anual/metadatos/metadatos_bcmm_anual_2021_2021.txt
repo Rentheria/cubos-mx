@@ -1,0 +1,46 @@
+
+identifier: MEX-INEGI.EEC6.03-BCMM-ANUAL-2021
+
+title: Balanza Comercial de Mercancías de México. 2021, información anual cifras definitivas.
+
+description: Descripción general
+Balanza Comercial de Mercancías de México. Presenta información anual de la Balanza Comercial de Mercancías de México (BCMM), referente a la cantidad y valor expresado en dólares estadounidenses y pesos mexicanos de las exportaciones e importaciones de México con el resto del mundo.
+La BCMM tiene como objetivo proporcionar información que permita conocer el intercambio comercial de mercancías que realiza México con el resto del mundo y que sirva como insumo para el Sistema de Cuentas Nacionales, los cálculos de la Balanza de Pagos y programas relacionados con la vinculación estadística.
+Es importante señalar que, durante el año de 2012, la Junta de Gobierno del INEGI aprobó a la BCMM como Información de Interés Nacional, en virtud de que cumple con los criterios establecidos en el artículo 78 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG). Dicho acuerdo se publicó el 3 de agosto de 2012 en el Diario Oficial de la Federación.
+Se presenta información de todos los niveles de la Tarifa de la Ley de los Impuestos Generales de Importación y de Exportación (TIGIE), esto es capítulo (dos dígitos), partida (cuatro dígitos), subpartida (seis dígitos), fracción arancelaria y Número de Identificación Comercial (NICO, diez dígitos) con el propósito de que el usuario disponga de información con mayor desagregación.
+La valoración de las exportaciones e importaciones se realiza en términos de Libre a Bordo (Free on Board, FOB por sus siglas en inglés), que es el valor de transacción de los bienes, que excluye el costo del seguro y el flete con el que se trasladan las mercancías del país exportador hacia el país importador.
+La variable cantidad no presenta tratamiento estadístico, por lo que la información corresponde al dato del campo original declarado en el pedimento aduanal, asimismo, la Unidad de Medida (UMED) se encuentra determinada por la TIGIE, a nivel de fracción arancelaria.
+Se presentan las cantidades a nivel subpartida, las cuales corresponden a la suma de las que fueron reportadas en cada fracción arancelaria y Números de Identificación Comercial (NICO); la UMED se determina considerando las unidades de medida de las fracciones arancelarias que integran la subpartida, en caso de que las unidades de medida sean diferentes se específica como No Aplica (NA). Las UMED de subpartidas se consideran con base en la TIGIE vigente. En caso de subpartidas suprimidas la UMED será NA.
+Tarifa de la Ley de los Impuestos Generales de Importación y de Exportación: se utilizó la Tarifa que entró en vigor el 28 de diciembre de 2020.
+Versión del Sistema Armonizado de Designación y Codificación de Mercancías (SA): sexta Enmienda (SA 2017).
+Cobertura geográfica: nacional.
+Política de confidencialidad: conforme a los artículos 37 y 38 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG) y en seguimiento a las buenas prácticas internacionales, se emplean mecanismos para el resguardo de la confidencialidad en el proceso de la generación y difusión de la información de la BCMM, por lo que se oculta el valor y cantidad de las operaciones realizadas por uno o dos informantes.
+La implementación de criterios de confidencialidad se aplica en las diferentes agregaciones de información de la BCMM, identificándose la información confidencial mediante un análisis escalonado por flujo y cada nivel de la TIGIE con su respectivo cruce de país y el total de país, utilizando registros encubridores, con el propósito de que no se puedan identificar de manera directa o indirecta las operaciones realizadas por uno o dos informantes.
+El mecanismo no contempla eliminar ninguna agregación de la base de datos o tabulados, en este sentido el usuario tiene la posibilidad de identificar la existencia de operaciones para todos los códigos arancelarios a cualquier nivel y sus variables relacionadas; sin embargo, el valor de dicha operación aparecerá representada con una “C”. Los datos sobre exportación de petróleo son proporcionados por PMI Comercio Internacional S.A. de C.V., los cuales se desglosan por continente de destino, corresponden a sus cifras operativas y se sujetan a revisiones posteriores.
+Finalmente, la información de la BCMM queda ligada también al Artículo 47 de la LSNIEG, el cual señala que "La información no queda sujeta a la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental".
+En el marco del Comité Técnico Especializado de Estadísticas de Comercio Exterior (CTEECE), conformado por Instituto Nacional de Estadística y Geografía (INEGI), Banco de México (BANXICO), Secretaría de Economía (SE) y el Servicio de Administración Tributaria (SAT), como resultado del proceso de revisión de la información publicada, se realizaron ajustes a las cifras de comercio exterior de distintos periodos. Las principales revisiones correspondieron a los datos de importaciones de productos petroleros y a las cifras de exportaciones de petróleo crudo. En el caso de las importaciones de productos petroleros, las revisiones a la estadística reflejaron las modificaciones extraordinarias a los pedimentos aduanales históricos sustentadas en la “Ley de la Empresa Pública del Estado, Petróleos Mexicanos”, publicada en el DOF, el 18 de marzo de 2025.
+El 28 de diciembre de 2020, entró en vigor la edición de Ley de los Impuestos Generales de Importación y de Exportación (LIGIE), con la que se implementó la sexta enmienda del Sistema Armonizado. En esta edición, la SE incluyó en la estructura de la TIGIE dos códigos adicionales derivados de la fracción arancelaria denominados Números de Identificación Comercial (NICO), de esta forma, lo que permite un mayor nivel de desagregación a 10 dígitos (8 dígitos para la fracción arancelaria y 2 del NICO), con algunas excepciones estipuladas en la LIGIE. La estadística aún presenta operaciones a 6 dígitos, identificadas como “Operaciones especiales reportadas en códigos a 6 dígitos”.
+En el nivel de fracción arancelaria (8 dígitos) y fracción arancelaria-NICO (10 dígitos), además, se podrán observar operaciones que se identifican como "Operaciones especiales reportadas en códigos a 6 dígitos". La información desglosada al nivel de fracción arancelaria (8 dígitos) y fracción arancelaria-NICO (10 dígitos) incluye algunos códigos a 8 dígitos considerados como registros independientes, los cuales pertenecen a registros reportados con la versión previa a la implementada el 28 de diciembre de 2020 de la Tarifa de la Ley de los Impuestos Generales de Importación y de Exportación.
+Fuente: INEGI con base en SAT, SE, BANXICO, INEGI. Balanza Comercial de Mercancías de México. SNIEG. Información de Interés Nacional.
+
+modified: 2026-07-31T06:00
+
+publisher: Servicio de Administración Tributaria (SAT), Secretaría de Economía (SE), Banco de México (BANXICO) e Instituto Nacional de Estadística y Geografía (INEGI).
+
+mbox: atencion.usuarios@inegi.org.mx
+
+license: https://www.inegi.org.mx/inegi/terminos.html
+
+dataDictionary: https://www.inegi.org.mx/rnm/index.php/catalog/789
+
+keyword: “comercio exterior”, “importaciones”, “exportaciones”, “fracción arancelaria”, “modo de transporte”, “aduanas”, “sistema armonizado”
+
+contactPoint: Mtro. J. Armando Aguiar Rodríguez, 800 111 4634
+
+temporal: 2021-01-01-2021-12-31
+
+spatial: Estados Unidos Mexicanos
+
+accrualPeriodicity: Anualmente
+
+distribution: https://www.inegi.org.mx/programas/comext/

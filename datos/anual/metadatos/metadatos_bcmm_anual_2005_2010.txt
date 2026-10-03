@@ -1,0 +1,43 @@
+
+identifier: MEX-INEGI.40.302.03-ECEM-2010-2011
+
+title: Balanza Comercial de Mercancías de México. 2005-2010, información anual cifras definitivas.
+
+description: Descripción general
+Balanza Comercial de Mercancías de México. Presenta información anual de la Balanza Comercial de Mercancías de México (BCMM), referente a la cantidad y valor expresado en dólares estadounidenses y pesos mexicanos de las exportaciones e importaciones de México con el resto del mundo.
+La BCMM tiene como objetivo proporcionar información que permita conocer el intercambio comercial de mercancías que realiza México con el resto del mundo y que sirva como insumo para el Sistema de Cuentas Nacionales, los cálculos de la Balanza de Pagos y programas relacionados con la vinculación estadística.
+Es importante señalar que, durante el año de 2012, la Junta de Gobierno del INEGI aprobó a la BCMM como Información de Interés Nacional, en virtud de que cumple con los criterios establecidos en el artículo 78 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG). Dicho acuerdo se publicó el 3 de agosto de 2012 en el Diario Oficial de la Federación.
+Se presenta información de todos los niveles de la Tarifa de la Ley de los Impuestos Generales de Importación y de Exportación (TIGIE), esto es capítulo (dos dígitos), partida (cuatro dígitos), subpartida (seis dígitos) y fracción arancelaria (ocho dígitos) con el propósito de que el usuario disponga de información con la mayor desagregación.
+La valoración de las exportaciones e importaciones se realiza en términos de Libre a Bordo (Free on Board, FOB por sus siglas en inglés), que es el valor de transacción de los bienes, que excluye el costo del seguro y el flete con el que se trasladan las mercancías del país exportador hacia el país importador.
+La variable cantidad no presenta tratamiento estadístico, por lo que la información corresponde al dato del campo original declarado en el pedimento aduanal, asimismo, la Unidad de Medida (UMED) se encuentra determinada por la TIGIE, a nivel de fracción arancelaria.
+Tarifa de la Ley de los Impuestos Generales de Importación y de Exportación: se utilizó la Tarifa que entró en vigor el 1 de abril de 2002 para la serie de 2005 a junio 2007. La Tarifa que entró en vigor el 1 de julio de 2007 se empleó para la serie de julio de 2007 a 2010.
+Versión del Sistema Armonizado de Designación y Codificación de Mercancías (SA): tercera Enmienda (SA 2002) hasta junio 2007. Cuarta Enmienda (SA 2007) a partir de julio 2007.
+Cobertura geográfica: nacional.
+Política de confidencialidad: conforme a los artículos 37 y 38 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG) y en seguimiento a las buenas prácticas internacionales, se emplean mecanismos para el resguardo de la confidencialidad en el proceso de la generación y difusión de la información de la BCMM, por lo que se oculta el valor y cantidad de las operaciones realizadas por uno o dos informantes.
+La implementación de criterios de confidencialidad se aplica en las diferentes agregaciones de información de la BCMM, identificándose la información confidencial mediante un análisis escalonado por flujo y cada nivel de la TIGIE con su respectivo cruce de país y el total de país, utilizando registros encubridores, con el propósito de que no se puedan identificar de manera directa o indirecta las operaciones realizadas por uno o dos informantes.
+El mecanismo no contempla eliminar ninguna agregación de la base de datos o tabulados, en este sentido el usuario tiene la posibilidad de identificar la existencia de operaciones para todos los códigos arancelarios a cualquier nivel y sus variables relacionadas; sin embargo, el valor de dicha operación aparecerá representada con una “C”. 
+Finalmente, la información de la BCMM queda ligada también al Artículo 47 de la LSNIEG, el cual señala que "La información no queda sujeta a la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental".
+En el nivel de fracción arancelaria se podrán observar operaciones a 6 dígitos, que se identifican como "Operaciones especiales reportadas en códigos a 6 dígitos".
+Fuente: INEGI con base en SAT, SE, BANXICO, INEGI. Balanza Comercial de Mercancías de México. SNIEG. Información de Interés Nacional.
+
+modified: 2026-07-31T06:00
+
+publisher: Servicio de Administración Tributaria (SAT), Secretaría de Economía (SE), Banco de México (BANXICO) e Instituto Nacional de Estadística y Geografía (INEGI).
+
+mbox: atencion.usuarios@inegi.org.mx
+
+license: https://www.inegi.org.mx/inegi/terminos.html
+
+dataDictionary: https://www.inegi.org.mx/rnm/index.php/catalog/510/data_dictionary?idPro=
+
+keyword: “comercio exterior”, “importaciones”, “exportaciones”, “fracción arancelaria”, “modo de transporte”, “aduanas”, “sistema armonizado”
+
+contactPoint: Mtro. J. Armando Aguiar Rodríguez, 800 111 4634
+
+temporal: 2005-01-01-2010-12-31
+
+spatial: Estados Unidos Mexicanos
+
+accrualPeriodicity: Anualmente
+
+distribution: https://www.inegi.org.mx/programas/comext/

@@ -1,49 +1,92 @@
-# Recortes publicados
+# Archivos oficiales de INEGI (BCMM)
 
-Solo exportación. El Excel no se guarda. Los ZIP originales de INEGI traen también importación.
+Tres ZIP de datos abiertos, bajados de INEGI (no Wayback). Aquí está cada archivo que trae cada ZIP, sin quitar filas ni columnas. El Excel no viene en estos ZIP.
 
-## Capítulo por medio de transporte
+Unidades, tomadas del diccionario de cada paquete:
 
-- Archivo: `exportaciones_capitulo_transporte_2012_2026.csv`
-- Fuente: https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip
-- Programa: https://www.inegi.org.mx/programas/comext/
-- Periodo en el archivo: enero 2012 a julio 2026
-- Qué es: capítulo arancelario (texto en `CONCEPTO`) por medio de transporte (`MTRA`), nacional, no por país
-- `VAL_USD` está en millones de dólares, FOB
-- Se quitó importación. Quedaron 85,925 filas
+- Modo de transporte (capítulo y aduana), mensual: `VAL_USD` en millones de dólares FOB
+- País y tipo de bien, mensual: `VAL_USD` en miles de dólares FOB
+- El anual declara su unidad en su propio diccionario y metadatos
 
-## País por tipo de bien
-
-- Archivo: `exportaciones_pais_tipo_bien_2015_2026.csv`
-- Fuente: https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip
-- Periodo: enero 2015 a julio 2026
-- Qué es: país o zona (`PAIS_O_D`) por tipo de bien (consumo, intermedio, capital). No es capítulo
-- `VAL_USD` está en miles de dólares
-- Una fila con país vacío es el total de esa zona, no un país
-- Se quitó importación. Quedaron 107,622 filas
-
-No existe un CSV público de capítulo por país. Ese cruce solo está en el cubo:
+Capítulo y país no se juntan. Millones y miles no se suman. No hay CSV de capítulo por país en estos ZIP; ese cruce está en el cubo:
 https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp
 
-## Importaciones, capítulo por medio de transporte
+## Mensual, modo de transporte (capítulo y aduana)
 
-- Archivo: `importaciones_capitulo_transporte_2012_2026.csv`
-- Misma fuente que el de exportaciones por capítulo
-- 85,925 filas, enero 2012 a julio 2026
-- `VAL_USD` en millones de dólares
+- ZIP: https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip
+- Programa: https://www.inegi.org.mx/programas/comext/
+- Carpeta en este repo: `datos/mensual_mtra/`
+- Periodo en las tablas: enero 2012 a julio 2026
+- Trae exportación e importación en las mismas tablas
 
-## Importaciones, país por tipo de bien
+Archivos del ZIP:
 
-- Archivo: `importaciones_pais_tipo_bien_2015_2026.csv`
-- Misma fuente que el de exportaciones por país
-- 107,622 filas, enero 2015 a julio 2026
-- `VAL_USD` en miles de dólares
-- Fila con país vacío: total de la zona
+- `conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv` — 171,850 filas (85,925 exportación y 85,925 importación)
+- `conjunto_de_datos/bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv` — 14,350 filas (7,175 por flujo)
+- `catalogos/tc_mtra.csv`
+- `catalogos/tc_periodo_mes.csv`
+- `diccionario_de_datos/diccionario_datos_bcmm_mtra_mensual_2012_2026.csv`
+- `metadatos/metadatos_bcmm_mtra_mensual_2012_2026.txt`
+- `modelo_entidad_relacion/modelo_er_bcmm_mtra_mensual_2012_2026.png`
 
-## Aduana por medio de transporte
+## Mensual, país por tipo de bien
 
-- Archivo: `aduana_transporte_2012_2026.csv`
-- Sale del mismo ZIP: https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip
-- 14,350 filas, exportación e importación, enero 2012 a julio 2026
-- No es capítulo ni país. Es aduana por medio de transporte
-- `VAL_USD` en millones de dólares
+- ZIP: https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip
+- Programa: https://www.inegi.org.mx/programas/comext/
+- Carpeta: `datos/mensual_paises_bien/`
+- Periodo: enero 2015 a julio 2026
+- INEGI parte la tabla en tres CSV. Cada uno trae exportación e importación. País vacío = total de zona, no un país
+
+Archivos del ZIP:
+
+- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv` — 148,680 filas
+- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv` — 55,728 filas
+- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv` — 10,836 filas
+- `catalogos/tc_continente.csv`
+- `catalogos/tc_region.csv`
+- `catalogos/tc_pais.csv`
+- `catalogos/tc_periodo_mes.csv`
+- `diccionario_de_datos/diccionario_datos_paises_bien_mensual_2015_2026.csv`
+- `metadatos/metadatos_paises_bien_mensual_2015_2022.txt`
+- `metadatos/metadatos_paises_bien_mensual_2023_2025.txt`
+- `metadatos/metadatos_paises_bien_mensual_2026.txt`
+- `modelo_entidad_relacion/modelo_er_paises_bien_mensual_2015_2026.png`
+
+## Anual
+
+- ZIP: https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_anual_csv.zip
+- Programa: https://www.inegi.org.mx/programas/comext/
+- Carpeta: `datos/anual/`
+- Periodo: 2003–2025, un CSV por año
+- `VAL_USD` en dólares FOB (no millones ni miles). `VAL_MNX` en pesos. `CANTIDAD` según `UMED` de la TIGIE. No se suman con las tablas mensuales.
+- Es tarifa (TIGIE) × país. No se junta con el mensual de capítulo ni con el mensual de país.
+
+Tablas (`conjunto_de_datos/`):
+
+| Archivo | Bytes | Filas | En git |
+| --- | ---: | ---: | --- |
+| `bcmm_anual_tr_cifra_2003.csv` | 77,615,671 | 477,762 | sí |
+| `bcmm_anual_tr_cifra_2004.csv` | 80,306,977 | 494,178 | sí |
+| `bcmm_anual_tr_cifra_2005.csv` | 78,683,405 | 499,691 | sí |
+| `bcmm_anual_tr_cifra_2006.csv` | 80,132,385 | 508,488 | sí |
+| `bcmm_anual_tr_cifra_2007.csv` | 134,471,337 | 850,431 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2008.csv` | 83,818,325 | 531,719 | sí |
+| `bcmm_anual_tr_cifra_2009.csv` | 83,074,751 | 527,411 | sí |
+| `bcmm_anual_tr_cifra_2010.csv` | 86,067,766 | 546,193 | sí |
+| `bcmm_anual_tr_cifra_2011.csv` | 87,270,477 | 553,553 | sí |
+| `bcmm_anual_tr_cifra_2012.csv` | 148,298,369 | 937,415 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2013.csv` | 90,978,590 | 576,870 | sí |
+| `bcmm_anual_tr_cifra_2014.csv` | 91,819,364 | 582,172 | sí |
+| `bcmm_anual_tr_cifra_2015.csv` | 82,592,591 | 586,316 | sí |
+| `bcmm_anual_tr_cifra_2016.csv` | 83,968,027 | 595,817 | sí |
+| `bcmm_anual_tr_cifra_2017.csv` | 84,573,569 | 600,079 | sí |
+| `bcmm_anual_tr_cifra_2018.csv` | 86,476,361 | 613,814 | sí |
+| `bcmm_anual_tr_cifra_2019.csv` | 86,449,821 | 613,400 | sí |
+| `bcmm_anual_tr_cifra_2020.csv` | 82,921,215 | 588,647 | sí |
+| `bcmm_anual_tr_cifra_2021.csv` | 91,097,469 | 632,907 | sí |
+| `bcmm_anual_tr_cifra_2022.csv` | 122,775,704 | 850,011 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2023.csv` | 121,778,100 | 842,912 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2024.csv` | 120,315,175 | 832,608 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2025.csv` | 120,346,046 | 832,768 | no (≥100 MB; queda en el workspace) |
+
+También en el ZIP: `catalogos/tc_codigo_pais.csv`, `tc_periodo_mes.csv`, `tc_tigie.csv` (60,660,819 bytes), `tc_unidad_medida.csv`, `diccionario_de_datos/diccionario_datos_bcmm_anual_2003_2025.csv`, metadatos 2003–2025 y `modelo_entidad_relacion/modelo_er_bcmm_anual_2003_2025.png`.

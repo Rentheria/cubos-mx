@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Hechos básicos de los CSV publicados en datos/.
+"""Hechos básicos de las tablas oficiales publicadas en datos/.
 
-No junta recortes. No mezcla millones con miles. Escribe hechos.json.
+No junta capítulo con país. No mezcla millones con miles. Escribe hechos.json.
 """
 
 from __future__ import annotations
@@ -45,7 +45,7 @@ def last_full_year(periods: set[tuple[int, int]]) -> int | None:
     return full[-1] if full else None
 
 
-def analyze_capitulo(path: Path, total_label: str) -> dict:
+def analyze_capitulo(path: Path, total_label: str, tipo: str) -> dict:
     n = 0
     periods: set[tuple[int, int]] = set()
     official_year: dict[int, float] = defaultdict(float)
@@ -57,6 +57,8 @@ def analyze_capitulo(path: Path, total_label: str) -> dict:
 
     with path.open(newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
+            if row.get("TIPO") != tipo:
+                continue
             n += 1
             y, m = int(row["ANIO"]), int(row["MES"])
             periods.add((y, m))
@@ -106,7 +108,7 @@ def analyze_capitulo(path: Path, total_label: str) -> dict:
     }
 
 
-def analyze_pais(path: Path) -> dict:
+def analyze_pais(paths: list[Path], tipo: str) -> dict:
     n = 0
     periods: set[tuple[int, int]] = set()
     official_year: dict[int, float] = defaultdict(float)
@@ -115,31 +117,35 @@ def analyze_pais(path: Path) -> dict:
     estatus: dict[int, set[str]] = defaultdict(set)
     latest = (0, 0)
 
-    with path.open(newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            n += 1
-            y, m = int(row["ANIO"]), int(row["MES"])
-            periods.add((y, m))
-            latest = max(latest, (y, m))
-            estatus[y].add(row["ESTATUS"].rstrip("."))
-            val = fnum(row["VAL_USD"])
-            pais = row["PAIS_O_D"].strip()
-            cont = row["CLAVE_CONTINENTE"].strip()
-            reg = row["CLAVE_REGION"].strip()
-            if pais == "" and cont == "" and reg == "":
-                official_year[y] += val
-                official_month[(y, m)] += val
-            elif pais != "":
-                countries[(y, pais)] += val
+    for path in paths:
+        with path.open(newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                if row.get("TIPO") != tipo:
+                    continue
+                n += 1
+                y, m = int(row["ANIO"]), int(row["MES"])
+                periods.add((y, m))
+                latest = max(latest, (y, m))
+                estatus[y].add(row["ESTATUS"].rstrip("."))
+                val = fnum(row["VAL_USD"])
+                pais = row["PAIS_O_D"].strip()
+                cont = row["CLAVE_CONTINENTE"].strip()
+                reg = row["CLAVE_REGION"].strip()
+                if pais == "" and cont == "" and reg == "":
+                    official_year[y] += val
+                    official_month[(y, m)] += val
+                elif pais != "":
+                    countries[(y, pais)] += val
 
     year = last_full_year(periods)
     if year is None:
-        raise SystemExit(f"sin año calendario completo en {path.name}")
+        raise SystemExit("sin año calendario completo en las tablas de país")
     by_country = {p: v for (y, p), v in countries.items() if y == year}
     top_name, top_val = max(by_country.items(), key=lambda kv: kv[1])
     total = official_year[year]
     return {
-        "archivo": path.name,
+        "archivos": [p.name for p in paths],
+        "tipo": tipo,
         "filas": n,
         "periodo": {
             "primero": ym_label(*min(periods)),
@@ -242,25 +248,48 @@ def analyze_aduana(path: Path) -> dict:
 def main() -> None:
     hechos = {
         "metodo": (
-            "Se sumó VAL_USD del último año calendario con 12 meses en el mismo CSV; "
-            "el denominador es la fila de total oficial de ese recorte; "
+            "Se sumó VAL_USD del último año calendario con 12 meses en la misma tabla oficial; "
+            "el denominador es la fila de total oficial de ese archivo; "
             "se excluyeron subtotales que volverían a contar el mismo valor."
         ),
         "exportaciones_capitulo": analyze_capitulo(
-            DATOS / "exportaciones_capitulo_transporte_2012_2026.csv",
+            DATOS
+            / "mensual_mtra/conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv",
             "Exportación total",
+            "Exportación",
         ),
         "importaciones_capitulo": analyze_capitulo(
-            DATOS / "importaciones_capitulo_transporte_2012_2026.csv",
+            DATOS
+            / "mensual_mtra/conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv",
             "Importación total",
+            "Importación",
         ),
         "exportaciones_pais": analyze_pais(
-            DATOS / "exportaciones_pais_tipo_bien_2015_2026.csv"
+            [
+                DATOS
+                / "mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv",
+                DATOS
+                / "mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv",
+                DATOS
+                / "mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv",
+            ],
+            "Exportaciones",
         ),
         "importaciones_pais": analyze_pais(
-            DATOS / "importaciones_pais_tipo_bien_2015_2026.csv"
+            [
+                DATOS
+                / "mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv",
+                DATOS
+                / "mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv",
+                DATOS
+                / "mensual_paises_bien/conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv",
+            ],
+            "Importaciones",
         ),
-        "aduana": analyze_aduana(DATOS / "aduana_transporte_2012_2026.csv"),
+        "aduana": analyze_aduana(
+            DATOS
+            / "mensual_mtra/conjunto_de_datos/bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv"
+        ),
     }
     OUT.write_text(
         json.dumps(hechos, ensure_ascii=False, indent=2) + "\n",
