@@ -4,7 +4,7 @@ Catálogo de cubos públicos de México y las tablas oficiales de INEGI que cabe
 
 Hoy cubre afiliación del IMSS, la balanza comercial de mercancías de INEGI (BCMM), las exportaciones por entidad federativa (ETEF) y el cubo de comercio exterior de Banxico. El inventario de cubos, con periodos y qué no se puede mezclar, está en [CATALOGO.md](CATALOGO.md). Los ZIP, catálogos y diccionarios, con URL, fecha de consulta, unidad y si son ZIP oficial o extracto de cubo, están en [datos/FUENTES.md](datos/FUENTES.md) y [datos/CATALOGOS.md](datos/CATALOGOS.md).
 
-Las tablas se consultan y se descargan en [consulta.html](consulta.html). Capítulo y país no se juntan. Millones, miles y dólares no se suman. ETEF no se dobla en la BCMM.
+Las tablas se consultan y se descargan en [consulta.html](consulta.html) y en la copia publicada [https://rentheria.github.io/cubos-mx/consulta.html](https://rentheria.github.io/cubos-mx/consulta.html). Capítulo y país no se juntan. Millones, miles y dólares no se suman. ETEF no se dobla en la BCMM.
 
 Consulta de las páginas y de los ZIP: 3 de octubre de 2026. Lo que el HTML de INEGI no lista se comprobó por `Content-Type` del archivo.
 
