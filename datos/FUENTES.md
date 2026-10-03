@@ -69,12 +69,12 @@ Tablas (`conjunto_de_datos/`):
 | `bcmm_anual_tr_cifra_2004.csv` | 80,306,977 | 494,178 | sí |
 | `bcmm_anual_tr_cifra_2005.csv` | 78,683,405 | 499,691 | sí |
 | `bcmm_anual_tr_cifra_2006.csv` | 80,132,385 | 508,488 | sí |
-| `bcmm_anual_tr_cifra_2007.csv` | 134,471,337 | 850,431 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2007.csv` | 134,471,337 | 850,431 | no (≥100 MB). Tabla anual completa: https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2007.csv |
 | `bcmm_anual_tr_cifra_2008.csv` | 83,818,325 | 531,719 | sí |
 | `bcmm_anual_tr_cifra_2009.csv` | 83,074,751 | 527,411 | sí |
 | `bcmm_anual_tr_cifra_2010.csv` | 86,067,766 | 546,193 | sí |
 | `bcmm_anual_tr_cifra_2011.csv` | 87,270,477 | 553,553 | sí |
-| `bcmm_anual_tr_cifra_2012.csv` | 148,298,369 | 937,415 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2012.csv` | 148,298,369 | 937,415 | no (≥100 MB). Tabla anual completa: https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2012.csv |
 | `bcmm_anual_tr_cifra_2013.csv` | 90,978,590 | 576,870 | sí |
 | `bcmm_anual_tr_cifra_2014.csv` | 91,819,364 | 582,172 | sí |
 | `bcmm_anual_tr_cifra_2015.csv` | 82,592,591 | 586,316 | sí |
@@ -84,9 +84,9 @@ Tablas (`conjunto_de_datos/`):
 | `bcmm_anual_tr_cifra_2019.csv` | 86,449,821 | 613,400 | sí |
 | `bcmm_anual_tr_cifra_2020.csv` | 82,921,215 | 588,647 | sí |
 | `bcmm_anual_tr_cifra_2021.csv` | 91,097,469 | 632,907 | sí |
-| `bcmm_anual_tr_cifra_2022.csv` | 122,775,704 | 850,011 | no (≥100 MB; queda en el workspace) |
-| `bcmm_anual_tr_cifra_2023.csv` | 121,778,100 | 842,912 | no (≥100 MB; queda en el workspace) |
-| `bcmm_anual_tr_cifra_2024.csv` | 120,315,175 | 832,608 | no (≥100 MB; queda en el workspace) |
-| `bcmm_anual_tr_cifra_2025.csv` | 120,346,046 | 832,768 | no (≥100 MB; queda en el workspace) |
+| `bcmm_anual_tr_cifra_2022.csv` | 122,775,704 | 850,011 | no (≥100 MB). Tabla anual completa: https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2022.csv |
+| `bcmm_anual_tr_cifra_2023.csv` | 121,778,100 | 842,912 | no (≥100 MB). Tabla anual completa: https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2023.csv |
+| `bcmm_anual_tr_cifra_2024.csv` | 120,315,175 | 832,608 | no (≥100 MB). Tabla anual completa: https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2024.csv |
+| `bcmm_anual_tr_cifra_2025.csv` | 120,346,046 | 832,768 | no (≥100 MB). Tabla anual completa: https://cubos-mx-datos.web.app/bcmm_anual_tr_cifra_2025.csv |
 
 También en el ZIP: `catalogos/tc_codigo_pais.csv`, `tc_periodo_mes.csv`, `tc_tigie.csv` (60,660,819 bytes), `tc_unidad_medida.csv`, `diccionario_de_datos/diccionario_datos_bcmm_anual_2003_2025.csv`, metadatos 2003–2025 y `modelo_entidad_relacion/modelo_er_bcmm_anual_2003_2025.png`.
