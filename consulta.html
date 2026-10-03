@@ -3,258 +3,697 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recortes publicados de comercio exterior — cubos-mx</title>
-  <meta name="description" content="Consulta y descarga de los CSV publicados de la Balanza Comercial de Mercancías de México (INEGI) que están en este repositorio.">
+  <title>Catálogo y recortes publicados — cubos-mx</title>
+  <meta name="description" content="Catálogo de cubos públicos de México y recortes CSV de la Balanza Comercial de Mercancías (INEGI), con fuentes oficiales y hechos calculados sobre cada archivo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #1c1914;
-      --muted: #5c564c;
-      --rule: #d6cfc2;
-      --paper: #f7f2e8;
-      --card: #fffdf8;
-      --accent: #8a2a1b;
-      --warn: #5a3d12;
-      --warn-bg: #f3e6c8;
+      --ink: #10232b;
+      --mute: #4a5c62;
+      --paper: #eef3f1;
+      --card: #ffffff;
+      --sea: #073b4c;
+      --sea-2: #0a5168;
+      --stamp: #126e51;
+      --stamp-ink: #f4fff9;
+      --line: #c9d6d1;
+      --warn: #6a3e08;
+      --warn-bg: #fff1d6;
+      --warn-edge: #c48a1a;
+      --focus: #0d9488;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    html, body { max-width: 100%; overflow-x: clip; }
     body {
       margin: 0;
       color: var(--ink);
       background: var(--paper);
-      font: 17px/1.5 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font: 17px/1.5 "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
     }
-    header, main, footer { width: min(44rem, calc(100% - 2rem)); margin-inline: auto; }
-    header { padding: 2.4rem 0 1.2rem; }
-    .kicker {
-      font: 600 0.78rem/1.3 ui-sans-serif, "Segoe UI", Helvetica, Arial, sans-serif;
-      letter-spacing: 0.08em;
+    img, svg, video, table { max-width: 100%; }
+    a { color: var(--sea-2); overflow-wrap: anywhere; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+    code {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .skip {
+      position: absolute;
+      left: 0.8rem;
+      top: -3rem;
+      background: var(--card);
+      padding: 0.4rem 0.7rem;
+      z-index: 3;
+    }
+    .skip:focus { top: 0.8rem; }
+    .mast {
+      background: var(--sea);
+      color: #e7f4f2;
+    }
+    .mast-inner, .wrap {
+      width: min(72rem, calc(100% - 1.6rem));
+      margin-inline: auto;
+    }
+    .mast-inner { padding: 1.1rem 0 1.4rem; }
+    .brand {
+      margin: 0;
+      font: 600 0.95rem/1 "Antonio", "Arial Narrow", sans-serif;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 0.6rem;
     }
-    h1, h2, h3 { font-weight: 650; letter-spacing: -0.02em; line-height: 1.2; }
-    h1 { font-size: 2rem; margin: 0 0 0.8rem; }
-    h2 { font-size: 1.35rem; margin: 2.2rem 0 0.7rem; }
-    h3 { font-size: 1.08rem; margin: 0 0 0.45rem; }
-    p, li { color: var(--ink); }
-    .lead { font-size: 1.08rem; }
-    .muted, .note, footer { color: var(--muted); }
-    a { color: var(--accent); }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    nav.toc { margin: 1.4rem 0 0; padding: 0.9rem 1rem; border: 1px solid var(--rule); background: var(--card); }
-    nav.toc ol { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+    .brand a { color: inherit; text-decoration: none; }
+    .mast h1 {
+      margin: 0.55rem 0 0.45rem;
+      font: 600 clamp(1.7rem, 6vw, 3rem)/1.05 "Antonio", "Arial Narrow", sans-serif;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .lead { margin: 0; max-width: 42rem; color: #d5e8e4; }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.7rem;
+      margin-top: 1rem;
+    }
+    .nav a {
+      color: #e7f4f2;
+      text-decoration: none;
+      border: 1px solid rgba(231, 244, 242, 0.35);
+      padding: 0.38rem 0.65rem;
+      font-size: 0.92rem;
+    }
+    .nav a:hover { background: var(--sea-2); }
+    .wrap { padding: 1.2rem 0 2.6rem; }
+    h2 {
+      margin: 2rem 0 0.7rem;
+      font: 600 clamp(1.35rem, 3.4vw, 1.85rem)/1.15 "Antonio", "Arial Narrow", sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+    h4 { margin: 1.1rem 0 0.4rem; font-size: 1.02rem; }
     .aviso {
       background: var(--warn-bg);
       color: var(--warn);
-      border-left: 4px solid #b8860b;
-      padding: 0.85rem 1rem;
-      margin: 1.4rem 0;
+      border-left: 5px solid var(--warn-edge);
+      padding: 0.9rem 1rem;
+      margin: 1.1rem 0 1.5rem;
     }
     .aviso strong { color: var(--ink); }
-    article.recorte {
+    .panel, .recorte, .cubo {
       background: var(--card);
-      border: 1px solid var(--rule);
-      padding: 1.1rem 1.15rem 1.2rem;
-      margin: 1rem 0 1.4rem;
+      border: 1px solid var(--line);
+      padding: 1rem 1rem 1.1rem;
+      margin: 0 0 1rem;
     }
-    dl.meta { display: grid; grid-template-columns: 8.2rem 1fr; gap: 0.25rem 0.8rem; margin: 0.7rem 0 1rem; }
-    dl.meta dt { font: 600 0.78rem/1.4 ui-sans-serif, "Segoe UI", Helvetica, Arial, sans-serif; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-    dl.meta dd { margin: 0; }
-    .hechos { margin: 0; padding: 0; list-style: none; }
-    .hechos li { padding: 0.35rem 0; border-top: 1px solid var(--rule); }
-    .hechos li:first-child { border-top: 0; }
+    .recorte { padding: 0; overflow: hidden; }
+    .recorte-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1rem 1rem 0.85rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .recorte-body { padding: 0.95rem 1rem 1.15rem; }
+    .stamp {
+      flex: 0 0 auto;
+      background: var(--stamp);
+      color: var(--stamp-ink);
+      font: 500 0.78rem/1.2 "Antonio", "Arial Narrow", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.55rem;
+      max-width: 100%;
+    }
+    .archivo {
+      display: block;
+      margin: 0.15rem 0 0.55rem;
+      color: var(--mute);
+    }
+    .meta {
+      display: grid;
+      gap: 0.55rem 0.8rem;
+      margin: 0.8rem 0 1rem;
+    }
+    @media (min-width: 640px) {
+      .meta { grid-template-columns: 8.4rem 1fr; }
+      .meta dt { padding-top: 0.15rem; }
+    }
+    .meta dt {
+      margin: 0;
+      font: 600 0.75rem/1.3 "Antonio", "Arial Narrow", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+    .meta dd { margin: 0; overflow-wrap: anywhere; }
+    .url {
+      display: block;
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+    .hechos-grid {
+      display: grid;
+      gap: 0.7rem;
+      margin: 0.8rem 0 0;
+    }
+    @media (min-width: 720px) {
+      .hechos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .dato {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 0.7rem 0.75rem;
+      min-width: 0;
+    }
+    .dato-label {
+      margin: 0 0 0.25rem;
+      font: 600 0.75rem/1.3 "Antonio", "Arial Narrow", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+    .dato-valor {
+      margin: 0;
+      font: 500 clamp(1.15rem, 3.4vw, 1.55rem)/1.2 "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+      overflow-wrap: anywhere;
+      font-variant-numeric: tabular-nums;
+    }
+    .dato-unidad, .unidad {
+      margin: 0.2rem 0 0;
+      color: var(--mute);
+      font-size: 0.92rem;
+    }
+    .dato p { margin: 0.35rem 0 0; }
     .cifra { font-variant-numeric: tabular-nums; }
-    .unidad { color: var(--muted); font-size: 0.92em; }
-    .acciones { display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; margin-top: 0.9rem; }
-    .acciones a {
-      font: 600 0.92rem/1.2 ui-sans-serif, "Segoe UI", Helvetica, Arial, sans-serif;
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-      padding-bottom: 0.1rem;
+    .acciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0 0;
     }
-    footer { padding: 2rem 0 2.8rem; font-size: 0.92rem; }
-    hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+    .acciones a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.7rem 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      min-height: 2.75rem;
+    }
+    .acciones a.primario {
+      background: var(--sea);
+      color: #e7f4f2;
+    }
+    .acciones a.secundario {
+      background: var(--card);
+      color: var(--sea);
+      border: 1px solid var(--sea);
+    }
+    .lista { margin: 0.4rem 0 0; padding-left: 1.15rem; }
+    .lista li { margin: 0.4rem 0; overflow-wrap: anywhere; }
+    .mute, .note { color: var(--mute); }
+    footer {
+      background: var(--sea);
+      color: #d5e8e4;
+      padding: 1.3rem 0 1.8rem;
+    }
+    footer a { color: #9fe1d3; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <p class="kicker">cubos-mx · INEGI, BCMM</p>
-    <h1>Recortes publicados de comercio exterior</h1>
-    <p class="lead">Cinco CSV de la Balanza Comercial de Mercancías de México que ya están en este repositorio. Los números son los publicados. Aquí se listan, se descargan y se anotan unos hechos calculados sobre el mismo archivo.</p>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <p class="brand"><a href="https://github.com/Rentheria/cubos-mx">cubos-mx</a></p>
+      <h1>Catálogo de cubos y recortes publicados</h1>
+      <p class="lead">Inventario de cubos públicos (3 oct 2026) y los cinco CSV de la Balanza Comercial de Mercancías de México que ya están en este repositorio. Los números son los publicados. Cada fuente lleva la URL oficial documentada.</p>
+      <nav class="nav" aria-label="En esta página">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#imss">IMSS</a>
+        <a href="#bcmm">INEGI BCMM</a>
+        <a href="#banxico">Banxico</a>
+        <a href="#enoe">ENOE</a>
+        <a href="#sinba">SINBA</a>
+        <a href="#recortes">Recortes CSV</a>
+        <a href="#metodo">Método</a>
+      </nav>
+    </div>
   </header>
-  <main>
+
+  <main id="contenido" class="wrap">
     <div class="aviso">
       <strong>Capítulo y país son recortes distintos.</strong> No se juntan. No se suman millones con miles. No existe en estos archivos un cruce de capítulo por país; ese cruce solo está en el cubo de INEGI. El Excel no es un formato publicado aquí.
     </div>
 
-    <nav class="toc" aria-label="Contenido">
-      <p class="kicker">En esta página</p>
-      <ol>
-        <li><a href="#capitulo-exp">Exportaciones, capítulo por transporte</a></li>
-        <li><a href="#capitulo-imp">Importaciones, capítulo por transporte</a></li>
-        <li><a href="#pais-exp">Exportaciones, país por tipo de bien</a></li>
-        <li><a href="#pais-imp">Importaciones, país por tipo de bien</a></li>
-        <li><a href="#aduana">Aduana por transporte</a></li>
-        <li><a href="#metodo">Cómo se calcularon los hechos</a></li>
-      </ol>
-    </nav>
+    <h2 id="catalogo">Catálogo de cubos</h2>
+    <p>Inventario, no datos. Una fila es un cubo o una consulta nombrada. Texto de <a href="CATALOGO.md">CATALOGO.md</a>. Cognos del IMSS no abrió (timeout).</p>
 
-    <h2>Los cinco archivos</h2>
-    <p>Fuentes y notas de cada recorte: <a href="datos/FUENTES.md">datos/FUENTES.md</a>. Catálogo de cubos: <a href="CATALOGO.md">CATALOGO.md</a>.</p>
+    <article class="panel" id="imss">
+      <h3>IMSS</h3>
+      <p>Un solo visor. El portal no nombra consultas. El calendario nombra tres, todas en Medidas de Incorporación y Recaudación. Exportar el recorte: Archivo → PDF, CSV o XLS (según la guía, no visto dentro de Cognos). Grano: una cifra × mes × delegación (o nacional). No es balanza ni TIGIE.</p>
+      <dl class="meta">
+        <dt>Visor</dt>
+        <dd><a class="url" href="https://www.imss.gob.mx/conoce-al-imss/cubos">https://www.imss.gob.mx/conoce-al-imss/cubos</a></dd>
+        <dt>Cognos</dt>
+        <dd>No verificado. <a class="url" href="http://cognos.imss.gob.mx/cubo_cp.asp">http://cognos.imss.gob.mx/cubo_cp.asp</a></dd>
+        <dt>Guía</dt>
+        <dd><a class="url" href="https://www.imss.gob.mx/sites/all/statics/pdf/informes/GuiaCubo.pdf">https://www.imss.gob.mx/sites/all/statics/pdf/informes/GuiaCubo.pdf</a></dd>
+        <dt>Calendario</dt>
+        <dd>11 dic 2025. <a class="url" href="https://www.imss.gob.mx/sites/all/statics/pdf/informes/Calendario_difusion.pdf">https://www.imss.gob.mx/sites/all/statics/pdf/informes/Calendario_difusion.pdf</a></dd>
+      </dl>
+      <ol class="lista">
+        <li>Puestos de trabajo y asegurados sin un empleo asociado. Mensual desde julio 1997. Difusión antes del día 9. Sexo, edad, modalidad, tipo de puesto, régimen, actividad, tamaño patronal. Es stock de puestos, no personas únicas.</li>
+        <li>Dinámica laboral y patrones. Mensual desde agosto 1997. Altas, bajas, reingresos, contratación y separación, salario base. Rango en veces UMA solo desde enero 2017 (antes era salario mínimo). No mezclar con el stock de la fila 1.</li>
+        <li>Población derechohabiente adscrita y población potencial. PDA desde enero 2004; potencial desde julio 1997. Difusión antes del día 23. La PDA anterior a junio 2011 cambió de fuente y de método.</li>
+      </ol>
+      <p>No hay fila médica: el glosario define términos (egresos, partos, quejas) pero no los presenta como carpetas. Datos abiertos, aparte, no son el cubo: <a class="url" href="http://datos.imss.gob.mx/">http://datos.imss.gob.mx/</a></p>
+    </article>
+
+    <article class="panel" id="bcmm">
+      <h3>INEGI, balanza comercial de mercancías (BCMM)</h3>
+      <p>Programa: <a class="url" href="https://www.inegi.org.mx/programas/comext/">https://www.inegi.org.mx/programas/comext/</a></p>
+      <p>Cada cubo corta en un cambio de tarifa. Celda: valor FOB o cantidad, de un flujo (importación o exportación) × país × código, en un año o un mes. «C» = uno o dos informantes, no es cero. La cantidad no se suma entre unidades distintas. Ninguna página nombró el botón; el catálogo solo dice «diversos formatos». No hay cubo mensual anterior a enero 2021. No son comparables de punta a punta. Un código de 6 dígitos puede cambiar de significado entre cubos.</p>
+      <ol class="lista">
+        <li>Comercio Exterior 1998 – ene a mar 2002. Anual, 2002 incompleto. Códigos a 8. Dólares o pesos, y cantidad. TIGE/TIGI 1 jul 1988, SA 1996. Definitivas. Sin NICO.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex1998_2002.asp?c=11004&amp;proy=comex_98-02&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex1998_2002.asp?c=11004&amp;proy=comex_98-02&amp;s=est</a></li>
+        <li>abr 2002 – jun 2007. 2002 y 2007 incompletos. TIGIE 1 abr 2002, SA 2002. Definitivas.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2002_2007.asp?c=11005&amp;proy=comex_02-07&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2002_2007.asp?c=11005&amp;proy=comex_02-07&amp;s=est</a></li>
+        <li>jul a dic 2007. Medio año. TIGIE 1 jul 2007, SA 2007. Definitivas.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2007.asp?c=14293&amp;proy=comex_07&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2007.asp?c=14293&amp;proy=comex_07&amp;s=est</a></li>
+        <li>2008 – jun 2012. 2012 incompleto. Misma TIGIE 1 jul 2007, SA 2007. Definitivas.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2008.asp?c=23720&amp;proy=comex_08-09&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2008.asp?c=23720&amp;proy=comex_08-09&amp;s=est</a></li>
+        <li>jul 2012 – 2020. 2012 incompleto. TIGIE 1 jul 2012, SA 2012. Definitivas. Petróleo por continente, fuente PMI.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2012.asp">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex2012.asp</a></li>
+        <li>Anual 2021–2022. TIGIE 28 dic 2020, SA 2017. Definitivas. NICO (10) entra; la fracción de 8 solo está en 2022.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm.asp">https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm.asp</a></li>
+        <li>Anual 2023–2025. TIGIE 12 dic 2022, SA 2022. La página dice definitivas. Choca con el mensual, que marca 2025 como revisada.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex_bcmm_2023.asp">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/comex/comex_bcmm_2023.asp</a></li>
+        <li>Mensual ene 2021 – dic 2022. Solo dólares (no menciona pesos) y cantidad. TIGIE 28 dic 2020, SA 2017. Definitivas. Fracción de 8 solo en 2022.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2021_2022.asp">https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2021_2022.asp</a></li>
+        <li>Mensual ene 2023 – jul 2026. Solo dólares FOB y cantidad. TIGIE 12 dic 2022, SA 2022. Definitivas 2023 y 2024; desde 2025, revisadas.<br>
+          <a class="url" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp">https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</a></li>
+      </ol>
+      <p>Aparte, no es este cubo: exportaciones por entidad federativa (SCIAN, tabulados y BIE, no OLAP). <a class="url" href="https://inegi.org.mx/temas/exportacionesef/">https://inegi.org.mx/temas/exportacionesef/</a></p>
+    </article>
+
+    <article class="panel" id="banxico">
+      <h3>Banxico</h3>
+      <p>Cubo de Comercio Exterior. El tutorial usa desde enero 1993. No publica la fecha final. Valor en dólares (tratamiento estadístico) por flujo, periodo, región o país, y producto. Volumen solo a nivel fracción. Exportar el recorte: clic derecho, copiar datos, o Imprimir → Excel. Excel trunca si la consulta es muy grande. Preliminar; puede no coincidir con la BCMM.</p>
+      <p><a class="url" href="https://www.banxico.org.mx/CuboComercioExterior/">https://www.banxico.org.mx/CuboComercioExterior/</a></p>
+    </article>
+
+    <article class="panel">
+      <h3>No son cubos</h3>
+      <p>BIE (INEGI) y SIE (Banxico): series agregadas de la balanza, no cubos.</p>
+      <h4>Falta confirmar dentro del visor</h4>
+      <ul class="lista">
+        <li>Cognos: si hay carpetas médicas además de Incorporación y Recaudación.</li>
+        <li>OLAP INEGI: el botón real de exportación y qué se puede arrastrar.</li>
+        <li>Banxico: último periodo cargado, y si el valor anual se corta a fracción.</li>
+        <li>2025: el anual dice definitivas y el mensual dice revisadas.</li>
+      </ul>
+    </article>
+
+    <article class="panel" id="enoe">
+      <h3>INEGI, ENOE (tabulados interactivos)</h3>
+      <p>INEGI los llama cubos. Cobertura que declara cada página: I 2005–I 2020 y desde I 2023 (ENOE); III 2020–IV 2022 (ENOE N). No son la balanza.</p>
+      <p>Notas (26 ago 2025): <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/metadatos/enoe_notas_cubos.pdf">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/metadatos/enoe_notas_cubos.pdf</a></p>
+      <ol class="lista">
+        <li>Población ocupada, 15 años y más. <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/po.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_po&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/po.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_po&amp;s=est</a></li>
+        <li>Población desocupada. <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pda.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_pda&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pda.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_pda&amp;s=est</a></li>
+        <li>Población no económicamente activa. <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pnea.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_pnea&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pnea.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_pnea&amp;s=est</a></li>
+        <li>Población total. <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pt.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_pt&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/pt.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_pt&amp;s=est</a></li>
+        <li>Trabajador subordinado y remunerado. <a class="url" href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/tsr.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_tsr&amp;s=est">https://www.inegi.org.mx/sistemas/olap/proyectos/bd/encuestas/hogares/enoe/2010_pe_ed15/tsr.asp?p=enoe_pe_ed15&amp;proy=enoe_pe_ed15_tsr&amp;s=est</a></li>
+      </ol>
+      <p>Las notas también nombran Población subocupada y Trabajador independiente. No apareció una URL que abriera.</p>
+    </article>
+
+    <article class="panel" id="sinba">
+      <h3>Secretaría de Salud, SINBA</h3>
+      <p>No es IMSS ni el OLAP de INEGI. Cada bloque es un cubo; cada año es un archivo del mismo cubo.</p>
+      <p><a class="url" href="https://sinba.salud.gob.mx/CubosDinamicos">https://sinba.salud.gob.mx/CubosDinamicos</a></p>
+      <ul class="lista">
+        <li>Egresos hospitalarios (SAEH): SSA 2000–2026 (2026 preliminar; desde 2024 incluye IMSS-Bienestar); sector salud 2004–2024.</li>
+        <li>Defunciones INEGI/SS 1998–2024; muertes maternas 2002–2024; muertes fetales 1985–2024.</li>
+        <li>Lesiones y violencia, SSA/IMSS-Bienestar, 2010–2026 (2026 preliminar).</li>
+        <li>Nacidos vivos registrados, INEGI, 1990–2013. Nacimientos ocurridos, SINAC, 2008–agosto 2026.</li>
+        <li>Recursos humanos, físicos y financieros, servicios otorgados (SIS), urgencias 2007–2026, establecimientos 2012–2019, proyecciones CONAPO.</li>
+      </ul>
+    </article>
+
+    <article class="panel">
+      <h3>Buscado y no es otro cubo</h3>
+      <ul class="lista">
+        <li>COMEX: el PDF de consulta interactiva lista solo los 9 ya catalogados. No hay cubo aparte de aduana, modo de transporte ni entidad. <a class="url" href="https://www.inegi.org.mx/contenidos/programas/comext/doc/descripcion.pdf">https://www.inegi.org.mx/contenidos/programas/comext/doc/descripcion.pdf</a></li>
+        <li>IMSS: no hay un segundo visor. Cognos no abrió.</li>
+        <li>Banxico: valor y volumen son secciones del mismo cubo.</li>
+        <li>SAT/SNICE remite a Banxico e INEGI. CONEVAL son Excel, no OLAP.</li>
+        <li>DataMéxico (api.datamexico.org/ui) devolvió 500. Sin lista verificada.</li>
+      </ul>
+    </article>
+
+    <h2 id="recortes">Recortes CSV publicados</h2>
+    <p>Cinco archivos en <a href="datos/FUENTES.md">datos/FUENTES.md</a>. Capítulo y país no se juntan. No hay CSV público de capítulo por país; ese cruce solo está en el cubo <a class="url" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp">https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</a>. El Excel no se guarda.</p>
 
     <article class="recorte" id="capitulo-exp">
-      <h3>Exportaciones, capítulo por medio de transporte</h3>
-      <p><code>exportaciones_capitulo_transporte_2012_2026.csv</code></p>
-      <p>Capítulo arancelario (texto en <code>CONCEPTO</code>) por medio de transporte (<code>MTRA</code>), cobertura nacional. Incluye también el total, los cinco modos y «Productos no clasificados».</p>
-      <dl class="meta">
-        <dt>Periodo</dt>
-        <dd>enero 2012 a julio 2026 (175 meses en el archivo)</dd>
-        <dt>Unidad</dt>
-        <dd>VAL_USD en millones de dólares FOB</dd>
-        <dt>No contiene</dt>
-        <dd>país; no es el recorte de tipo de bien</dd>
-        <dt>Filas</dt>
-        <dd class="cifra">85,925</dd>
-        <dt>Último mes</dt>
-        <dd>julio 2026 · total oficial <span class="cifra">81,420.015</span> <span class="unidad">millones de dólares FOB</span> (cifras revisadas)</dd>
-        <dt>Fuente</dt>
-        <dd><a href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip">ZIP de INEGI, modo de transporte por capítulo</a> · <a href="https://www.inegi.org.mx/programas/comext/">programa COMEXT</a></dd>
-      </dl>
-      <p>Hechos de 2025, último año calendario completo (cifras revisadas). Denominador: fila «Exportación total». Quedan fuera esa fila y las de medio de transporte, que volverían a contar. «Productos no clasificados» no es un capítulo.</p>
-      <ul class="hechos">
-        <li>Total oficial 2025: <span class="cifra">664,837.168</span> <span class="unidad">millones de dólares FOB</span></li>
-        <li>Capítulo mayor: Capítulo 84 Aparatos mecánicos, calderas, partes · <span class="cifra">163,957.686</span> <span class="unidad">millones de dólares FOB</span> · <span class="cifra">24.7%</span> del total oficial</li>
-      </ul>
-      <p class="acciones">
-        <a href="datos/exportaciones_capitulo_transporte_2012_2026.csv" download>Descargar CSV</a>
-        <a href="https://github.com/Rentheria/cubos-mx/raw/main/datos/exportaciones_capitulo_transporte_2012_2026.csv">Copia en GitHub</a>
-      </p>
+      <div class="recorte-head">
+        <div>
+          <h3>Exportaciones, capítulo por medio de transporte</h3>
+          <code class="archivo">exportaciones_capitulo_transporte_2012_2026.csv</code>
+        </div>
+        <p class="stamp">millones de dólares FOB</p>
+      </div>
+      <div class="recorte-body">
+        <p>Capítulo arancelario (texto en <code>CONCEPTO</code>) por medio de transporte (<code>MTRA</code>), cobertura nacional, no por país. Incluye también el total, los cinco modos y «Productos no clasificados».</p>
+        <dl class="meta">
+          <dt>Periodo</dt>
+          <dd>enero 2012 a julio 2026 · 2012-01 a 2026-07 · 175 meses en el archivo</dd>
+          <dt>Unidad</dt>
+          <dd>VAL_USD en millones de dólares FOB</dd>
+          <dt>No contiene</dt>
+          <dd>país; no es el recorte de tipo de bien</dd>
+          <dt>Filas</dt>
+          <dd class="cifra">85,925</dd>
+          <dt>Último mes</dt>
+          <dd>2026-07 · julio 2026 · total oficial <span class="cifra">81,420.015</span> <span class="unidad">millones de dólares FOB</span> · Cifras Revisadas</dd>
+          <dt>Año completo</dt>
+          <dd>2025 · Cifras Revisadas</dd>
+          <dt>Fuente ZIP</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip">https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip</a></dd>
+          <dt>Programa</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/programas/comext/">https://www.inegi.org.mx/programas/comext/</a></dd>
+        </dl>
+        <p>Hechos de 2025, último año calendario completo. Denominador: fila «Exportación total». Quedan fuera esa fila y las de medio de transporte (Aéreo, Carretero, Ferroviario, Marítimo, Otros modos), que volverían a contar. «Productos no clasificados» no es un capítulo.</p>
+        <div class="hechos-grid">
+          <div class="dato">
+            <p class="dato-label">Total oficial 2025</p>
+            <p class="dato-valor">664,837.168</p>
+            <p class="dato-unidad">millones de dólares FOB</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Capítulo mayor 2025</p>
+            <p class="dato-valor">163,957.686</p>
+            <p class="dato-unidad">millones de dólares FOB</p>
+            <p>Capítulo 84 Aparatos mecánicos, calderas, partes · <span class="cifra">24.7%</span> del total oficial</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Productos no clasificados 2025</p>
+            <p class="dato-valor">9,359.179</p>
+            <p class="dato-unidad">millones de dólares FOB</p>
+            <p>Entra en el total oficial; no compite como capítulo.</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Último mes, total oficial</p>
+            <p class="dato-valor">81,420.015</p>
+            <p class="dato-unidad">millones de dólares FOB · julio 2026 · Cifras Revisadas</p>
+          </div>
+        </div>
+        <p class="acciones">
+          <a class="primario" href="datos/exportaciones_capitulo_transporte_2012_2026.csv" download>Descargar CSV</a>
+          <a class="secundario" href="https://github.com/Rentheria/cubos-mx/raw/main/datos/exportaciones_capitulo_transporte_2012_2026.csv">Copia en GitHub</a>
+        </p>
+      </div>
     </article>
 
     <article class="recorte" id="capitulo-imp">
-      <h3>Importaciones, capítulo por medio de transporte</h3>
-      <p><code>importaciones_capitulo_transporte_2012_2026.csv</code></p>
-      <p>Mismo diseño que el de exportaciones por capítulo: capítulo por medio de transporte, nacional. Sale del mismo ZIP.</p>
-      <dl class="meta">
-        <dt>Periodo</dt>
-        <dd>enero 2012 a julio 2026 (175 meses en el archivo)</dd>
-        <dt>Unidad</dt>
-        <dd>VAL_USD en millones de dólares FOB</dd>
-        <dt>No contiene</dt>
-        <dd>país; no es el recorte de tipo de bien</dd>
-        <dt>Filas</dt>
-        <dd class="cifra">85,925</dd>
-        <dt>Último mes</dt>
-        <dd>julio 2026 · total oficial <span class="cifra">82,267.552</span> <span class="unidad">millones de dólares FOB</span> (cifras revisadas)</dd>
-        <dt>Fuente</dt>
-        <dd><a href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip">ZIP de INEGI, modo de transporte por capítulo</a> · <a href="https://www.inegi.org.mx/programas/comext/">programa COMEXT</a></dd>
-      </dl>
-      <p>Hechos de 2025 (cifras revisadas). Denominador: fila «Importación total». Quedan fuera esa fila y las de medio de transporte. «Productos no clasificados» no es un capítulo.</p>
-      <ul class="hechos">
-        <li>Total oficial 2025: <span class="cifra">664,066.222</span> <span class="unidad">millones de dólares FOB</span></li>
-        <li>Capítulo mayor: Capítulo 84 Aparatos mecánicos, calderas, partes · <span class="cifra">144,474.572</span> <span class="unidad">millones de dólares FOB</span> · <span class="cifra">21.8%</span> del total oficial</li>
-      </ul>
-      <p class="acciones">
-        <a href="datos/importaciones_capitulo_transporte_2012_2026.csv" download>Descargar CSV</a>
-        <a href="https://github.com/Rentheria/cubos-mx/raw/main/datos/importaciones_capitulo_transporte_2012_2026.csv">Copia en GitHub</a>
-      </p>
+      <div class="recorte-head">
+        <div>
+          <h3>Importaciones, capítulo por medio de transporte</h3>
+          <code class="archivo">importaciones_capitulo_transporte_2012_2026.csv</code>
+        </div>
+        <p class="stamp">millones de dólares FOB</p>
+      </div>
+      <div class="recorte-body">
+        <p>Mismo diseño que el de exportaciones por capítulo: capítulo por medio de transporte, nacional. Sale del mismo ZIP. No es por país.</p>
+        <dl class="meta">
+          <dt>Periodo</dt>
+          <dd>enero 2012 a julio 2026 · 2012-01 a 2026-07 · 175 meses en el archivo</dd>
+          <dt>Unidad</dt>
+          <dd>VAL_USD en millones de dólares FOB</dd>
+          <dt>No contiene</dt>
+          <dd>país; no es el recorte de tipo de bien</dd>
+          <dt>Filas</dt>
+          <dd class="cifra">85,925</dd>
+          <dt>Último mes</dt>
+          <dd>2026-07 · julio 2026 · total oficial <span class="cifra">82,267.552</span> <span class="unidad">millones de dólares FOB</span> · Cifras Revisadas</dd>
+          <dt>Año completo</dt>
+          <dd>2025 · Cifras Revisadas</dd>
+          <dt>Fuente ZIP</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip">https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip</a></dd>
+          <dt>Programa</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/programas/comext/">https://www.inegi.org.mx/programas/comext/</a></dd>
+        </dl>
+        <p>Hechos de 2025. Denominador: fila «Importación total». Quedan fuera esa fila y las de medio de transporte (Aéreo, Carretero, Ferroviario, Marítimo, Otros modos). «Productos no clasificados» no es un capítulo.</p>
+        <div class="hechos-grid">
+          <div class="dato">
+            <p class="dato-label">Total oficial 2025</p>
+            <p class="dato-valor">664,066.222</p>
+            <p class="dato-unidad">millones de dólares FOB</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Capítulo mayor 2025</p>
+            <p class="dato-valor">144,474.572</p>
+            <p class="dato-unidad">millones de dólares FOB</p>
+            <p>Capítulo 84 Aparatos mecánicos, calderas, partes · <span class="cifra">21.8%</span> del total oficial</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Productos no clasificados 2025</p>
+            <p class="dato-valor">28,290.693</p>
+            <p class="dato-unidad">millones de dólares FOB</p>
+            <p>Entra en el total oficial; no compite como capítulo.</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Último mes, total oficial</p>
+            <p class="dato-valor">82,267.552</p>
+            <p class="dato-unidad">millones de dólares FOB · julio 2026 · Cifras Revisadas</p>
+          </div>
+        </div>
+        <p class="acciones">
+          <a class="primario" href="datos/importaciones_capitulo_transporte_2012_2026.csv" download>Descargar CSV</a>
+          <a class="secundario" href="https://github.com/Rentheria/cubos-mx/raw/main/datos/importaciones_capitulo_transporte_2012_2026.csv">Copia en GitHub</a>
+        </p>
+      </div>
     </article>
 
     <article class="recorte" id="pais-exp">
-      <h3>Exportaciones, país por tipo de bien</h3>
-      <p><code>exportaciones_pais_tipo_bien_2015_2026.csv</code></p>
-      <p>País o zona (<code>PAIS_O_D</code>) por tipo de bien (consumo, intermedio, capital). Una fila con país vacío es el total de esa zona, continente o el total nacional; no es un país.</p>
-      <dl class="meta">
-        <dt>Periodo</dt>
-        <dd>enero 2015 a julio 2026 (139 meses en el archivo)</dd>
-        <dt>Unidad</dt>
-        <dd>VAL_USD en miles de dólares</dd>
-        <dt>No contiene</dt>
-        <dd>capítulo arancelario ni medio de transporte</dd>
-        <dt>Filas</dt>
-        <dd class="cifra">107,622</dd>
-        <dt>Último mes</dt>
-        <dd>julio 2026 · total oficial <span class="cifra">81,420,016</span> <span class="unidad">miles de dólares</span> (cifras revisadas)</dd>
-        <dt>Fuente</dt>
-        <dd><a href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip">ZIP de INEGI, países y tipo de bien</a> · <a href="https://www.inegi.org.mx/programas/comext/">programa COMEXT</a></dd>
-      </dl>
-      <p>Hechos de 2025 (cifras ajustadas en este archivo). Denominador: filas con continente, región y país vacíos (total nacional por tipo de bien, sumados). Quedan fuera todas las filas con <code>PAIS_O_D</code> vacío. El código es el publicado; no se tradujo.</p>
-      <ul class="hechos">
-        <li>Total oficial 2025: <span class="cifra">664,266,699</span> <span class="unidad">miles de dólares</span></li>
-        <li>País mayor: USA · <span class="cifra">551,454,635</span> <span class="unidad">miles de dólares</span> · <span class="cifra">83.0%</span> del total oficial</li>
-      </ul>
-      <p class="acciones">
-        <a href="datos/exportaciones_pais_tipo_bien_2015_2026.csv" download>Descargar CSV</a>
-        <a href="https://github.com/Rentheria/cubos-mx/raw/main/datos/exportaciones_pais_tipo_bien_2015_2026.csv">Copia en GitHub</a>
-      </p>
+      <div class="recorte-head">
+        <div>
+          <h3>Exportaciones, país por tipo de bien</h3>
+          <code class="archivo">exportaciones_pais_tipo_bien_2015_2026.csv</code>
+        </div>
+        <p class="stamp">miles de dólares</p>
+      </div>
+      <div class="recorte-body">
+        <p>País o zona (<code>PAIS_O_D</code>) por tipo de bien (consumo, intermedio, capital). No es capítulo. Una fila con país vacío es el total de esa zona, continente o el total nacional; no es un país.</p>
+        <dl class="meta">
+          <dt>Periodo</dt>
+          <dd>enero 2015 a julio 2026 · 2015-01 a 2026-07 · 139 meses en el archivo</dd>
+          <dt>Unidad</dt>
+          <dd>VAL_USD en miles de dólares</dd>
+          <dt>No contiene</dt>
+          <dd>capítulo arancelario ni medio de transporte</dd>
+          <dt>Filas</dt>
+          <dd class="cifra">107,622</dd>
+          <dt>Último mes</dt>
+          <dd>2026-07 · julio 2026 · total oficial <span class="cifra">81,420,016</span> <span class="unidad">miles de dólares</span> · Cifras Revisadas</dd>
+          <dt>Año completo</dt>
+          <dd>2025 · Cifras Ajustadas</dd>
+          <dt>Fuente ZIP</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip">https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip</a></dd>
+          <dt>Programa</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/programas/comext/">https://www.inegi.org.mx/programas/comext/</a></dd>
+        </dl>
+        <p>Hechos de 2025. Denominador: filas con continente, región y país vacíos (total nacional por tipo de bien, sumados). Quedan fuera todas las filas con <code>PAIS_O_D</code> vacío. El código es el publicado; no se tradujo.</p>
+        <div class="hechos-grid">
+          <div class="dato">
+            <p class="dato-label">Total oficial 2025</p>
+            <p class="dato-valor">664,266,699</p>
+            <p class="dato-unidad">miles de dólares</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">País mayor 2025</p>
+            <p class="dato-valor">551,454,635</p>
+            <p class="dato-unidad">miles de dólares</p>
+            <p>USA · <span class="cifra">83.0%</span> del total oficial</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Países con valor en 2025</p>
+            <p class="dato-valor">239</p>
+            <p class="dato-unidad">códigos PAIS_O_D no vacíos</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Último mes, total oficial</p>
+            <p class="dato-valor">81,420,016</p>
+            <p class="dato-unidad">miles de dólares · julio 2026 · Cifras Revisadas</p>
+          </div>
+        </div>
+        <p class="acciones">
+          <a class="primario" href="datos/exportaciones_pais_tipo_bien_2015_2026.csv" download>Descargar CSV</a>
+          <a class="secundario" href="https://github.com/Rentheria/cubos-mx/raw/main/datos/exportaciones_pais_tipo_bien_2015_2026.csv">Copia en GitHub</a>
+        </p>
+      </div>
     </article>
 
     <article class="recorte" id="pais-imp">
-      <h3>Importaciones, país por tipo de bien</h3>
-      <p><code>importaciones_pais_tipo_bien_2015_2026.csv</code></p>
-      <p>Mismo diseño que el de exportaciones por país. Sale del mismo ZIP. País vacío = total de zona, no un país.</p>
-      <dl class="meta">
-        <dt>Periodo</dt>
-        <dd>enero 2015 a julio 2026 (139 meses en el archivo)</dd>
-        <dt>Unidad</dt>
-        <dd>VAL_USD en miles de dólares</dd>
-        <dt>No contiene</dt>
-        <dd>capítulo arancelario ni medio de transporte</dd>
-        <dt>Filas</dt>
-        <dd class="cifra">107,622</dd>
-        <dt>Último mes</dt>
-        <dd>julio 2026 · total oficial <span class="cifra">82,267,552</span> <span class="unidad">miles de dólares</span> (cifras revisadas)</dd>
-        <dt>Fuente</dt>
-        <dd><a href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip">ZIP de INEGI, países y tipo de bien</a> · <a href="https://www.inegi.org.mx/programas/comext/">programa COMEXT</a></dd>
-      </dl>
-      <p>Hechos de 2025 (cifras ajustadas en este archivo). Misma regla: total nacional como denominador; se excluye <code>PAIS_O_D</code> vacío.</p>
-      <ul class="hechos">
-        <li>Total oficial 2025: <span class="cifra">664,057,249</span> <span class="unidad">miles de dólares</span></li>
-        <li>País mayor: USA · <span class="cifra">249,796,665</span> <span class="unidad">miles de dólares</span> · <span class="cifra">37.6%</span> del total oficial</li>
-      </ul>
-      <p class="acciones">
-        <a href="datos/importaciones_pais_tipo_bien_2015_2026.csv" download>Descargar CSV</a>
-        <a href="https://github.com/Rentheria/cubos-mx/raw/main/datos/importaciones_pais_tipo_bien_2015_2026.csv">Copia en GitHub</a>
-      </p>
+      <div class="recorte-head">
+        <div>
+          <h3>Importaciones, país por tipo de bien</h3>
+          <code class="archivo">importaciones_pais_tipo_bien_2015_2026.csv</code>
+        </div>
+        <p class="stamp">miles de dólares</p>
+      </div>
+      <div class="recorte-body">
+        <p>Mismo diseño que el de exportaciones por país. Sale del mismo ZIP. País vacío = total de zona, no un país. No es capítulo.</p>
+        <dl class="meta">
+          <dt>Periodo</dt>
+          <dd>enero 2015 a julio 2026 · 2015-01 a 2026-07 · 139 meses en el archivo</dd>
+          <dt>Unidad</dt>
+          <dd>VAL_USD en miles de dólares</dd>
+          <dt>No contiene</dt>
+          <dd>capítulo arancelario ni medio de transporte</dd>
+          <dt>Filas</dt>
+          <dd class="cifra">107,622</dd>
+          <dt>Último mes</dt>
+          <dd>2026-07 · julio 2026 · total oficial <span class="cifra">82,267,552</span> <span class="unidad">miles de dólares</span> · Cifras Revisadas</dd>
+          <dt>Año completo</dt>
+          <dd>2025 · Cifras Ajustadas</dd>
+          <dt>Fuente ZIP</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip">https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip</a></dd>
+          <dt>Programa</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/programas/comext/">https://www.inegi.org.mx/programas/comext/</a></dd>
+        </dl>
+        <p>Hechos de 2025. Misma regla: total nacional como denominador; se excluye <code>PAIS_O_D</code> vacío.</p>
+        <div class="hechos-grid">
+          <div class="dato">
+            <p class="dato-label">Total oficial 2025</p>
+            <p class="dato-valor">664,057,249</p>
+            <p class="dato-unidad">miles de dólares</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">País mayor 2025</p>
+            <p class="dato-valor">249,796,665</p>
+            <p class="dato-unidad">miles de dólares</p>
+            <p>USA · <span class="cifra">37.6%</span> del total oficial</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Países con valor en 2025</p>
+            <p class="dato-valor">239</p>
+            <p class="dato-unidad">códigos PAIS_O_D no vacíos</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Último mes, total oficial</p>
+            <p class="dato-valor">82,267,552</p>
+            <p class="dato-unidad">miles de dólares · julio 2026 · Cifras Revisadas</p>
+          </div>
+        </div>
+        <p class="acciones">
+          <a class="primario" href="datos/importaciones_pais_tipo_bien_2015_2026.csv" download>Descargar CSV</a>
+          <a class="secundario" href="https://github.com/Rentheria/cubos-mx/raw/main/datos/importaciones_pais_tipo_bien_2015_2026.csv">Copia en GitHub</a>
+        </p>
+      </div>
     </article>
 
     <article class="recorte" id="aduana">
-      <h3>Aduana por medio de transporte</h3>
-      <p><code>aduana_transporte_2012_2026.csv</code></p>
-      <p>Aduana por medio de transporte. Trae exportación e importación. No es capítulo ni país. Sale del ZIP de modo de transporte.</p>
-      <dl class="meta">
-        <dt>Periodo</dt>
-        <dd>enero 2012 a julio 2026 (175 meses en el archivo)</dd>
-        <dt>Unidad</dt>
-        <dd>VAL_USD en millones de dólares</dd>
-        <dt>No contiene</dt>
-        <dd>capítulo arancelario ni país</dd>
-        <dt>Filas</dt>
-        <dd class="cifra">14,350</dd>
-        <dt>Último mes</dt>
-        <dd>julio 2026 · exportación <span class="cifra">81,420.015</span> e importación <span class="cifra">82,267.552</span> <span class="unidad">millones de dólares</span> (cifras revisadas)</dd>
-        <dt>Fuente</dt>
-        <dd><a href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip">ZIP de INEGI, modo de transporte</a> · <a href="https://www.inegi.org.mx/programas/comext/">programa COMEXT</a></dd>
-      </dl>
-      <p>Hechos de 2025 (cifras revisadas). Denominador: «Exportación total» o «Importación total» del mismo flujo. Quedan fuera esas filas, las de medio de transporte y «Otras aduanas» (residual publicado, no una aduana nombrada).</p>
-      <ul class="hechos">
-        <li>Aduana mayor en exportación: Nuevo Laredo, Tamps. · <span class="cifra">204,422.240</span> <span class="unidad">millones de dólares</span> · <span class="cifra">30.7%</span> del total oficial de exportación 2025 (<span class="cifra">664,837.168</span> <span class="unidad">millones de dólares</span>)</li>
-        <li>Aduana mayor en importación: Nuevo Laredo, Tamps. · <span class="cifra">121,958.913</span> <span class="unidad">millones de dólares</span> · <span class="cifra">18.4%</span> del total oficial de importación 2025 (<span class="cifra">664,066.222</span> <span class="unidad">millones de dólares</span>)</li>
-      </ul>
-      <p class="acciones">
-        <a href="datos/aduana_transporte_2012_2026.csv" download>Descargar CSV</a>
-        <a href="https://github.com/Rentheria/cubos-mx/raw/main/datos/aduana_transporte_2012_2026.csv">Copia en GitHub</a>
-      </p>
+      <div class="recorte-head">
+        <div>
+          <h3>Aduana por medio de transporte</h3>
+          <code class="archivo">aduana_transporte_2012_2026.csv</code>
+        </div>
+        <p class="stamp">millones de dólares</p>
+      </div>
+      <div class="recorte-body">
+        <p>Aduana por medio de transporte. Trae exportación e importación. No es capítulo ni país. Sale del ZIP de modo de transporte.</p>
+        <dl class="meta">
+          <dt>Periodo</dt>
+          <dd>enero 2012 a julio 2026 · 2012-01 a 2026-07 · 175 meses en el archivo</dd>
+          <dt>Unidad</dt>
+          <dd>VAL_USD en millones de dólares</dd>
+          <dt>No contiene</dt>
+          <dd>capítulo arancelario ni país</dd>
+          <dt>Filas</dt>
+          <dd class="cifra">14,350</dd>
+          <dt>Último mes</dt>
+          <dd>2026-07 · julio 2026 · exportación <span class="cifra">81,420.015</span> e importación <span class="cifra">82,267.552</span> <span class="unidad">millones de dólares</span> · Cifras Revisadas</dd>
+          <dt>Año completo</dt>
+          <dd>2025 · Cifras Revisadas</dd>
+          <dt>Fuente ZIP</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip">https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip</a></dd>
+          <dt>Programa</dt>
+          <dd><a class="url" href="https://www.inegi.org.mx/programas/comext/">https://www.inegi.org.mx/programas/comext/</a></dd>
+        </dl>
+        <p>Hechos de 2025. Denominador: «Exportación total» o «Importación total» del mismo flujo. Quedan fuera esas filas, las de medio de transporte y «Otras aduanas» (residual publicado, no una aduana nombrada).</p>
+        <div class="hechos-grid">
+          <div class="dato">
+            <p class="dato-label">Aduana mayor, exportación 2025</p>
+            <p class="dato-valor">204,422.240</p>
+            <p class="dato-unidad">millones de dólares</p>
+            <p>Nuevo Laredo, Tamps. · <span class="cifra">30.7%</span> de <span class="cifra">664,837.168</span> <span class="unidad">millones de dólares</span></p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Aduana mayor, importación 2025</p>
+            <p class="dato-valor">121,958.913</p>
+            <p class="dato-unidad">millones de dólares</p>
+            <p>Nuevo Laredo, Tamps. · <span class="cifra">18.4%</span> de <span class="cifra">664,066.222</span> <span class="unidad">millones de dólares</span></p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Otras aduanas, exportación 2025</p>
+            <p class="dato-valor">73,180.293</p>
+            <p class="dato-unidad">millones de dólares</p>
+            <p>Residual publicado. Excluido del «mayor» para no tratarlo como una aduana nombrada.</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Otras aduanas, importación 2025</p>
+            <p class="dato-valor">89,942.960</p>
+            <p class="dato-unidad">millones de dólares</p>
+            <p>Residual publicado. Excluido del «mayor» para no tratarlo como una aduana nombrada.</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Último mes, exportación</p>
+            <p class="dato-valor">81,420.015</p>
+            <p class="dato-unidad">millones de dólares · julio 2026 · Cifras Revisadas</p>
+          </div>
+          <div class="dato">
+            <p class="dato-label">Último mes, importación</p>
+            <p class="dato-valor">82,267.552</p>
+            <p class="dato-unidad">millones de dólares · julio 2026 · Cifras Revisadas</p>
+          </div>
+        </div>
+        <p class="acciones">
+          <a class="primario" href="datos/aduana_transporte_2012_2026.csv" download>Descargar CSV</a>
+          <a class="secundario" href="https://github.com/Rentheria/cubos-mx/raw/main/datos/aduana_transporte_2012_2026.csv">Copia en GitHub</a>
+        </p>
+      </div>
     </article>
 
     <h2 id="metodo">Cómo se calcularon los hechos</h2>
-    <p>Se sumó <code>VAL_USD</code> del último año calendario con 12 meses en el mismo CSV; el denominador es la fila de total oficial de ese recorte; se excluyeron subtotales que volverían a contar el mismo valor.</p>
-    <p class="note">Los hechos están escritos en esta página y en <a href="hechos.json"><code>hechos.json</code></a>. Se regeneran con <code>python3 scripts/hechos_recortes.py</code>. Cada cifra lleva la unidad del archivo del que sale. Un total de capítulo no se compara con un total de país.</p>
+    <div class="panel">
+      <p>Se sumó <code>VAL_USD</code> del último año calendario con 12 meses en el mismo CSV; el denominador es la fila de total oficial de ese recorte; se excluyeron subtotales que volverían a contar el mismo valor.</p>
+      <p class="note">Los hechos están escritos en esta página y en <a href="hechos.json">hechos.json</a>. Se regeneran con <code>python3 scripts/hechos_recortes.py</code>. Cada cifra lleva la unidad del archivo del que sale. Un total de capítulo no se compara con un total de país.</p>
+    </div>
   </main>
+
   <footer>
-    <hr>
-    <p>Los datos son de INEGI. Este repositorio solo guarda el recorte CSV. Cubo capítulo × país: <a href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp">OLAP mensual 2023–2026</a>.</p>
+    <div class="wrap">
+      <p>Los datos son de INEGI, IMSS, Banxico y la Secretaría de Salud. Este repositorio solo guarda el inventario y los recortes CSV ya documentados. Cubo capítulo × país: <a class="url" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp">https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</a></p>
+    </div>
   </footer>
 </body>
 </html>
