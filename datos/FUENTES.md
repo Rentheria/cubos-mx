@@ -19,13 +19,13 @@ https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_m
 - Periodo en las tablas: enero 2012 a julio 2026
 - Trae exportación e importación en las mismas tablas
 
-Archivos del ZIP:
+Archivos del ZIP (filas = datos, sin encabezado):
 
-- `conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv` — 171,850 filas (85,925 exportación y 85,925 importación)
-- `conjunto_de_datos/bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv` — 14,350 filas (7,175 por flujo)
-- `catalogos/tc_mtra.csv`
-- `catalogos/tc_periodo_mes.csv`
-- `diccionario_de_datos/diccionario_datos_bcmm_mtra_mensual_2012_2026.csv`
+- `conjunto_de_datos/bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv` — 26,752,913 B · 171,850 filas (85,925 exportación y 85,925 importación)
+- `conjunto_de_datos/bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv` — 1,842,836 B · 14,350 filas (7,175 por flujo)
+- `catalogos/tc_mtra.csv` — 92 B · 5 filas
+- `catalogos/tc_periodo_mes.csv` — 170 B · 12 filas
+- `diccionario_de_datos/diccionario_datos_bcmm_mtra_mensual_2012_2026.csv` — 2,709 B · 10 filas
 - `metadatos/metadatos_bcmm_mtra_mensual_2012_2026.txt`
 - `modelo_entidad_relacion/modelo_er_bcmm_mtra_mensual_2012_2026.png`
 
@@ -37,16 +37,16 @@ Archivos del ZIP:
 - Periodo: enero 2015 a julio 2026
 - INEGI parte la tabla en tres CSV. Cada uno trae exportación e importación. País vacío = total de zona, no un país
 
-Archivos del ZIP:
+Archivos del ZIP (filas = datos, sin encabezado):
 
-- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv` — 148,680 filas
-- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv` — 55,728 filas
-- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv` — 10,836 filas
-- `catalogos/tc_continente.csv`
-- `catalogos/tc_region.csv`
-- `catalogos/tc_pais.csv`
-- `catalogos/tc_periodo_mes.csv`
-- `diccionario_de_datos/diccionario_datos_paises_bien_mensual_2015_2026.csv`
+- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv` — 27,268,595 B · 148,680 filas
+- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv` — 10,114,644 B · 55,728 filas
+- `conjunto_de_datos/bcmm_paises_bien_mensual_tr_cifra_2026.csv` — 1,964,317 B · 10,836 filas
+- `catalogos/tc_continente.csv` — 92 B · 5 filas
+- `catalogos/tc_region.csv` — 375 B · 13 filas
+- `catalogos/tc_pais.csv` — 4,645 B · 263 filas
+- `catalogos/tc_periodo_mes.csv` — 170 B · 12 filas
+- `diccionario_de_datos/diccionario_datos_paises_bien_mensual_2015_2026.csv` — 3,402 B · 12 filas
 - `metadatos/metadatos_paises_bien_mensual_2015_2022.txt`
 - `metadatos/metadatos_paises_bien_mensual_2023_2025.txt`
 - `metadatos/metadatos_paises_bien_mensual_2026.txt`
