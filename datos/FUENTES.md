@@ -15,7 +15,7 @@ No se junta capítulo con país. No se suman millones, miles y dólares. ETEF no
 | BCMM datos abiertos trae entidad o municipio | `…/conjunto_de_datos_bcmm_mensual_entidad_csv.zip` y `…/municipio_csv.zip` (y `…/aduana_csv.zip` aparte del paquete mtra) son HTML 2 263 B, no zip. |
 | El programa ETEF vive en `/programas/exportacionesef/` | Esa URL abre «Página no encontrada» / «Esta liga ya no existe». El programa vivo es https://www.inegi.org.mx/programas/exporta_ef/ |
 | El cruce capítulo × país × fracción no se puede bajar del cubo | El 3 oct 2026 `exporta.aspx` sí entregó CSV por mes. 43 archivos en `datos/olap_bcmm_mensual2023/`; cada uno igualó `Cant_Fil`. |
-| El cubo de Banxico tiene CSV completo | Las páginas abiertas no ofrecen ZIP ni CSV del cubo. Excel puede truncar. |
+| El cubo de Banxico tiene CSV completo | 4 oct 2026: SIDIE `dataset?ruta=Cubo` 200 «Todavía no existe ningún registro.» Tablero 401. `/datos.csv` y `/cubo.zip` 404 (103 B). Sin dump. |
 | El BIE abre | https://www.inegi.org.mx/sistemas/bie/ respondió HTTP 500. |
 
 ## BCMM — mensual, agregados (ZIP oficial)
@@ -209,17 +209,18 @@ Archivos del ZIP (filas = datos, sin encabezado):
 
 No se junta con el mensual de capítulo (millones) ni con el de país (miles). Notas: `datos/extractos/OLAP_capitulo_pais_fraccion.md`.
 
-## Banxico — Cubo de Comercio Exterior (sin CSV)
+## Banxico — Cubo de Comercio Exterior (sin archivo completo)
 
-- Consulta: 3 oct 2026
-- Página abierta: https://www.banxico.org.mx/CuboComercioExterior/
-- Visores abiertos el mismo día: `/ValorDolares/inicio`, `/ValorDolaresAnual/inicio`, `/ValorDolares/seriesproducto`
-- Forma: software de consulta (embebe `tablero.banxico.org.mx`, Pyramid). No hay ZIP ni CSV completo en esas páginas.
-- `tablero.banxico.org.mx` respondió HTTP 401. `/ValorDolares/csv` y `/export` respondieron 404.
+- Consultas: 3 oct 2026 y 4 oct 2026, 02:06 UTC
+- Página abierta: https://www.banxico.org.mx/CuboComercioExterior/ (HTTP 200, `text/html;charset=UTF-8`, 118 910 B; 0 href `.csv`/`.zip`)
+- SIDIE: https://www.banxico.org.mx/DataSetsWeb/dataset?ruta=Cubo&idioma=es — HTTP 200, 4 283 B, texto «Todavía no existe ningún registro.»
+- Tablero: https://tablero.banxico.org.mx/ — HTTP 401, `text/html;charset=utf-8`, 2 968 B, etiqueta `YOU DON'T HAVE THE AUTHORIZATION`
+- Rutas de dump (`/datos.csv`, `/cubo.zip`, `/ValorDolares/csv`, `/ValorDolares/export`): HTTP 404, 103 B, `The resource you are looking for has been removed, had its name changed, or is temporarily unavailable.`
+- Forma: software de consulta (embebe `tablero.banxico.org.mx`, Pyramid). La ayuda solo ofrece copiar al portapapeles o Imprimir → Excel de la tabla consultada.
 - Unidad que declara la bienvenida: valor en dólares (tratamiento estadístico). Volumen solo a nivel fracción, sin tratamiento estadístico.
 - Periodo: el tutorial usa desde enero 1993; las páginas abiertas no publican la fecha final.
 
-Ayuda en la misma página: clic derecho → copiar datos, o Imprimir → Excel. Si la consulta cabe en más celdas que el máximo de filas de Microsoft Office, Excel trunca. La página no nombró ese máximo; no se inventa aquí. No se publica un Excel truncado. Notas en `datos/extractos/BANXICO_cubo.md`.
+No se publica un Excel truncado. No se recorre el tablero capítulo por capítulo. Los ZIP de SIDIE MLL no son este cubo. Tabla HTTP: `datos/extractos/BANXICO_cubo.md`. Sondeo: `datos/banxico_cubo/probe.json`.
 
 ## Catálogos y diccionarios
 

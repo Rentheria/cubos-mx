@@ -16,7 +16,9 @@ No es un data lake. No hay app todavía.
 
 El mensual de agregados BCMM (ZIP `conjunto_de_datos_bcmm_mensual_csv.zip`) trae agosto 2026 como cifra oportuna. El mensual de modo de transporte, el de país y el cubo OLAP 2023 siguen en julio 2026. No hay ZIP de entidad ni municipio en COMEXT: esas URLs inventadas son HTML.
 
-El cubo OLAP 2023 (tipo × país × fracción, dólares FOB) sí se bajó por mes el 3 oct 2026: 43 CSV en `datos/olap_bcmm_mensual2023/`, enero 2023 a julio 2026. Banxico no publicó un CSV; `tablero.banxico.org.mx` respondió 401. Un Excel truncado no es el cubo.
+El cubo OLAP 2023 (tipo × país × fracción, dólares FOB) sí se bajó por mes el 3 oct 2026: 43 CSV en `datos/olap_bcmm_mensual2023/`, enero 2023 a julio 2026.
+
+Banxico no entrega un archivo completo del cubo. Reintento 4 oct 2026, 02:06 UTC: las páginas del cubo son HTML sin href `.csv`/`.zip`; SIDIE `dataset?ruta=Cubo` responde 200 con «Todavía no existe ningún registro.»; `tablero.banxico.org.mx` responde 401 (`YOU DON'T HAVE THE AUTHORIZATION`); `/datos.csv`, `/cubo.zip` y `/ValorDolares/csv` responden 404 (103 B). Tabla HTTP: [datos/extractos/BANXICO_cubo.md](datos/extractos/BANXICO_cubo.md). Un Excel truncado no es el cubo. No se junta con los ZIP de INEGI.
 
 ## Fuentes
 

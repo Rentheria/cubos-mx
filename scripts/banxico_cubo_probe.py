@@ -1,97 +1,112 @@
 #!/usr/bin/env python3
-"""Probe Banxico Cubo de Comercio Exterior for a complete non-Excel export."""
+"""Probe Banxico Cubo de Comercio Exterior for a complete official dump.
+
+Records exact HTTP, Content-Type, bytes and response head.
+Does not scrape the tablero chapter by chapter.
+Does not write a truncated Excel.
+"""
 
 from __future__ import annotations
 
 import json
 import re
+import ssl
+import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 UA = "cubos-mx extract (public pages; contact via GitHub Rentheria/cubos-mx)"
-PAGES = [
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "datos" / "banxico_cubo"
+CTX = ssl.create_default_context()
+
+URLS = [
     "https://www.banxico.org.mx/CuboComercioExterior/",
     "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/inicio",
     "https://www.banxico.org.mx/CuboComercioExterior/ValorDolaresAnual/inicio",
     "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/seriesproducto",
+    "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/matrizprodregion",
+    "https://www.banxico.org.mx/CuboComercioExterior/Volumen/inicio",
+    "https://www.banxico.org.mx/CuboComercioExterior/Volumen/seriesproducto",
+    "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/export",
+    "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/csv",
+    "https://www.banxico.org.mx/CuboComercioExterior/datos.csv",
+    "https://www.banxico.org.mx/CuboComercioExterior/datos.zip",
+    "https://www.banxico.org.mx/CuboComercioExterior/cubo.csv",
+    "https://www.banxico.org.mx/CuboComercioExterior/cubo.zip",
+    "https://www.banxico.org.mx/DataSetsWeb/?idioma=es",
+    "https://www.banxico.org.mx/DataSetsWeb/dataset?ruta=Cubo&idioma=es",
+    "https://www.banxico.org.mx/DataSetsWeb/dataset?ruta=Balanza&idioma=es",
+    "https://www.banxico.org.mx/DataSetsWeb/dataset?ruta=MLL&idioma=es",
+    "https://www.banxico.org.mx/DataSetsWeb/cubo",
+    "https://tablero.banxico.org.mx/",
+    "https://tablero.banxico.org.mx/no-shell/",
     "https://tablero.banxico.org.mx/no-shell/embed.js",
+    "https://tablero.banxico.org.mx/API/auth/login",
+    "https://tablero.banxico.org.mx/API3/authentication/authenticateUserEmbed",
+    "https://tablero.banxico.org.mx/API/export",
+    "https://www.banxico.org.mx/SieAPIRest/service/v1/",
+    "https://www.snice.gob.mx/cs/avi/snice/fuentesestadisticas.html",
 ]
-ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "datos" / "banxico_cubo"
 
 
-def fetch(url: str) -> tuple[int, str, bytes]:
+def fetch(url: str) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+    rec: dict = {
+        "url": url,
+        "http": 0,
+        "content_type": "",
+        "bytes": 0,
+        "head": "",
+        "disposition": "",
+        "csv_hrefs": [],
+        "file_hrefs": [],
+        "pk": False,
+    }
     try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return r.status, r.headers.get("Content-Type", ""), r.read()
+        with urllib.request.urlopen(req, timeout=45, context=CTX) as r:
+            raw = r.read()
+            rec["http"] = r.status
+            rec["content_type"] = r.headers.get("Content-Type", "")
+            rec["disposition"] = r.headers.get("Content-Disposition", "")
+            rec["final_url"] = r.geturl()
+            rec["bytes"] = len(raw)
+            rec["head"] = raw[:240].decode("utf-8", errors="replace")
+            rec["pk"] = raw[:4] == b"PK\x03\x04"
+            if "html" in rec["content_type"].lower():
+                text = raw.decode("utf-8", errors="replace")
+                hrefs = re.findall(r'href=["\']([^"\']+)["\']', text, re.I)
+                rec["csv_hrefs"] = [h for h in hrefs if re.search(r"\.(csv|zip)(\?|$)", h, re.I)]
+                rec["file_hrefs"] = [
+                    h for h in hrefs if re.search(r"\.(csv|zip|xlsx|xls)(\?|$)", h, re.I)
+                ]
+    except urllib.error.HTTPError as e:
+        raw = e.read() if e.fp else b""
+        rec["http"] = e.code
+        rec["content_type"] = e.headers.get("Content-Type", "") if e.headers else ""
+        rec["bytes"] = len(raw)
+        rec["head"] = raw[:240].decode("utf-8", errors="replace")
+        rec["error"] = f"HTTP Error {e.code}: {e.reason}"
     except Exception as e:
-        return 0, str(e), b""
+        rec["error"] = f"{type(e).__name__}: {e}"
+    print(f"{rec['http']:>4} {rec['bytes']:>8} {url}", flush=True)
+    return rec
 
 
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
-    report = {"consulta": "2026-10-03", "paginas": []}
-    js_urls = []
-    for url in PAGES:
-        status, ctype, raw = fetch(url)
-        text = raw.decode("utf-8", errors="replace")
-        entry = {
-            "url": url,
-            "http": status,
-            "content_type": ctype,
-            "bytes": len(raw),
-            "csv_links": re.findall(r'https?://[^"\']+\.csv[^"\']*', text, re.I),
-            "zip_links": re.findall(r'https?://[^"\']+\.zip[^"\']*', text, re.I),
-            "api_like": sorted(
-                set(
-                    re.findall(
-                        r'https?://[^"\']+(?:api|odata|export|download|csv)[^"\']*',
-                        text,
-                        re.I,
-                    )
-                )
-            )[:40],
-        }
-        js_urls.extend(re.findall(r'src=["\']([^"\']+\.js[^"\']*)["\']', text, re.I))
-        report["paginas"].append(entry)
-        print(url, status, ctype, len(raw), "csv", entry["csv_links"][:3], flush=True)
-
-    # follow embed script hosts
-    extra = []
-    for u in js_urls:
-        if u.startswith("//"):
-            u = "https:" + u
-        elif u.startswith("/"):
-            u = "https://www.banxico.org.mx" + u
-        extra.append(u)
-    report["scripts"] = sorted(set(extra))[:60]
-
-    # common Qlik/PowerBI/tableau endpoints near the embed
-    guesses = [
-        "https://tablero.banxico.org.mx/",
-        "https://tablero.banxico.org.mx/no-shell/",
-        "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/export",
-        "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/csv",
-        "https://www.banxico.org.mx/SieAPIRest/service/v1/",
-    ]
-    report["sondeos"] = []
-    for url in guesses:
-        status, ctype, raw = fetch(url)
-        report["sondeos"].append(
-            {
-                "url": url,
-                "http": status,
-                "content_type": ctype,
-                "bytes": len(raw),
-                "head": raw[:160].decode("utf-8", errors="replace"),
-            }
-        )
-        print("guess", url, status, ctype, len(raw), flush=True)
-
+    hits = [fetch(url) for url in URLS]
+    report = {
+        "consulta": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "ua": UA,
+        "complete_file_found": any(h.get("pk") or (h.get("http") == 200 and h.get("csv_hrefs")) for h in hits if "CuboComercioExterior" in h["url"]),
+        "hits": hits,
+    }
     (OUT / "probe.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    print("complete_file_found", report["complete_file_found"], flush=True)
     return 0
 
 

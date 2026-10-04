@@ -526,7 +526,7 @@
       <div>
         <p class="kicker">Inventario 3 oct 2026 · ZIP oficiales y cubos</p>
         <h1>Cubos públicos y las tablas oficiales de INEGI</h1>
-        <p class="lead">Catálogo de cubos y los ZIP de datos abiertos de la BCMM y de ETEF que se comprobaron en vivo el 3 de octubre de 2026. Cada entrada lleva URL oficial, unidad, periodo y si es ZIP o extracto de cubo. El OLAP 2023 sí se bajó por mes; Banxico no publicó un CSV.</p>
+        <p class="lead">Catálogo de cubos y los ZIP de datos abiertos de la BCMM y de ETEF que se comprobaron en vivo el 3 de octubre de 2026. Cada entrada lleva URL oficial, unidad, periodo y si es ZIP o extracto de cubo. El OLAP 2023 sí se bajó por mes. Banxico, el 4 oct 2026, no entregó un archivo completo: tabla HTTP en <a href="datos/extractos/BANXICO_cubo.md">datos/extractos/BANXICO_cubo.md</a>.</p>
         <div class="rules">
           <p><strong>Capítulo y país son tablas distintas.</strong> No se juntan.</p>
           <p><strong>No se suman millones con miles ni con dólares.</strong> Cada archivo declara su unidad.</p>
@@ -751,8 +751,9 @@
           <h3>Banxico</h3>
           <article class="card">
             <h4>Cubo de Comercio Exterior</h4>
-            <p>Consulta 3 oct 2026. Se abrió esta página y ValorDolares / ValorDolaresAnual. Embebe tablero.banxico.org.mx. No hay ZIP ni CSV completo. El tutorial usa desde enero 1993. Las páginas abiertas no publican la fecha final. Valor en dólares (tratamiento estadístico). Volumen solo a nivel fracción. Clic derecho, copiar datos, o Imprimir → Excel. Excel trunca si la consulta supera el máximo de filas de Microsoft Office; la página no nombró ese máximo. Preliminar; puede no coincidir con la BCMM.</p>
+            <p>Reintento 4 oct 2026, 02:06 UTC. La página es HTML 118 910 B sin href <code>.csv</code>/<code>.zip</code>. SIDIE <code>dataset?ruta=Cubo</code> respondió 200 con «Todavía no existe ningún registro.» <code>tablero.banxico.org.mx</code> respondió 401 (<code>YOU DON'T HAVE THE AUTHORIZATION</code>). <code>/datos.csv</code> y <code>/cubo.zip</code> respondieron 404 (103 B). El tutorial usa desde enero 1993; las páginas no publican la fecha final. Valor en dólares (tratamiento estadístico). Volumen solo a nivel fracción. La ayuda solo ofrece copiar o Imprimir → Excel de la consulta; Excel trunca. Preliminar; puede no coincidir con la BCMM. No se publica un Excel cortado ni un scrape.</p>
             <a class="btn-src" href="https://www.banxico.org.mx/CuboComercioExterior/"><b>Abrir cubo</b><span>https://www.banxico.org.mx/CuboComercioExterior/</span></a>
+            <p class="actions"><a class="btn btn-ghost" href="datos/extractos/BANXICO_cubo.md">Tabla HTTP del sondeo</a></p>
           </article>
         </div>
 
@@ -1019,7 +1020,7 @@
       <div class="shell">
         <p class="kicker">02c · Cubos</p>
         <h2>Extractos de cubo</h2>
-        <p class="lede">No son ZIP oficiales. El OLAP 2023 se bajó por mes el 3 oct 2026 (filas = <code>Cant_Fil</code>). Banxico no publicó CSV. Un recorte truncado no se publica como el cubo. Notas en <a href="datos/extractos/README.md">datos/extractos/</a>.</p>
+        <p class="lede">No son ZIP oficiales. El OLAP 2023 se bajó por mes el 3 oct 2026 (filas = <code>Cant_Fil</code>). Banxico no entregó un archivo completo el 4 oct 2026 (SIDIE Cubo 200 «Todavía no existe ningún registro.»; tablero 401; <code>/datos.csv</code> 404). Un recorte truncado no se publica como el cubo. Tabla HTTP: <a href="datos/extractos/BANXICO_cubo.md">datos/extractos/BANXICO_cubo.md</a>.</p>
         <article class="cut">
           <div class="cut-top">
             <div>
@@ -1089,9 +1090,9 @@
             <span class="badge mill">dólares (tratamiento estadístico)</span>
           </div>
           <div class="cut-body">
-            <p>Páginas abiertas el 3 oct 2026. Sin ZIP ni CSV. <code>tablero.banxico.org.mx</code> respondió 401. El tutorial usa desde enero 1993; la fecha final no está en esas páginas. Excel puede truncar al máximo de filas de Office (la página no nombró el número). No se publica un Excel truncado.</p>
+            <p>4 oct 2026, 02:06 UTC. Sin ZIP ni CSV. SIDIE Cubo: HTTP 200, 4 283 B, «Todavía no existe ningún registro.» Tablero: HTTP 401, 2 968 B, <code>YOU DON'T HAVE THE AUTHORIZATION</code>. <code>/datos.csv</code> y <code>/cubo.zip</code>: HTTP 404, 103 B. El tutorial usa desde enero 1993; la fecha final no está en esas páginas. Excel puede truncar: no se publica un Excel cortado ni un scrape capítulo por capítulo.</p>
             <a class="btn-src" href="https://www.banxico.org.mx/CuboComercioExterior/"><b>Cubo Banxico</b><span>https://www.banxico.org.mx/CuboComercioExterior/</span></a>
-            <p class="actions"><a class="btn btn-ghost" href="datos/extractos/BANXICO_cubo.md">Nota de la consulta</a></p>
+            <p class="actions"><a class="btn btn-ghost" href="datos/extractos/BANXICO_cubo.md">Tabla HTTP del sondeo</a> <a class="btn btn-ghost" href="datos/banxico_cubo/probe.json">probe.json</a></p>
           </div>
         </article>
       </div>
@@ -1338,8 +1339,8 @@
             <p>Esa liga ya no existe. El programa es <a href="https://www.inegi.org.mx/programas/exporta_ef/">/programas/exporta_ef/</a>. BIE: HTTP 500.</p>
           </article>
           <article class="card">
-            <h4>Banxico sin CSV; OLAP sí, por mes</h4>
-            <p>El cubo OLAP 2023 se bajó en 43 CSV (ene 2023–jul 2026); cada mes igualó <code>Cant_Fil</code>. Banxico no ofrece ZIP; <code>tablero.banxico.org.mx</code> respondió 401. Excel puede truncar: no se publica un recorte como si fuera el cubo.</p>
+            <h4>Banxico sin archivo completo; OLAP sí, por mes</h4>
+            <p>El cubo OLAP 2023 se bajó en 43 CSV (ene 2023–jul 2026); cada mes igualó <code>Cant_Fil</code>. Banxico el 4 oct 2026: SIDIE Cubo 200 «Todavía no existe ningún registro.»; tablero 401; <code>/datos.csv</code> 404. Excel puede truncar: no se publica un recorte como si fuera el cubo. <a href="datos/extractos/BANXICO_cubo.md">Tabla HTTP</a>.</p>
           </article>
         </div>
       </div>

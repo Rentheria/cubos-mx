@@ -96,4 +96,4 @@ Consulta: 3 oct 2026 · forma: ZIP oficial · periodo: 2007–2016 · unidad de 
 
 ## Cubos
 
-OLAP INEGI: el extracto en `datos/olap_bcmm_mensual2023/` es el CSV del visor (tipo × país × fracción), no un catálogo aparte. Banxico no publicó catálogo ni CSV el 3 oct 2026. Notas: `datos/extractos/`.
+OLAP INEGI: el extracto en `datos/olap_bcmm_mensual2023/` es el CSV del visor (tipo × país × fracción), no un catálogo aparte. Banxico: el 4 oct 2026 SIDIE `dataset?ruta=Cubo` respondió 200 «Todavía no existe ningún registro.» No hay catálogo ni CSV del cubo. Tabla HTTP: `datos/extractos/BANXICO_cubo.md`.
