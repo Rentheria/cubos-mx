@@ -183,6 +183,13 @@
     .btn:active { transform: scale(0.97); }
     .btn-dl { background: var(--ink); color: #fff; }
     .btn-ghost { background: var(--soft); color: var(--ink); }
+    button.btn {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      color: #fff;
+    }
+    button.btn:disabled { opacity: 0.45; cursor: wait; }
     .btn-src {
       display: flex;
       flex-direction: column;
@@ -400,6 +407,62 @@
       .file { grid-template-columns: 1fr; }
       .file .btn { justify-self: start; }
     }
+    .pick {
+      display: grid;
+      gap: 0.85rem;
+      margin: 1rem 0 0;
+    }
+    .pick-row {
+      display: grid;
+      gap: 0.45rem;
+    }
+    .pick label.lbl {
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+    .pick select {
+      width: 100%;
+      max-width: 32rem;
+      min-height: 2.75rem;
+      border: 0;
+      border-radius: 12px;
+      background: var(--bg);
+      color: var(--ink);
+      font: inherit;
+      padding: 0.55rem 0.75rem;
+      box-shadow: var(--shadow);
+    }
+    .pick fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+    .pick legend {
+      padding: 0;
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+    .pick .opt {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.55rem;
+      align-items: start;
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 0.7rem 0.8rem;
+      box-shadow: var(--shadow);
+    }
+    .pick .opt small { display: block; color: var(--mute); font-weight: 400; }
+    .pick .status { margin: 0; color: var(--mute); }
     .file-list { display: grid; gap: 0.5rem; margin: 0.8rem 0 0; }
     .file-row {
       display: grid;
@@ -446,6 +509,7 @@
     <div class="bar-in">
       <p class="logo"><a href="https://github.com/Rentheria/cubos-mx"><img src="assets/cubo-logo.png" alt="" width="455" height="516">cubos-mx</a></p>
       <nav aria-label="Secciones">
+        <a href="#recorte">Recorte</a>
         <a href="#catalogo">Catálogo</a>
         <a href="#archivos">Archivos</a>
         <a href="#etef">ETEF</a>
@@ -528,6 +592,45 @@
   </div>
 
   <main id="contenido">
+    <section class="section" id="recorte">
+      <div class="shell">
+        <p class="kicker">00 · Recorte</p>
+        <h2>Bajar un año, un capítulo o un país</h2>
+        <p class="lede">Elige un corte. Capítulo y país no se juntan: son archivos distintos y unidades distintas. No se inventa un capítulo por país a partir de esos dos ZIP. El cruce real (tipo × país × fracción, dólares FOB) es el extracto OLAP, aparte de los ZIP mensuales.</p>
+        <article class="cut">
+          <div class="cut-body">
+            <form id="recorte-form" class="pick">
+              <div class="pick-row">
+                <label class="lbl" for="recorte-anio">Año</label>
+                <select id="recorte-anio" name="anio" required></select>
+              </div>
+              <fieldset>
+                <legend>Qué bajar</legend>
+                <label class="opt"><input type="radio" name="corte" value="capitulo" checked> <span><b>Capítulo</b><small>millones de dólares FOB · ZIP de modo de transporte · no es país</small></span></label>
+                <label class="opt"><input type="radio" name="corte" value="pais"> <span><b>País</b><small>miles de dólares FOB · ZIP de país por tipo de bien · no es capítulo</small></span></label>
+                <label class="opt"><input type="radio" name="corte" value="olap"> <span><b>Cruce del cubo OLAP</b><small>dólares FOB · tipo × país × fracción · ene 2023–jul 2026</small></span></label>
+              </fieldset>
+              <div class="pick-row" id="recorte-cap-wrap">
+                <label class="lbl" for="recorte-cap">Capítulo</label>
+                <select id="recorte-cap"></select>
+              </div>
+              <div class="pick-row" id="recorte-pais-wrap" hidden>
+                <label class="lbl" for="recorte-pais">País</label>
+                <select id="recorte-pais"></select>
+              </div>
+              <fieldset id="recorte-olap-dim" hidden>
+                <legend>Filtro del cruce</legend>
+                <label class="opt"><input type="radio" name="olap_dim" value="capitulo" checked> <span>Por capítulo</span></label>
+                <label class="opt"><input type="radio" name="olap_dim" value="pais"> <span>Por país</span></label>
+              </fieldset>
+              <p class="status" id="recorte-nota">Capítulo: millones de dólares FOB. No se mezcla con país.</p>
+              <p class="actions"><button class="btn btn-dl" type="submit" id="recorte-go">Descargar CSV</button></p>
+            </form>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section" id="catalogo">
       <div class="shell">
         <p class="kicker">01 · Inventario</p>
@@ -1260,5 +1363,191 @@
       <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Cubo OLAP · extracto en datos/olap_bcmm_mensual2023/</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
     </div>
   </footer>
+  <script>
+    (function () {
+      var form = document.getElementById("recorte-form");
+      if (!form) return;
+      var cat = null;
+      var anio = document.getElementById("recorte-anio");
+      var cap = document.getElementById("recorte-cap");
+      var pais = document.getElementById("recorte-pais");
+      var capWrap = document.getElementById("recorte-cap-wrap");
+      var paisWrap = document.getElementById("recorte-pais-wrap");
+      var olapDim = document.getElementById("recorte-olap-dim");
+      var nota = document.getElementById("recorte-nota");
+      var go = document.getElementById("recorte-go");
+
+      function corte() {
+        var el = form.querySelector("input[name=corte]:checked");
+        return el ? el.value : "capitulo";
+      }
+      function olapBy() {
+        var el = form.querySelector("input[name=olap_dim]:checked");
+        return el ? el.value : "capitulo";
+      }
+      function fillSelect(sel, items, labelFn, valueFn) {
+        sel.innerHTML = "";
+        items.forEach(function (item) {
+          var o = document.createElement("option");
+          o.value = valueFn(item);
+          o.textContent = labelFn(item);
+          sel.appendChild(o);
+        });
+      }
+      function yearsFor() {
+        var c = corte();
+        if (c === "capitulo") return cat.capitulo.anios;
+        if (c === "pais") return cat.pais.anios;
+        return cat.olap.anios;
+      }
+      function sync() {
+        if (!cat) return;
+        var c = corte();
+        var keep = anio.value;
+        fillSelect(anio, yearsFor(), function (y) { return y; }, function (y) { return y; });
+        if (yearsFor().indexOf(keep) !== -1) anio.value = keep;
+        if (c === "capitulo") {
+          capWrap.hidden = false;
+          paisWrap.hidden = true;
+          olapDim.hidden = true;
+          fillSelect(cap, cat.capitulo.capitulos, function (x) { return x.nombre; }, function (x) { return x.id; });
+          nota.textContent = "Capítulo: millones de dólares FOB. No se mezcla con país.";
+        } else if (c === "pais") {
+          capWrap.hidden = true;
+          paisWrap.hidden = false;
+          olapDim.hidden = true;
+          fillSelect(pais, cat.pais.paises, function (x) { return x.id + " · " + x.nombre; }, function (x) { return x.id; });
+          nota.textContent = "País: miles de dólares FOB. No se mezcla con capítulo.";
+        } else {
+          olapDim.hidden = false;
+          var by = olapBy();
+          capWrap.hidden = by !== "capitulo";
+          paisWrap.hidden = by !== "pais";
+          fillSelect(cap, cat.olap.capitulos, function (x) { return "Capítulo " + x; }, function (x) { return x; });
+          fillSelect(pais, cat.olap.paises, function (x) { return x; }, function (x) { return x; });
+          nota.textContent = "Cruce OLAP: dólares FOB, tipo × país × fracción. No es el ZIP mensual.";
+        }
+      }
+      function parseCsv(text) {
+        var rows = [];
+        var row = [];
+        var cur = "";
+        var q = false;
+        for (var i = 0; i < text.length; i++) {
+          var ch = text[i];
+          if (q) {
+            if (ch === '"') {
+              if (text[i + 1] === '"') { cur += '"'; i++; }
+              else q = false;
+            } else cur += ch;
+          } else if (ch === '"') q = true;
+          else if (ch === ",") { row.push(cur); cur = ""; }
+          else if (ch === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; }
+          else if (ch === "\r") { /* skip */ }
+          else cur += ch;
+        }
+        if (cur.length || row.length) { row.push(cur); rows.push(row); }
+        return rows.filter(function (r) { return r.length > 1 || (r[0] && r[0].length); });
+      }
+      function toCsv(rows) {
+        return rows.map(function (r) {
+          return r.map(function (cell) {
+            var s = cell == null ? "" : String(cell);
+            if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+            return s;
+          }).join(",");
+        }).join("\n") + "\n";
+      }
+      function download(name, text) {
+        var blob = new Blob([text], { type: "text/csv;charset=utf-8" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = name;
+        a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      }
+      function idxOf(header, name) {
+        var i = header.indexOf(name);
+        if (i < 0) throw new Error("Falta columna " + name);
+        return i;
+      }
+
+      form.addEventListener("change", sync);
+      form.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        if (!cat) return;
+        var c = corte();
+        var year = anio.value;
+        go.disabled = true;
+        nota.textContent = "Preparando el recorte…";
+        var url;
+        var filterFn;
+        var file;
+        if (c === "capitulo") {
+          url = cat.capitulo.archivo.replace("{anio}", year);
+          var want = "Capítulo " + cap.value;
+          filterFn = function (header, row) {
+            var i = idxOf(header, "CONCEPTO");
+            return row[i] && row[i].indexOf(want) === 0;
+          };
+          file = "bcmm_capitulo_" + year + "_" + cap.value + ".csv";
+        } else if (c === "pais") {
+          url = cat.pais.archivo.replace("{anio}", year);
+          var code = pais.value;
+          filterFn = function (header, row) {
+            return row[idxOf(header, "PAIS_O_D")] === code;
+          };
+          file = "bcmm_pais_" + year + "_" + code + ".csv";
+        } else if (olapBy() === "capitulo") {
+          url = cat.olap.archivo.replace("{anio}", year);
+          var oc = cap.value;
+          filterFn = function (header, row) {
+            return row[idxOf(header, "capitulo")] === oc;
+          };
+          file = "olap_" + year + "_cap" + oc + ".csv";
+        } else {
+          url = cat.olap.archivo.replace("{anio}", year);
+          var op = pais.value;
+          filterFn = function (header, row) {
+            return row[idxOf(header, "pais")] === op;
+          };
+          file = "olap_" + year + "_pais.csv";
+        }
+        fetch(url).then(function (res) {
+          if (!res.ok) throw new Error("No se pudo abrir " + url);
+          if (url.slice(-3) === ".gz" && res.body && window.DecompressionStream) {
+            return new Response(res.body.pipeThrough(new DecompressionStream("gzip"))).text();
+          }
+          return res.arrayBuffer().then(function (buf) {
+            if (url.slice(-3) === ".gz") throw new Error("Este navegador no descomprime gzip");
+            return new TextDecoder("utf-8").decode(buf);
+          });
+        }).then(function (text) {
+          var rows = parseCsv(text);
+          if (!rows.length) throw new Error("Archivo vacío");
+          var header = rows[0];
+          var out = [header];
+          for (var i = 1; i < rows.length; i++) {
+            if (filterFn(header, rows[i])) out.push(rows[i]);
+          }
+          if (out.length < 2) throw new Error("Ese recorte no tiene filas en " + year);
+          download(file, toCsv(out));
+          nota.textContent = (out.length - 1) + " filas. No se abrió el CSV anual de 140 MB.";
+        }).catch(function (err) {
+          nota.textContent = err.message || String(err);
+        }).then(function () { go.disabled = false; });
+      });
+
+      fetch("datos/recortes/catalogo.json").then(function (r) {
+        if (!r.ok) throw new Error("Falta catalogo.json");
+        return r.json();
+      }).then(function (data) {
+        cat = data;
+        sync();
+      }).catch(function (err) {
+        nota.textContent = err.message || String(err);
+      });
+    })();
+  </script>
 </body>
 </html>
