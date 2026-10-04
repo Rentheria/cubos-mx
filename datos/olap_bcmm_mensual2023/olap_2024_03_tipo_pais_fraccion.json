@@ -1,0 +1,13 @@
+{
+  "consulta": "2026-10-03",
+  "url": "https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp",
+  "cube": "COMEX_BCMM_MENSUAL_2023",
+  "periodo": "2024-03",
+  "unidad": "dólares FOB",
+  "cruce": "tipo_operacion × país × fracción (8 dígitos; el capítulo es el prefijo)",
+  "cant_fil": 103575,
+  "filas_datos": 103575,
+  "export_bytes": 10441952,
+  "completo_del_mes": true,
+  "archivo": "olap_2024_03_tipo_pais_fraccion.csv"
+}

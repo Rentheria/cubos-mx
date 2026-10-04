@@ -1,0 +1,23 @@
+{
+  "consulta": "2026-10-03",
+  "probes": {
+    "Texto separado por comas(.csv)": {
+      "content_type": "ok",
+      "bytes": 414,
+      "head": "Balanza Comercial de Mercancías de México Mensual (enero 2023 - julio 2026)\n\r,Año : 2026\n\r,Mes : Julio\n\r,País : Total\n\r,Tarifa : Total\n\r,Tipo moneda : US Dólare",
+      "looks_html": false
+    },
+    "Texto separado por tabuladores(.txt)": {
+      "content_type": "ok",
+      "bytes": 411,
+      "head": "Balanza Comercial de Mercancías de México Mensual (enero 2023 - julio 2026)\n\r\tAño : 2026\n\r\tMes : Julio\n\r\tPaís : Total\n\r\tTarifa : Total\n\r\tTipo moneda : US Dólare",
+      "looks_html": false
+    },
+    "Hoja de Cálculo Excel(.xls)": {
+      "content_type": "ok",
+      "bytes": 3272,
+      "head": "PK\u0003\u0004\u0014\u0000\b\u0000\b\u0000ðC]äH­¯\u0018\u0001\u0000\u00003\u0003\u0000\u0000\u0013\u0000\u0000\u0000[Content_Types].xmlµÏJ\u00031\u0010Æ_eÉU´\u001eD¤Û\u001eª\u001eU°>ÀÌvCóÌ´¶oo6+\"¥\u001ez$ßÌ÷ý\b3_\u001e¼köÉÆÐ\u0006ÆM+ÞÖ[Ñ\u0010C0àbÀV\u001cÄr1_\u001f\u0013RSf\u0003µ¢gNwJîÑ\u0003É0\u0014¥",
+      "looks_html": false
+    }
+  }
+}

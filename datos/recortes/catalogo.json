@@ -1,0 +1,1748 @@
+{
+  "consulta": "2026-10-04",
+  "aviso": "Capítulo (millones de dólares FOB) y país (miles de dólares FOB) son cortes distintos. No se inventa un cruce capítulo × país a partir de esos ZIP. El cruce real es el extracto OLAP (dólares FOB).",
+  "capitulo": {
+    "unidad": "millones de dólares FOB",
+    "fuente": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+    "forma": "ZIP oficial · solo filas de capítulo (no es país)",
+    "archivo": "datos/recortes/capitulo_millones/{anio}.csv",
+    "columna": "CONCEPTO",
+    "anios": [
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "capitulos": [
+      {
+        "id": "01",
+        "nombre": "Capítulo 01 Animales vivos"
+      },
+      {
+        "id": "02",
+        "nombre": "Capítulo 02 Carne y despojos comestibles"
+      },
+      {
+        "id": "03",
+        "nombre": "Capítulo 03 Pescados, crustáceos y moluscos"
+      },
+      {
+        "id": "04",
+        "nombre": "Capítulo 04 Leche, lácteos, huevos y miel"
+      },
+      {
+        "id": "05",
+        "nombre": "Capítulo 05 Otros productos de origen animal"
+      },
+      {
+        "id": "06",
+        "nombre": "Capítulo 06 Plantas y productos de floricultura"
+      },
+      {
+        "id": "07",
+        "nombre": "Capítulo 07 Hortalizas, plantas, raíces y tubérculos"
+      },
+      {
+        "id": "08",
+        "nombre": "Capítulo 08 Frutas y frutos comestibles"
+      },
+      {
+        "id": "09",
+        "nombre": "Capítulo 09 Café, té, yerba mate y especias"
+      },
+      {
+        "id": "10",
+        "nombre": "Capítulo 10 Cereales"
+      },
+      {
+        "id": "11",
+        "nombre": "Capítulo 11 Productos de la molinería"
+      },
+      {
+        "id": "12",
+        "nombre": "Capítulo 12 Semillas y frutos oleaginosos; frutos diversos"
+      },
+      {
+        "id": "13",
+        "nombre": "Capítulo 13 Gomas, resinas, jugos, extractos vegetales"
+      },
+      {
+        "id": "14",
+        "nombre": "Capítulo 14 Materias trenzables y otros productos vegetales"
+      },
+      {
+        "id": "15",
+        "nombre": "Capítulo 15 Grasas animales o vegetales"
+      },
+      {
+        "id": "16",
+        "nombre": "Capítulo 16 Preparaciones de carne y animales acuáticos"
+      },
+      {
+        "id": "17",
+        "nombre": "Capítulo 17 Azúcares y artículos de confitería"
+      },
+      {
+        "id": "18",
+        "nombre": "Capítulo 18 Cacao y sus preparaciones"
+      },
+      {
+        "id": "19",
+        "nombre": "Capítulo 19 Preparaciones de cereales o leche"
+      },
+      {
+        "id": "20",
+        "nombre": "Capítulo 20 Preparaciones de hortalizas, frutos, plantas"
+      },
+      {
+        "id": "21",
+        "nombre": "Capítulo 21 Preparaciones alimenticias diversas"
+      },
+      {
+        "id": "22",
+        "nombre": "Capítulo 22 Bebidas y vinagre"
+      },
+      {
+        "id": "23",
+        "nombre": "Capítulo 23 Residuos de industrias alimentarias"
+      },
+      {
+        "id": "24",
+        "nombre": "Capítulo 24 Tabaco y sucedáneos elaborados"
+      },
+      {
+        "id": "25",
+        "nombre": "Capítulo 25 Sal, azufre, tierras y piedras"
+      },
+      {
+        "id": "26",
+        "nombre": "Capítulo 26 Minerales metalíferos, escorias"
+      },
+      {
+        "id": "27",
+        "nombre": "Capítulo 27 Combustibles minerales y sus productos"
+      },
+      {
+        "id": "28",
+        "nombre": "Capítulo 28 Productos químicos inorgánicos"
+      },
+      {
+        "id": "29",
+        "nombre": "Capítulo 29 Productos químicos orgánicos"
+      },
+      {
+        "id": "30",
+        "nombre": "Capítulo 30 Productos farmacéuticos"
+      },
+      {
+        "id": "31",
+        "nombre": "Capítulo 31 Abonos"
+      },
+      {
+        "id": "32",
+        "nombre": "Capítulo 32 Extractos curtientes o tintóreos"
+      },
+      {
+        "id": "33",
+        "nombre": "Capítulo 33 Aceites esenciales y resinoides"
+      },
+      {
+        "id": "34",
+        "nombre": "Capítulo 34 Jabón, ceras, lubricantes y velas"
+      },
+      {
+        "id": "35",
+        "nombre": "Capítulo 35 Materias albuminoideas"
+      },
+      {
+        "id": "36",
+        "nombre": "Capítulo 36 Pólvoras, explosivos y cerillos"
+      },
+      {
+        "id": "37",
+        "nombre": "Capítulo 37 Productos fotográficos o cinematográficos"
+      },
+      {
+        "id": "38",
+        "nombre": "Capítulo 38 Productos de las industrias químicas"
+      },
+      {
+        "id": "39",
+        "nombre": "Capítulo 39 Plástico y sus manufacturas"
+      },
+      {
+        "id": "40",
+        "nombre": "Capítulo 40 Caucho y sus manufacturas"
+      },
+      {
+        "id": "41",
+        "nombre": "Capítulo 41 Pieles y cueros"
+      },
+      {
+        "id": "42",
+        "nombre": "Capítulo 42 Manufacturas de cuero y de tripa"
+      },
+      {
+        "id": "43",
+        "nombre": "Capítulo 43 Peletería"
+      },
+      {
+        "id": "44",
+        "nombre": "Capítulo 44 Madera, carbón vegetal y sus manufacturas"
+      },
+      {
+        "id": "45",
+        "nombre": "Capítulo 45 Corcho y sus manufacturas"
+      },
+      {
+        "id": "46",
+        "nombre": "Capítulo 46 Manufacturas de cestería"
+      },
+      {
+        "id": "47",
+        "nombre": "Capítulo 47 Pasta de madera o de materias fibrosas"
+      },
+      {
+        "id": "48",
+        "nombre": "Capítulo 48 Papel, cartón y sus manufacturas"
+      },
+      {
+        "id": "49",
+        "nombre": "Capítulo 49 Productos de industrias gráficas"
+      },
+      {
+        "id": "50",
+        "nombre": "Capítulo 50 Seda"
+      },
+      {
+        "id": "51",
+        "nombre": "Capítulo 51 Lana y pelo hilados y tejidos de crin"
+      },
+      {
+        "id": "52",
+        "nombre": "Capítulo 52 Algodón"
+      },
+      {
+        "id": "53",
+        "nombre": "Capítulo 53 Las demás fibras textiles vegetales"
+      },
+      {
+        "id": "54",
+        "nombre": "Capítulo 54 Filamentos sintéticos o artificiales"
+      },
+      {
+        "id": "55",
+        "nombre": "Capítulo 55 Fibras sintéticas o artificiales discontinuas"
+      },
+      {
+        "id": "56",
+        "nombre": "Capítulo 56 Guata, fieltro y cordelería"
+      },
+      {
+        "id": "57",
+        "nombre": "Capítulo 57 Alfombras y revestimientos para el suelo de materia textil"
+      },
+      {
+        "id": "58",
+        "nombre": "Capítulo 58 Tejidos especiales con mechón insertado"
+      },
+      {
+        "id": "59",
+        "nombre": "Capítulo 59 Telas revestidas, artículos técnicos textiles"
+      },
+      {
+        "id": "60",
+        "nombre": "Capítulo 60 Tejidos de punto"
+      },
+      {
+        "id": "61",
+        "nombre": "Capítulo 61 Prendas, accesorios de vestir de punto"
+      },
+      {
+        "id": "62",
+        "nombre": "Capítulo 62 Prendas, accesorios de vestir excepto de punto"
+      },
+      {
+        "id": "63",
+        "nombre": "Capítulo 63 Los demás artículos textiles confeccionados"
+      },
+      {
+        "id": "64",
+        "nombre": "Capítulo 64 Calzado polainas y análogos"
+      },
+      {
+        "id": "65",
+        "nombre": "Capítulo 65 Sombreros, tocados y sus partes"
+      },
+      {
+        "id": "66",
+        "nombre": "Capítulo 66 Paraguas, sombrillas y bastones"
+      },
+      {
+        "id": "67",
+        "nombre": "Capítulo 67 Manufacturas de cabello y artículos de plumas"
+      },
+      {
+        "id": "68",
+        "nombre": "Capítulo 68 Manufacturas de piedra o análogos"
+      },
+      {
+        "id": "69",
+        "nombre": "Capítulo 69 Productos cerámicos"
+      },
+      {
+        "id": "70",
+        "nombre": "Capítulo 70 Vidrio y sus manufacturas"
+      },
+      {
+        "id": "71",
+        "nombre": "Capítulo 71 Perlas, piedras y metales preciosos"
+      },
+      {
+        "id": "72",
+        "nombre": "Capítulo 72 Fundición, hierro y acero"
+      },
+      {
+        "id": "73",
+        "nombre": "Capítulo 73 Manufacturas de fundición de hierro o acero"
+      },
+      {
+        "id": "74",
+        "nombre": "Capítulo 74 Cobre y sus manufacturas"
+      },
+      {
+        "id": "75",
+        "nombre": "Capítulo 75 Níquel y sus manufacturas"
+      },
+      {
+        "id": "76",
+        "nombre": "Capítulo 76 Aluminio y sus manufacturas"
+      },
+      {
+        "id": "78",
+        "nombre": "Capítulo 78 Plomo y sus manufacturas"
+      },
+      {
+        "id": "79",
+        "nombre": "Capítulo 79 Zinc y sus manufacturas"
+      },
+      {
+        "id": "80",
+        "nombre": "Capítulo 80 Estaño y sus manufacturas"
+      },
+      {
+        "id": "81",
+        "nombre": "Capítulo 81 Los demás metales comunes y manufacturas"
+      },
+      {
+        "id": "82",
+        "nombre": "Capítulo 82 Herramientas y útiles de metal común"
+      },
+      {
+        "id": "83",
+        "nombre": "Capítulo 83 Manufacturas diversas de metales comunes"
+      },
+      {
+        "id": "84",
+        "nombre": "Capítulo 84 Aparatos mecánicos, calderas, partes"
+      },
+      {
+        "id": "85",
+        "nombre": "Capítulo 85 Máquinas y material eléctrico"
+      },
+      {
+        "id": "86",
+        "nombre": "Capítulo 86 Vehículos, material para vías férreas"
+      },
+      {
+        "id": "87",
+        "nombre": "Capítulo 87 Vehículos terrestres y sus partes"
+      },
+      {
+        "id": "88",
+        "nombre": "Capítulo 88 Aeronaves y sus partes"
+      },
+      {
+        "id": "89",
+        "nombre": "Capítulo 89 Barcos y artefactos flotantes"
+      },
+      {
+        "id": "90",
+        "nombre": "Capítulo 90 Instrumentos y aparatos de óptica y médicos"
+      },
+      {
+        "id": "91",
+        "nombre": "Capítulo 91 Aparatos de relojería y sus partes"
+      },
+      {
+        "id": "92",
+        "nombre": "Capítulo 92 Instrumentos musicales"
+      },
+      {
+        "id": "93",
+        "nombre": "Capítulo 93 Armas y municiones, deportivas"
+      },
+      {
+        "id": "94",
+        "nombre": "Capítulo 94 Muebles; medicoquirúrgico; no expresados en otra parte"
+      },
+      {
+        "id": "95",
+        "nombre": "Capítulo 95 Juguetes, artículos para recreo y deportes"
+      },
+      {
+        "id": "96",
+        "nombre": "Capítulo 96 Manufacturas diversas"
+      },
+      {
+        "id": "97",
+        "nombre": "Capítulo 97 Objetos de arte y antigüedades"
+      }
+    ]
+  },
+  "pais": {
+    "unidad": "miles de dólares FOB",
+    "fuente": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip",
+    "forma": "ZIP oficial · solo filas con país (no es capítulo)",
+    "archivo": "datos/recortes/pais_miles/{anio}.csv",
+    "columna": "PAIS_O_D",
+    "anios": [
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "paises": [
+      {
+        "id": "ABW",
+        "nombre": "Aruba"
+      },
+      {
+        "id": "AFG",
+        "nombre": "Afganistán"
+      },
+      {
+        "id": "AGO",
+        "nombre": "Angola"
+      },
+      {
+        "id": "AIA",
+        "nombre": "Anguila"
+      },
+      {
+        "id": "ALB",
+        "nombre": "Albania"
+      },
+      {
+        "id": "AND",
+        "nombre": "Andorra"
+      },
+      {
+        "id": "ANT",
+        "nombre": "Antillas Neerlandesas"
+      },
+      {
+        "id": "ARE",
+        "nombre": "Emiratos Árabes Unidos"
+      },
+      {
+        "id": "ARG",
+        "nombre": "Argentina"
+      },
+      {
+        "id": "ARM",
+        "nombre": "Armenia"
+      },
+      {
+        "id": "ATG",
+        "nombre": "Antigua y Barbuda"
+      },
+      {
+        "id": "AUS",
+        "nombre": "Australia"
+      },
+      {
+        "id": "AUT",
+        "nombre": "Austria"
+      },
+      {
+        "id": "AZE",
+        "nombre": "Azerbaiján"
+      },
+      {
+        "id": "BDI",
+        "nombre": "Burundi"
+      },
+      {
+        "id": "BEL",
+        "nombre": "Bélgica"
+      },
+      {
+        "id": "BEN",
+        "nombre": "Benín"
+      },
+      {
+        "id": "BFA",
+        "nombre": "Burkina Faso"
+      },
+      {
+        "id": "BGD",
+        "nombre": "Bangladesh"
+      },
+      {
+        "id": "BGR",
+        "nombre": "Bulgaria"
+      },
+      {
+        "id": "BHR",
+        "nombre": "Bahrein"
+      },
+      {
+        "id": "BHS",
+        "nombre": "Bahamas"
+      },
+      {
+        "id": "BIH",
+        "nombre": "Bosnia y Herzegovina"
+      },
+      {
+        "id": "BLR",
+        "nombre": "Bielorrusia"
+      },
+      {
+        "id": "BLZ",
+        "nombre": "Belice"
+      },
+      {
+        "id": "BMU",
+        "nombre": "Bermudas"
+      },
+      {
+        "id": "BOL",
+        "nombre": "Bolivia"
+      },
+      {
+        "id": "BRA",
+        "nombre": "Brasil"
+      },
+      {
+        "id": "BRB",
+        "nombre": "Barbados"
+      },
+      {
+        "id": "BRN",
+        "nombre": "Brunei Darussalam"
+      },
+      {
+        "id": "BTN",
+        "nombre": "Bután"
+      },
+      {
+        "id": "BWA",
+        "nombre": "Botswana"
+      },
+      {
+        "id": "CAF",
+        "nombre": "República Centroafricana"
+      },
+      {
+        "id": "CAN",
+        "nombre": "Canadá"
+      },
+      {
+        "id": "CCK",
+        "nombre": "Islas Cocos"
+      },
+      {
+        "id": "CHE",
+        "nombre": "Suiza"
+      },
+      {
+        "id": "CHL",
+        "nombre": "Chile"
+      },
+      {
+        "id": "CHN",
+        "nombre": "China"
+      },
+      {
+        "id": "CIV",
+        "nombre": "Costa de Marfil"
+      },
+      {
+        "id": "CMR",
+        "nombre": "Camerún"
+      },
+      {
+        "id": "COD",
+        "nombre": "Zaire"
+      },
+      {
+        "id": "COG",
+        "nombre": "República del Congo"
+      },
+      {
+        "id": "COK",
+        "nombre": "Islas Cook"
+      },
+      {
+        "id": "COL",
+        "nombre": "Colombia"
+      },
+      {
+        "id": "COM",
+        "nombre": "Islas Comoras"
+      },
+      {
+        "id": "CPV",
+        "nombre": "Cabo Verde"
+      },
+      {
+        "id": "CRI",
+        "nombre": "Costa Rica"
+      },
+      {
+        "id": "CUB",
+        "nombre": "Cuba"
+      },
+      {
+        "id": "CUR",
+        "nombre": "Curazao"
+      },
+      {
+        "id": "CXR",
+        "nombre": "Islas Navidad"
+      },
+      {
+        "id": "CYM",
+        "nombre": "Islas Caimán"
+      },
+      {
+        "id": "CYP",
+        "nombre": "Chipre"
+      },
+      {
+        "id": "CZE",
+        "nombre": "República Checa"
+      },
+      {
+        "id": "DEU",
+        "nombre": "Alemania"
+      },
+      {
+        "id": "DJI",
+        "nombre": "Djibouti"
+      },
+      {
+        "id": "DMA",
+        "nombre": "Dominica"
+      },
+      {
+        "id": "DNK",
+        "nombre": "Dinamarca"
+      },
+      {
+        "id": "DOM",
+        "nombre": "República Dominicana"
+      },
+      {
+        "id": "DZA",
+        "nombre": "Argelia"
+      },
+      {
+        "id": "ECU",
+        "nombre": "Ecuador"
+      },
+      {
+        "id": "EGY",
+        "nombre": "Egipto"
+      },
+      {
+        "id": "EMU",
+        "nombre": "Otros países no declarados de la UE"
+      },
+      {
+        "id": "ERI",
+        "nombre": "Eritrea"
+      },
+      {
+        "id": "ESH",
+        "nombre": "Sahara Occidental"
+      },
+      {
+        "id": "ESP",
+        "nombre": "España"
+      },
+      {
+        "id": "EST",
+        "nombre": "Estonia"
+      },
+      {
+        "id": "ETH",
+        "nombre": "Etiopía"
+      },
+      {
+        "id": "FIN",
+        "nombre": "Finlandia"
+      },
+      {
+        "id": "FJI",
+        "nombre": "Fidji"
+      },
+      {
+        "id": "FLK",
+        "nombre": "Islas Malvinas"
+      },
+      {
+        "id": "FRA",
+        "nombre": "Francia"
+      },
+      {
+        "id": "FSM",
+        "nombre": "Estado de Micronesia"
+      },
+      {
+        "id": "FXA",
+        "nombre": "Territorios franceses Australes y Antárticos"
+      },
+      {
+        "id": "GAB",
+        "nombre": "Gabón"
+      },
+      {
+        "id": "GBR",
+        "nombre": "Reino Unido"
+      },
+      {
+        "id": "GEO",
+        "nombre": "Georgia"
+      },
+      {
+        "id": "GHA",
+        "nombre": "Ghana"
+      },
+      {
+        "id": "GIB",
+        "nombre": "Gibraltar"
+      },
+      {
+        "id": "GIN",
+        "nombre": "Guinea"
+      },
+      {
+        "id": "GLP",
+        "nombre": "Guadalupe y Dependencias"
+      },
+      {
+        "id": "GMB",
+        "nombre": "Gambia"
+      },
+      {
+        "id": "GNB",
+        "nombre": "Guinea Bissau"
+      },
+      {
+        "id": "GNQ",
+        "nombre": "Guinea Ecuatorial"
+      },
+      {
+        "id": "GRC",
+        "nombre": "Grecia"
+      },
+      {
+        "id": "GRD",
+        "nombre": "Granada"
+      },
+      {
+        "id": "GTM",
+        "nombre": "Guatemala"
+      },
+      {
+        "id": "GUF",
+        "nombre": "Guyana Francesa"
+      },
+      {
+        "id": "GUM",
+        "nombre": "Guam"
+      },
+      {
+        "id": "GUY",
+        "nombre": "Guyana"
+      },
+      {
+        "id": "GZA",
+        "nombre": "Franja de Gaza"
+      },
+      {
+        "id": "HKG",
+        "nombre": "Hong Kong (Región Administrativa Especial de la República de China)"
+      },
+      {
+        "id": "HMD",
+        "nombre": "Islas Heard y Mc Donald"
+      },
+      {
+        "id": "HND",
+        "nombre": "Honduras"
+      },
+      {
+        "id": "HRV",
+        "nombre": "Croacia"
+      },
+      {
+        "id": "HTI",
+        "nombre": "Haití"
+      },
+      {
+        "id": "HUN",
+        "nombre": "Hungría"
+      },
+      {
+        "id": "IDN",
+        "nombre": "Indonesia"
+      },
+      {
+        "id": "IND",
+        "nombre": "India"
+      },
+      {
+        "id": "IOT",
+        "nombre": "Territorios del Reino Unido del Océano Índico"
+      },
+      {
+        "id": "IRL",
+        "nombre": "Irlanda"
+      },
+      {
+        "id": "IRN",
+        "nombre": "Irán"
+      },
+      {
+        "id": "IRQ",
+        "nombre": "Irak"
+      },
+      {
+        "id": "ISL",
+        "nombre": "Islandia"
+      },
+      {
+        "id": "ISR",
+        "nombre": "Israel"
+      },
+      {
+        "id": "ITA",
+        "nombre": "Italia"
+      },
+      {
+        "id": "JAM",
+        "nombre": "Jamaica"
+      },
+      {
+        "id": "JOR",
+        "nombre": "Jordania"
+      },
+      {
+        "id": "JPN",
+        "nombre": "Japón"
+      },
+      {
+        "id": "KAZ",
+        "nombre": "Kazajstán"
+      },
+      {
+        "id": "KEN",
+        "nombre": "Kenia"
+      },
+      {
+        "id": "KGZ",
+        "nombre": "Kyrgyzstán"
+      },
+      {
+        "id": "KHM",
+        "nombre": "Camboya"
+      },
+      {
+        "id": "KIR",
+        "nombre": "Kiribati"
+      },
+      {
+        "id": "KNA",
+        "nombre": "San Cristóbal y Nieves"
+      },
+      {
+        "id": "KOR",
+        "nombre": "Corea del Sur"
+      },
+      {
+        "id": "KWT",
+        "nombre": "Kuwait"
+      },
+      {
+        "id": "LAO",
+        "nombre": "República de Laos"
+      },
+      {
+        "id": "LBN",
+        "nombre": "Líbano"
+      },
+      {
+        "id": "LBR",
+        "nombre": "Liberia"
+      },
+      {
+        "id": "LBY",
+        "nombre": "Libia"
+      },
+      {
+        "id": "LCA",
+        "nombre": "Santa Lucía"
+      },
+      {
+        "id": "LIE",
+        "nombre": "Liechtenstein"
+      },
+      {
+        "id": "LKA",
+        "nombre": "Sri Lanka"
+      },
+      {
+        "id": "LSO",
+        "nombre": "Lesotho"
+      },
+      {
+        "id": "LTU",
+        "nombre": "Lituania"
+      },
+      {
+        "id": "LUX",
+        "nombre": "Luxemburgo"
+      },
+      {
+        "id": "LVA",
+        "nombre": "Letonia"
+      },
+      {
+        "id": "MAC",
+        "nombre": "Macao"
+      },
+      {
+        "id": "MAR",
+        "nombre": "Marruecos"
+      },
+      {
+        "id": "MCO",
+        "nombre": "Mónaco"
+      },
+      {
+        "id": "MDA",
+        "nombre": "Moldavia"
+      },
+      {
+        "id": "MDG",
+        "nombre": "Madagascar"
+      },
+      {
+        "id": "MDV",
+        "nombre": "Maldivas"
+      },
+      {
+        "id": "MHL",
+        "nombre": "Islas Marshall"
+      },
+      {
+        "id": "MKD",
+        "nombre": "Macedonia"
+      },
+      {
+        "id": "MLI",
+        "nombre": "Malí"
+      },
+      {
+        "id": "MLT",
+        "nombre": "Malta"
+      },
+      {
+        "id": "MMR",
+        "nombre": "Myanmar"
+      },
+      {
+        "id": "MNE",
+        "nombre": "Montenegro"
+      },
+      {
+        "id": "MNG",
+        "nombre": "Mongolia"
+      },
+      {
+        "id": "MNP",
+        "nombre": "Islas Marianas"
+      },
+      {
+        "id": "MOZ",
+        "nombre": "Mozambique"
+      },
+      {
+        "id": "MRT",
+        "nombre": "Mauritania"
+      },
+      {
+        "id": "MSR",
+        "nombre": "Isla Montserrat"
+      },
+      {
+        "id": "MTQ",
+        "nombre": "Martinica"
+      },
+      {
+        "id": "MUS",
+        "nombre": "Mauricio"
+      },
+      {
+        "id": "MWI",
+        "nombre": "Malawi"
+      },
+      {
+        "id": "MYS",
+        "nombre": "Malasia"
+      },
+      {
+        "id": "NAM",
+        "nombre": "Namibia"
+      },
+      {
+        "id": "NCL",
+        "nombre": "Nueva Caledonia"
+      },
+      {
+        "id": "NCN",
+        "nombre": "Territorios Franceses de Ultramar"
+      },
+      {
+        "id": "NER",
+        "nombre": "Níger"
+      },
+      {
+        "id": "NFK",
+        "nombre": "Isla Norfolk"
+      },
+      {
+        "id": "NGA",
+        "nombre": "Nigeria"
+      },
+      {
+        "id": "NIC",
+        "nombre": "Nicaragua"
+      },
+      {
+        "id": "NIU",
+        "nombre": "Isla Nive"
+      },
+      {
+        "id": "NOR",
+        "nombre": "Noruega"
+      },
+      {
+        "id": "NPL",
+        "nombre": "Nepal"
+      },
+      {
+        "id": "NRU",
+        "nombre": "Nauru"
+      },
+      {
+        "id": "NZL",
+        "nombre": "Nueva Zelanda"
+      },
+      {
+        "id": "OMN",
+        "nombre": "Omán"
+      },
+      {
+        "id": "PAK",
+        "nombre": "Pakistán"
+      },
+      {
+        "id": "PAN",
+        "nombre": "Panamá"
+      },
+      {
+        "id": "PCN",
+        "nombre": "Islas Pitcairns"
+      },
+      {
+        "id": "PER",
+        "nombre": "Perú"
+      },
+      {
+        "id": "PHL",
+        "nombre": "Filipinas"
+      },
+      {
+        "id": "PLW",
+        "nombre": "Palau"
+      },
+      {
+        "id": "PNG",
+        "nombre": "Papúa Nueva Guinea"
+      },
+      {
+        "id": "POL",
+        "nombre": "Polonia"
+      },
+      {
+        "id": "PRI",
+        "nombre": "Puerto Rico"
+      },
+      {
+        "id": "PRK",
+        "nombre": "Corea del Norte"
+      },
+      {
+        "id": "PRT",
+        "nombre": "Portugal"
+      },
+      {
+        "id": "PRY",
+        "nombre": "Paraguay"
+      },
+      {
+        "id": "PTY",
+        "nombre": "Zona Canal de Panamá"
+      },
+      {
+        "id": "PYF",
+        "nombre": "Polinesia Francesa"
+      },
+      {
+        "id": "QAT",
+        "nombre": "Qatar"
+      },
+      {
+        "id": "REU",
+        "nombre": "Isla Reunión"
+      },
+      {
+        "id": "RKE",
+        "nombre": "Islas Canal"
+      },
+      {
+        "id": "ROU",
+        "nombre": "Rumania"
+      },
+      {
+        "id": "RUH",
+        "nombre": "Zona Neutral Irak-Arabia Saudita"
+      },
+      {
+        "id": "RUS",
+        "nombre": "Federación Rusa"
+      },
+      {
+        "id": "RWA",
+        "nombre": "Ruanda"
+      },
+      {
+        "id": "SAU",
+        "nombre": "Arabia Saudita"
+      },
+      {
+        "id": "SDN",
+        "nombre": "Sudán"
+      },
+      {
+        "id": "SEN",
+        "nombre": "Senegal"
+      },
+      {
+        "id": "SGP",
+        "nombre": "Singapur"
+      },
+      {
+        "id": "SHN",
+        "nombre": "Santa Elena"
+      },
+      {
+        "id": "SJM",
+        "nombre": "Islas Svalbard y Jan Mayen"
+      },
+      {
+        "id": "SLB",
+        "nombre": "Islas Salomón"
+      },
+      {
+        "id": "SLE",
+        "nombre": "Sierra Leona"
+      },
+      {
+        "id": "SLV",
+        "nombre": "El Salvador"
+      },
+      {
+        "id": "SMR",
+        "nombre": "San Marino"
+      },
+      {
+        "id": "SOM",
+        "nombre": "Somalia"
+      },
+      {
+        "id": "SPM",
+        "nombre": "San Pedro y Miquelón"
+      },
+      {
+        "id": "SRB",
+        "nombre": "Serbia"
+      },
+      {
+        "id": "STP",
+        "nombre": "Santo Tome y Príncipe"
+      },
+      {
+        "id": "SUR",
+        "nombre": "Surinam"
+      },
+      {
+        "id": "SVK",
+        "nombre": "Eslovaquia"
+      },
+      {
+        "id": "SVN",
+        "nombre": "Eslovenia"
+      },
+      {
+        "id": "SWE",
+        "nombre": "Suecia"
+      },
+      {
+        "id": "SWZ",
+        "nombre": "Swazilandia"
+      },
+      {
+        "id": "SYC",
+        "nombre": "Seychelles"
+      },
+      {
+        "id": "SYR",
+        "nombre": "República Árabe Siria"
+      },
+      {
+        "id": "TCA",
+        "nombre": "Islas Turcas y Caicos"
+      },
+      {
+        "id": "TCD",
+        "nombre": "Chad"
+      },
+      {
+        "id": "TGO",
+        "nombre": "Togo"
+      },
+      {
+        "id": "THA",
+        "nombre": "Tailandia"
+      },
+      {
+        "id": "TJK",
+        "nombre": "Tadjikistán"
+      },
+      {
+        "id": "TKL",
+        "nombre": "Islas Tokelau"
+      },
+      {
+        "id": "TKM",
+        "nombre": "Turkmenistán"
+      },
+      {
+        "id": "TLS",
+        "nombre": "Timor Oriental"
+      },
+      {
+        "id": "TON",
+        "nombre": "Tonga"
+      },
+      {
+        "id": "TTO",
+        "nombre": "Trinidad y Tobago"
+      },
+      {
+        "id": "TUN",
+        "nombre": "Túnez"
+      },
+      {
+        "id": "TUR",
+        "nombre": "Turquía"
+      },
+      {
+        "id": "TUV",
+        "nombre": "Tuvalu"
+      },
+      {
+        "id": "TWN",
+        "nombre": "Taiwán (República de China)"
+      },
+      {
+        "id": "TZA",
+        "nombre": "Tanzania"
+      },
+      {
+        "id": "UGA",
+        "nombre": "Uganda"
+      },
+      {
+        "id": "UKR",
+        "nombre": "Ucrania"
+      },
+      {
+        "id": "URY",
+        "nombre": "Uruguay"
+      },
+      {
+        "id": "USA",
+        "nombre": "Estados Unidos"
+      },
+      {
+        "id": "UZB",
+        "nombre": "Uzbekistán"
+      },
+      {
+        "id": "VAT",
+        "nombre": "Ciudad del Vaticano"
+      },
+      {
+        "id": "VCT",
+        "nombre": "San Vicente y las Granadinas"
+      },
+      {
+        "id": "VEN",
+        "nombre": "Venezuela"
+      },
+      {
+        "id": "VGB",
+        "nombre": "Islas Vírgenes (Reino Unido)"
+      },
+      {
+        "id": "VIR",
+        "nombre": "Islas Vírgenes (EU)"
+      },
+      {
+        "id": "VNM",
+        "nombre": "Vietnam"
+      },
+      {
+        "id": "VUT",
+        "nombre": "Vanuatu"
+      },
+      {
+        "id": "WLF",
+        "nombre": "Islas Wallis y Futuna"
+      },
+      {
+        "id": "WSM",
+        "nombre": "Samoa Occidental"
+      },
+      {
+        "id": "YEM",
+        "nombre": "Yemen"
+      },
+      {
+        "id": "YUG",
+        "nombre": "Países no declarados del Resto de Europa"
+      },
+      {
+        "id": "ZAF",
+        "nombre": "Sudáfrica"
+      },
+      {
+        "id": "ZMB",
+        "nombre": "Zambia"
+      },
+      {
+        "id": "ZWE",
+        "nombre": "Zimbabwe"
+      },
+      {
+        "id": "ZYA",
+        "nombre": "Países Bajos"
+      },
+      {
+        "id": "ZZZ",
+        "nombre": "Países no identificados"
+      }
+    ]
+  },
+  "olap": {
+    "unidad": "dólares FOB",
+    "fuente": "https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp",
+    "forma": "extracto de cubo · tipo × país × fracción",
+    "archivo": "datos/recortes/olap_dolares/{anio}.csv.gz",
+    "anios": [
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "capitulos": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99"
+    ],
+    "paises": [
+      "Afganistán",
+      "Albania",
+      "Alemania",
+      "América",
+      "Andorra",
+      "Angola",
+      "Anguila",
+      "Antigua y Barbuda",
+      "Antillas Neerlandesas",
+      "Arabia Saudita",
+      "Argelia",
+      "Argentina",
+      "Armenia",
+      "Aruba",
+      "Asia",
+      "Australia",
+      "Austria",
+      "Azerbaiján",
+      "Bahamas",
+      "Bahrein",
+      "Bangladesh",
+      "Barbados",
+      "Belice",
+      "Benín",
+      "Bermudas",
+      "Bielorrusia",
+      "Bolivia",
+      "Bosnia y Herzegovina",
+      "Botswana",
+      "Brasil",
+      "Brunei Darussalam",
+      "Bulgaria",
+      "Burkina Faso",
+      "Burundi",
+      "Bután",
+      "Bélgica",
+      "Cabo Verde",
+      "Camboya",
+      "Camerún",
+      "Canadá",
+      "Chad",
+      "Chile",
+      "China",
+      "Chipre",
+      "Ciudad del Vaticano",
+      "Colombia",
+      "Corea del Norte",
+      "Corea del Sur",
+      "Costa Rica",
+      "Costa de Marfil",
+      "Croacia",
+      "Cuba",
+      "Curazao",
+      "Dinamarca",
+      "Djibouti",
+      "Dominica",
+      "Ecuador",
+      "Egipto",
+      "El Salvador",
+      "Emiratos Árabes Unidos",
+      "Eritrea",
+      "Eslovaquia",
+      "Eslovenia",
+      "España",
+      "Estado de Micronesia",
+      "Estados Unidos",
+      "Estonia",
+      "Etiopía",
+      "Europa",
+      "Federación Rusa",
+      "Fidji",
+      "Filipinas",
+      "Finlandia",
+      "Francia",
+      "Franja de Gaza",
+      "Gabón",
+      "Gambia",
+      "Georgia",
+      "Ghana",
+      "Gibraltar",
+      "Granada",
+      "Grecia",
+      "Guadalupe y Dependencias",
+      "Guam",
+      "Guatemala",
+      "Guinea",
+      "Guinea Bissau",
+      "Guinea Ecuatorial",
+      "Guyana",
+      "Guyana Francesa",
+      "Haití",
+      "Honduras",
+      "Hong Kong (Región Administrativa Especial de la República de China)",
+      "Hungría",
+      "India",
+      "Indonesia",
+      "Irak",
+      "Irlanda",
+      "Irán",
+      "Isla Montserrat",
+      "Isla Nive",
+      "Isla Norfolk",
+      "Isla Reunión",
+      "Islandia",
+      "Islas Caimán",
+      "Islas Canal",
+      "Islas Cocos",
+      "Islas Comoras",
+      "Islas Cook",
+      "Islas Heard y Mc Donald",
+      "Islas Malvinas",
+      "Islas Marianas",
+      "Islas Marshall",
+      "Islas Navidad",
+      "Islas Pitcairns",
+      "Islas Salomón",
+      "Islas Svalbard y Jan Mayen",
+      "Islas Tokelau",
+      "Islas Turcas y Caicos",
+      "Islas Vírgenes (EU)",
+      "Islas Vírgenes (Reino Unido)",
+      "Islas Wallis y Futuna",
+      "Israel",
+      "Italia",
+      "Jamaica",
+      "Japón",
+      "Jordania",
+      "Kazajstán",
+      "Kenia",
+      "Kiribati",
+      "Kuwait",
+      "Kyrgyzstán",
+      "Lesotho",
+      "Letonia",
+      "Liberia",
+      "Libia",
+      "Liechtenstein",
+      "Lituania",
+      "Luxemburgo",
+      "Líbano",
+      "Macao",
+      "Macedonia",
+      "Madagascar",
+      "Malasia",
+      "Malawi",
+      "Maldivas",
+      "Malta",
+      "Malí",
+      "Marruecos",
+      "Martinica",
+      "Mauricio",
+      "Mauritania",
+      "Moldavia",
+      "Mongolia",
+      "Montenegro",
+      "Mozambique",
+      "Myanmar",
+      "Mónaco",
+      "Namibia",
+      "Nauru",
+      "Nepal",
+      "Nicaragua",
+      "Nigeria",
+      "Noruega",
+      "Nueva Caledonia",
+      "Nueva Zelanda",
+      "Níger",
+      "Omán",
+      "Otros países no declarados de la UE",
+      "Pakistán",
+      "Palau",
+      "Panamá",
+      "Papúa Nueva Guinea",
+      "Paraguay",
+      "Países Bajos",
+      "Países no declarados del Resto de Europa",
+      "Países no identificados",
+      "Perú",
+      "Polinesia Francesa",
+      "Polonia",
+      "Portugal",
+      "Puerto Rico",
+      "Qatar",
+      "Reino Unido",
+      "República Centroafricana",
+      "República Checa",
+      "República Dominicana",
+      "República de Laos",
+      "República del Congo",
+      "República Árabe Siria",
+      "Ruanda",
+      "Rumania",
+      "Sahara Occidental",
+      "Samoa Occidental",
+      "San Cristóbal y Nieves",
+      "San Marino",
+      "San Pedro y Miquelón",
+      "San Vicente y las Granadinas",
+      "Santa Elena",
+      "Santa Lucía",
+      "Santo Tome y Príncipe",
+      "Senegal",
+      "Serbia",
+      "Seychelles",
+      "Sierra Leona",
+      "Singapur",
+      "Somalia",
+      "Sri Lanka",
+      "Sudáfrica",
+      "Sudán",
+      "Suecia",
+      "Suiza",
+      "Surinam",
+      "Swazilandia",
+      "Tadjikistán",
+      "Tailandia",
+      "Taiwán (República de China)",
+      "Tanzania",
+      "Territorios del Reino Unido del Océano Índico",
+      "Territorios franceses Australes y Antárticos",
+      "Timor Oriental",
+      "Togo",
+      "Tonga",
+      "Trinidad y Tobago",
+      "Turkmenistán",
+      "Turquía",
+      "Tuvalu",
+      "Túnez",
+      "Ucrania",
+      "Uganda",
+      "Uruguay",
+      "Uzbekistán",
+      "Vanuatu",
+      "Venezuela",
+      "Vietnam",
+      "Yemen",
+      "Zaire",
+      "Zambia",
+      "Zimbabwe",
+      "Zona Canal de Panamá",
+      "Zona Neutral Irak-Arabia Saudita"
+    ]
+  }
+}

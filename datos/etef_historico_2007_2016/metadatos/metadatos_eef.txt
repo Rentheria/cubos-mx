@@ -1,0 +1,28 @@
+﻿
+Identifier: MEX-INEGI.EEC3.03-EEF-2007-2016
+
+Title: Estadística de Exportaciones por Entidad Federativa 2007-2016
+
+Description: La estadística de Exportaciones por Entidad Federativa (EEF), tiene como objetivo presentar información referente al valor de las exportaciones de mercancías de las 32 entidades federativas, que permita conocer la participación de cada una de ellas en el intercambio comercial que realiza México con el resto del mundo. Asimismo, coadyuva al fortalecimiento de la infraestructura estadística, contribuyendo al conocimiento de la realidad económica de las entidades federativas y de esta manera disponer de información desagregada que atienda la demanda de los diseñadores de políticas públicas a nivel estatal y del público en general
+
+Modified: 2017-10-30
+
+Publisher: Instituto Nacional de Estadística y Geografía, INEGI
+
+Mbox: atencion.usuarios@inegi.org.mx 
+
+License: http://www.inegi.org.mx/terminos/terminos_info.aspx
+
+DataDictionary: 
+
+Keyword: Comercio exterior, Exportaciones
+
+ContactPoint: Lic. José de Jesús Esquivel de la Rosa, 01800 111 4634
+
+Temporal: 2007-2016
+
+Spatial: Estados Unidos Mexicanos
+
+AccrualPeriodicity: Anualmente
+
+Distribution: http://www.inegi.org.mx/est/contenidos/proyectos/registros/economicas/exporta_ef/doc/eef_2007_2016.zip

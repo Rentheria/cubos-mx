@@ -1,0 +1,44 @@
+
+identifier: MEX-INEGI.EEC6.03-BCMM-2026
+
+title: Balanza Comercial de Mercancías de México. 2026, información mensual cifras oportunas al mes de agosto.
+
+description: Descripción general
+Balanza Comercial de Mercancías de México. Presenta información mensual de la Balanza Comercial de Mercancías de México, referente al valor expresado en millones de dólares estadounidenses de los principales agregados de las exportaciones e importaciones de México con el resto del mundo.
+
+La Balanza Comercial de Mercancías de México (BCMM) tiene como objetivo proporcionar información que permita conocer el intercambio comercial de mercancías que realiza México con el resto del mundo y que sirva como insumo para el Sistema de Cuentas Nacionales, los cálculos de la Balanza de Pagos y programas relacionados con la vinculación estadística.
+
+Es importante señalar que, durante el año 2012, la Junta de Gobierno del INEGI aprobó a la Balanza Comercial de Mercancías de México como Información de Interés Nacional (IIN), en virtud de que cumple con los criterios establecidos en el artículo 78 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG). Dicho acuerdo se publicó el 3 de agosto de 2012, en el Diario Oficial de la Federación (DOF).
+
+Diseño conceptual
+La valoración de las exportaciones e importaciones se realiza en términos de Libre a Bordo (Free on Board, FOB por sus siglas en inglés), que es el valor de transacción de los bienes, que excluye el costo del seguro y el flete con el que se trasladan las mercancías del país exportador hacia el país importador.
+
+Cobertura geográfica: Nacional.
+
+Difusión
+Fuente: SAT, SE, BANXICO, INEGI. Balanza Comercial de Mercancías de México. SNIEG. Información de Interés Nacional.	
+
+Aseguramiento de la calidad
+En el marco del Comité Técnico Especializado de Estadísticas de Comercio Exterior (CTE-ECE), conformado por INEGI, Banco de México, Secretaría de Economía y el Servicio de Administración Tributaria, y, como resultado del proceso habitual de revisión de la información publicada, se realizaron ajustes a las cifras de comercio exterior. Las principales revisiones correspondieron a los datos de exportaciones de petróleo crudo y de productos de origen agropecuario. Estos ajustes comprenden de enero a mayo de 2026. Asimismo, se revisó la clasificación de las categorías que comprenden la balanza de productos manufactureros, lo que derivó en reclasificaciones entre sus rubros de enero de 1993 a junio de 2026. La información histórica revisada de la balanza comercial se encuentra disponible en la página de internet del INEGI.
+
+modified: 2026-09-28T06:00
+
+publisher: Servicio de Administración Tributaria (SAT), Secretaría de Economía (SE), Banco de México (BANXICO) e Instituto Nacional de Estadística y Geografía (INEGI).
+
+mbox: atencion.usuarios@inegi.org.mx
+
+license: https://www.inegi.org.mx/inegi/terminos.html
+
+datadictionary: 
+
+keyword: "comercio exterior", "importaciones", "exportaciones", "fracción arancelaria", "modo de transporte", "aduanas", "sistema armonizado"
+
+contactpoint: Mtro. J. Armando Aguiar Rodríguez, 800 111 4634
+
+temporal: 2026-01-01-2026-08-31
+
+spatial: Estados Unidos Mexicanos
+
+accrualperiodicity: Mensualmente
+
+distribution: https://www.inegi.org.mx/programas/comext/

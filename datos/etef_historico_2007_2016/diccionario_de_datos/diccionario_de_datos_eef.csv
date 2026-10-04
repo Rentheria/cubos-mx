@@ -1,0 +1,12 @@
+﻿ID_PRODUCTO,COLUMNA,DESCRIPCION,TIPO_DATO,LONGITUD,COD_VALIDO
+Exportaciones por Entidad Federativa,ANIO,Año de referencia de la información,int,,2007-2016
+Exportaciones por Entidad Federativa,COBERTURA,Área geográfica a la que están referidos los indicadores estadísticos,varchar,200,
+Exportaciones por Entidad Federativa,ESTATUS,Estatus de las cifras conforme a los Lineamientos de Cambios a la información divulgada en las publicaciones estadísticas y geográficas del INEGI,varchar,150,
+Exportaciones por Entidad Federativa,ESTATUS_CIFRA,"Estatus de la cifra en la que se encuentra el registro puede ser Disponible, No Disponible, No Aplica o No Significativa",varchar,150,
+Exportaciones por Entidad Federativa,ID_ENTIDAD,"Clave de la entidad según Catálogo de Entidades, Municipios y Localidades del INEGI.",varchar,2,00-32
+Exportaciones por Entidad Federativa,PROD_EST,"Nombre del proyecto estadístico al que pertenecen los datos, en este caso aplica la denominación Estadísticas de Exportaciones por Entidad Federativa",varchar,200,
+Exportaciones por Entidad Federativa,SECTOR,"Descripción del sector de actividad económica, Sistema de Clasificación de América del Norte (SCIAN) 2007",varchar,150,
+Exportaciones por Entidad Federativa,SECTOR_SCIAN,"Código del sector de actividad económica, Sistema de Clasificación de América del Norte (SCIAN) 2007",varchar,10,
+Exportaciones por Entidad Federativa,SUBSECTOR,"Descripción del subsector de actividad económica, Sistema de Clasificación de América del Norte (SCIAN) 2007",varchar,150,
+Exportaciones por Entidad Federativa,SUBSECTOR_SCIAN,Nivel de desagregación a tres digitos del Sistema de Clasificación Industrial de América del Norte (SCIAN) 2007,varchar,10,
+Exportaciones por Entidad Federativa,VAL_USD,"Es el valor de venta expresado en miles de dólares estadounidenses de las mercancías valoradas en término FOB (Free on Board), se refiere al valor de las mercancías colocadas en la frontera o puerto del país exportador, incluye el valor de transacción de los bienes y de los servicios suministrados para entregar las mercancías en la frontera del país exportador",int,,0-9999999

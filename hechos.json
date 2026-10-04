@@ -1,0 +1,225 @@
+{
+  "metodo": "Se sumó VAL_USD del último año calendario con 12 meses en la misma tabla oficial; el denominador es la fila de total oficial de ese archivo; se excluyeron subtotales que volverían a contar el mismo valor.",
+  "exportaciones_capitulo": {
+    "archivo": "bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv",
+    "filas": 85925,
+    "periodo": {
+      "primero": "2012-01",
+      "ultimo": "2026-07",
+      "meses": 175
+    },
+    "ultimo_mes": "2026-07",
+    "ultimo_mes_total_oficial": 81420.015,
+    "anio_calendario_completo": 2025,
+    "estatus_anio_completo": [
+      "Cifras Revisadas"
+    ],
+    "estatus_ultimo_mes": [
+      "Cifras Revisadas"
+    ],
+    "total_oficial_anio": 664837.168,
+    "no_clasificados_anio": 9359.179,
+    "capitulo_mayor": {
+      "concepto": "Capítulo 84 Aparatos mecánicos, calderas, partes",
+      "valor": 163957.686,
+      "participacion": 0.246613
+    },
+    "unidad": "millones de dólares FOB",
+    "excluidas": [
+      "Exportación total",
+      "filas de medio de transporte (Aéreo, Carretero, Ferroviario, Marítimo, Otros modos)"
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "millones de dólares FOB",
+      "periodo": "2012-01 a 2026-07"
+    }
+  },
+  "importaciones_capitulo": {
+    "archivo": "bcmm_mtra_capitulo_mensual_tr_cifra_2012_2026.csv",
+    "filas": 85925,
+    "periodo": {
+      "primero": "2012-01",
+      "ultimo": "2026-07",
+      "meses": 175
+    },
+    "ultimo_mes": "2026-07",
+    "ultimo_mes_total_oficial": 82267.552,
+    "anio_calendario_completo": 2025,
+    "estatus_anio_completo": [
+      "Cifras Revisadas"
+    ],
+    "estatus_ultimo_mes": [
+      "Cifras Revisadas"
+    ],
+    "total_oficial_anio": 664066.222,
+    "no_clasificados_anio": 28290.693,
+    "capitulo_mayor": {
+      "concepto": "Capítulo 84 Aparatos mecánicos, calderas, partes",
+      "valor": 144474.572,
+      "participacion": 0.21756
+    },
+    "unidad": "millones de dólares FOB",
+    "excluidas": [
+      "Importación total",
+      "filas de medio de transporte (Aéreo, Carretero, Ferroviario, Marítimo, Otros modos)"
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "millones de dólares FOB",
+      "periodo": "2012-01 a 2026-07"
+    }
+  },
+  "exportaciones_pais": {
+    "archivos": [
+      "bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2026.csv"
+    ],
+    "tipo": "Exportaciones",
+    "filas": 107622,
+    "periodo": {
+      "primero": "2015-01",
+      "ultimo": "2026-07",
+      "meses": 139
+    },
+    "ultimo_mes": "2026-07",
+    "ultimo_mes_total_oficial": 81420016,
+    "anio_calendario_completo": 2025,
+    "estatus_anio_completo": [
+      "Cifras Ajustadas"
+    ],
+    "estatus_ultimo_mes": [
+      "Cifras Revisadas"
+    ],
+    "total_oficial_anio": 664266699,
+    "paises_con_valor_anio": 239,
+    "pais_mayor": {
+      "pais_o_d": "USA",
+      "valor": 551454635,
+      "participacion": 0.830171
+    },
+    "unidad": "miles de dólares",
+    "excluidas": [
+      "PAIS_O_D vacío (total nacional, de continente o de zona; volvería a contar)"
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "miles de dólares FOB",
+      "periodo": "2015-01 a 2026-07"
+    }
+  },
+  "importaciones_pais": {
+    "archivos": [
+      "bcmm_paises_bien_mensual_tr_cifra_2015_2022.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2023_2025.csv",
+      "bcmm_paises_bien_mensual_tr_cifra_2026.csv"
+    ],
+    "tipo": "Importaciones",
+    "filas": 107622,
+    "periodo": {
+      "primero": "2015-01",
+      "ultimo": "2026-07",
+      "meses": 139
+    },
+    "ultimo_mes": "2026-07",
+    "ultimo_mes_total_oficial": 82267552,
+    "anio_calendario_completo": 2025,
+    "estatus_anio_completo": [
+      "Cifras Ajustadas"
+    ],
+    "estatus_ultimo_mes": [
+      "Cifras Revisadas"
+    ],
+    "total_oficial_anio": 664057249,
+    "paises_con_valor_anio": 239,
+    "pais_mayor": {
+      "pais_o_d": "USA",
+      "valor": 249796665,
+      "participacion": 0.376167
+    },
+    "unidad": "miles de dólares",
+    "excluidas": [
+      "PAIS_O_D vacío (total nacional, de continente o de zona; volvería a contar)"
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "miles de dólares FOB",
+      "periodo": "2015-01 a 2026-07"
+    }
+  },
+  "aduana": {
+    "archivo": "bcmm_mtra_aduana_mensual_tr_cifra_2012_2026.csv",
+    "filas": 14350,
+    "periodo": {
+      "primero": "2012-01",
+      "ultimo": "2026-07",
+      "meses": 175
+    },
+    "ultimo_mes": "2026-07",
+    "anio_calendario_completo": 2025,
+    "estatus_anio_completo": [
+      "Cifras Revisadas"
+    ],
+    "estatus_ultimo_mes": [
+      "Cifras Revisadas"
+    ],
+    "flujos": {
+      "Exportación": {
+        "total_oficial_anio": 664837.168,
+        "otras_aduanas_anio": 73180.293,
+        "ultimo_mes_total_oficial": 81420.015,
+        "aduana_mayor": {
+          "concepto": "Nuevo Laredo, Tamps.",
+          "valor": 204422.24,
+          "participacion": 0.307477
+        }
+      },
+      "Importación": {
+        "total_oficial_anio": 664066.222,
+        "otras_aduanas_anio": 89942.96,
+        "ultimo_mes_total_oficial": 82267.552,
+        "aduana_mayor": {
+          "concepto": "Nuevo Laredo, Tamps.",
+          "valor": 121958.913,
+          "participacion": 0.183655
+        }
+      }
+    },
+    "unidad": "millones de dólares",
+    "excluidas": [
+      "Exportación total / Importación total",
+      "filas de medio de transporte",
+      "Otras aduanas (residual publicado, no es una aduana nombrada)"
+    ],
+    "fuente": {
+      "zip": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+      "pagina": "https://www.inegi.org.mx/programas/comext/",
+      "consulta": "2026-10-03",
+      "forma": "zip oficial",
+      "unidad": "millones de dólares",
+      "periodo": "2012-01 a 2026-07"
+    }
+  },
+  "consulta": "2026-10-03",
+  "forma": "hechos calculados sobre CSV de ZIP oficiales; no son extractos de cubo",
+  "fuentes": {
+    "pagina_comext": "https://www.inegi.org.mx/programas/comext/",
+    "zip_mtra": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_mtra_csv.zip",
+    "zip_paises": "https://www.inegi.org.mx/contenidos/programas/comext/datosabiertos/conjunto_de_datos_bcmm_mensual_paises_bien_csv.zip",
+    "inventario": "datos/FUENTES.md",
+    "nota": "Los totales de 2025 salen de mensual_mtra y mensual_paises_bien (último mes julio 2026). El ZIP mensual de agregados trae agosto 2026; no se usó para estos hechos. No se inventaron filas."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "consulta": "2026-10-03",
+  "paginas": [
+    {
+      "url": "https://www.banxico.org.mx/CuboComercioExterior/",
+      "http": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 118910,
+      "csv_links": [],
+      "zip_links": [],
+      "api_like": []
+    },
+    {
+      "url": "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/inicio",
+      "http": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 118995,
+      "csv_links": [],
+      "zip_links": [],
+      "api_like": []
+    },
+    {
+      "url": "https://www.banxico.org.mx/CuboComercioExterior/ValorDolaresAnual/inicio",
+      "http": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 119341,
+      "csv_links": [],
+      "zip_links": [],
+      "api_like": []
+    },
+    {
+      "url": "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/seriesproducto",
+      "http": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 118917,
+      "csv_links": [],
+      "zip_links": [],
+      "api_like": []
+    },
+    {
+      "url": "https://tablero.banxico.org.mx/no-shell/embed.js",
+      "http": 200,
+      "content_type": "text/javascript",
+      "bytes": 1722,
+      "csv_links": [],
+      "zip_links": [],
+      "api_like": []
+    }
+  ],
+  "scripts": [
+    "https://tablero.banxico.org.mx/no-shell/embed.js",
+    "https://www.banxico.org.mx/CuboComercioExterior/resources/theme/js/bootstrap.min.js?v=202609150748",
+    "https://www.banxico.org.mx/CuboComercioExterior/resources/theme/js/general-min.js?v=202609150748",
+    "https://www.banxico.org.mx/CuboComercioExterior/resources/theme/js/jquery-3.6.4.min.js?v=202609150748"
+  ],
+  "sondeos": [
+    {
+      "url": "https://tablero.banxico.org.mx/",
+      "http": 0,
+      "content_type": "HTTP Error 401: Unauthorized",
+      "bytes": 0,
+      "head": ""
+    },
+    {
+      "url": "https://tablero.banxico.org.mx/no-shell/",
+      "http": 0,
+      "content_type": "HTTP Error 401: Unauthorized",
+      "bytes": 0,
+      "head": ""
+    },
+    {
+      "url": "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/export",
+      "http": 0,
+      "content_type": "HTTP Error 404: Not Found",
+      "bytes": 0,
+      "head": ""
+    },
+    {
+      "url": "https://www.banxico.org.mx/CuboComercioExterior/ValorDolares/csv",
+      "http": 0,
+      "content_type": "HTTP Error 404: Not Found",
+      "bytes": 0,
+      "head": ""
+    },
+    {
+      "url": "https://www.banxico.org.mx/SieAPIRest/service/v1/",
+      "http": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 2,
+      "head": "{}"
+    }
+  ]
+}
