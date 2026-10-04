@@ -2,8 +2,8 @@
 
 - Consulta: 3 oct 2026
 - Página oficial abierta: https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp
-- Cubo hermano abierto el mismo día: https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2021_2022.asp
-- Forma: consulta OLAP (POST a `/sistemas/olap/consulta/general_ver4/MDXQueryDatos.asp`), no ZIP oficial
+- Cubo hermano abierto el mismo día (no extraído): https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2021_2022.asp
+- Forma: consulta OLAP + `exporta.aspx` CSV. No es ZIP oficial.
 - Cubo: `COMEX_BCMM_MENSUAL` / `COMEX_BCMM_MENSUAL_2023`
 - Cobertura que declara la página: enero 2023 – julio 2026
 - Unidad que declara la página: dólares FOB y cantidad (UMED de la TIGIE)
@@ -15,9 +15,15 @@ El cruce completo capítulo × país × fracción, no un capítulo de muestra.
 
 ## Qué se obtuvo
 
-Se envió la consulta con País y Tarifa (la Tarifa del cubo incluye capítulo, partida, subpartida, fracción y NICO; Fracción Arancelaria y NICO es mutuamente excluyente con Tarifa). El visor contestó HTML de «Consulta interactiva de datos» (65,562 bytes). No es un CSV del cruce. La tabla del visor abre en totales y se recorre por páginas y por drill-down.
+43 CSV oficiales, uno por mes, en `datos/olap_bcmm_mensual2023/`. Cada archivo es la exportación del visor (`Texto separado por comas`) de:
 
-No se publica un CSV. Un archivo parcial no es el cubo.
+`Tipo operación.Children × País.Children × Descendants(Tarifa.Total, 4)`
+
+con filtro de año, mes y US dólares. La fracción de 8 dígitos lleva el capítulo en los dos primeros dígitos.
+
+Cada mes se publicó solo cuando el número de filas `Importaciones`/`Exportaciones` del CSV fue igual a `Cant_Fil` de `Actualiza`. En julio 2026: 107 424 filas = `Cant_Fil`. En febrero 2024 el primer `exporta.aspx` devolvió HTML (82 361 B) con `Cant_Fil` 104 105; el reintento del mismo día coincidió (104 105 filas) y ese CSV sí se publicó.
+
+Suma de filas de los 43 meses: 4 540 560. Ningún archivo llega a 100 MB (el mayor es 11 094 783 B).
 
 ## Unidades
 

@@ -94,6 +94,6 @@ Consulta: 3 oct 2026 · forma: ZIP oficial · periodo: 2007–2016 · unidad de 
 | `datos/etef_historico_2007_2016/catalogos/tc_entidad.csv` | 523 | 32 | Entidades |
 | `datos/etef_historico_2007_2016/diccionario_de_datos/diccionario_de_datos_eef.csv` | 2 193 | 11 | Columnas; `VAL_USD` en miles de dólares FOB |
 
-## Cubos (no hay catálogo CSV)
+## Cubos
 
-OLAP INEGI y Banxico no publicaron un catálogo CSV el 3 oct 2026. Notas: `datos/extractos/`.
+OLAP INEGI: el extracto en `datos/olap_bcmm_mensual2023/` es el CSV del visor (tipo × país × fracción), no un catálogo aparte. Banxico no publicó catálogo ni CSV el 3 oct 2026. Notas: `datos/extractos/`.

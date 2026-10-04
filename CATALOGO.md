@@ -76,7 +76,7 @@ BIE (INEGI) y SIE (Banxico): series agregadas de la balanza, no cubos. El 3 oct 
 ## Falta confirmar dentro del visor
 
 - Cognos: si hay carpetas médicas además de Incorporación y Recaudación.
-- OLAP INEGI: el botón con nombre de «exportar cubo completo». El 3 oct 2026 la consulta a `MDXQueryDatos.asp` devolvió HTML paginado (65 562 B), no un CSV del cruce capítulo × país × fracción. Notas: `datos/extractos/OLAP_capitulo_pais_fraccion.md`.
+- OLAP INEGI: el cubo hermano 2021–2022 no se extrajo. El mensual 2023 sí: 43 CSV en `datos/olap_bcmm_mensual2023/` (ene 2023–jul 2026). Notas: `datos/extractos/OLAP_capitulo_pais_fraccion.md`.
 - Banxico: último periodo cargado (las páginas abiertas no lo nombran), y si el valor anual se corta a fracción.
 - 2025: el anual OLAP dice definitivas y el mensual OLAP dice revisadas.
 

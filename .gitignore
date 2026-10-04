@@ -7,3 +7,4 @@ datos/anual/conjunto_de_datos/bcmm_anual_tr_cifra_2022.csv
 datos/anual/conjunto_de_datos/bcmm_anual_tr_cifra_2023.csv
 datos/anual/conjunto_de_datos/bcmm_anual_tr_cifra_2024.csv
 datos/anual/conjunto_de_datos/bcmm_anual_tr_cifra_2025.csv
+scripts/__pycache__/

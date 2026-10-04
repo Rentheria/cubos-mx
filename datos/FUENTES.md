@@ -14,7 +14,7 @@ No se junta capítulo con país. No se suman millones, miles y dólares. ETEF no
 | No hay mes posterior a julio 2026 | El mensual de agregados trae agosto 2026 (Cifras Oportunas). El ZIP de modo de transporte, el de país y el cubo OLAP mensual 2023 siguen en julio 2026. |
 | BCMM datos abiertos trae entidad o municipio | `…/conjunto_de_datos_bcmm_mensual_entidad_csv.zip` y `…/municipio_csv.zip` (y `…/aduana_csv.zip` aparte del paquete mtra) son HTML 2 263 B, no zip. |
 | El programa ETEF vive en `/programas/exportacionesef/` | Esa URL abre «Página no encontrada» / «Esta liga ya no existe». El programa vivo es https://www.inegi.org.mx/programas/exporta_ef/ |
-| El cruce capítulo × país × fracción sale como CSV del cubo | El OLAP contestó HTML paginado de consulta, no un CSV del cruce. No se publica un extracto completo. |
+| El cruce capítulo × país × fracción no se puede bajar del cubo | El 3 oct 2026 `exporta.aspx` sí entregó CSV por mes. 43 archivos en `datos/olap_bcmm_mensual2023/`; cada uno igualó `Cant_Fil`. |
 | El cubo de Banxico tiene CSV completo | Las páginas abiertas no ofrecen ZIP ni CSV del cubo. Excel puede truncar. |
 | El BIE abre | https://www.inegi.org.mx/sistemas/bie/ respondió HTTP 500. |
 
@@ -195,28 +195,31 @@ Archivos del ZIP (filas = datos, sin encabezado):
 - `metadatos/metadatos_eef.txt`
 - `modelo_entidad_relacion/modelo_er_eef.png`
 
-## INEGI OLAP — capítulo × país × fracción (extracto de cubo, incompleto)
+## INEGI OLAP — tipo × país × fracción (extracto de cubo)
 
 - Consulta: 3 oct 2026
 - Página abierta: https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp
-- Cubo hermano abierto el mismo día: https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2021_2022.asp
-- Forma: consulta OLAP (POST a `/sistemas/olap/consulta/general_ver4/MDXQueryDatos.asp`). No es ZIP oficial.
-- Periodo que declara la página: enero 2023 – julio 2026 (no nombra agosto 2026)
-- Unidad que declara la página: dólares FOB y cantidad (UMED de la TIGIE)
-- TIGIE 12 dic 2022, SA 2022. Definitivas 2023 y 2024; desde 2025, revisadas. «C» = confidencial.
+- Cubo hermano abierto el mismo día, no extraído: https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2021_2022.asp
+- Forma: extracto de cubo (`MDXQueryDatos.asp` + `exporta.aspx` CSV). No es ZIP oficial.
+- Carpeta: `datos/olap_bcmm_mensual2023/`
+- Periodo extraído: enero 2023 – julio 2026 (43 meses). La página no nombra agosto 2026.
+- Unidad: dólares FOB (el CSV oficial también trae cantidad)
+- Cruce: importación o exportación × país × fracción de 8 dígitos. El capítulo es el prefijo de la fracción.
+- Completitud: cada mes, filas de datos = `Cant_Fil` del visor. Suma: 4 540 560 filas. Índice: `datos/olap_bcmm_mensual2023/indice.json`.
 
-Se pidió el cruce completo capítulo × país × fracción. El visor devolvió HTML de «Consulta interactiva de datos» (65 562 B), no un CSV. No se publica un extracto completo. Notas en `datos/extractos/OLAP_capitulo_pais_fraccion.md`.
+No se junta con el mensual de capítulo (millones) ni con el de país (miles). Notas: `datos/extractos/OLAP_capitulo_pais_fraccion.md`.
 
-## Banxico — Cubo de Comercio Exterior (extracto de cubo, incompleto)
+## Banxico — Cubo de Comercio Exterior (sin CSV)
 
 - Consulta: 3 oct 2026
 - Página abierta: https://www.banxico.org.mx/CuboComercioExterior/
-- Visores abiertos el mismo día: `/ValorDolares/inicio` y `/ValorDolaresAnual/inicio`
-- Forma: software de consulta (embebe `tablero.banxico.org.mx`). No hay ZIP ni CSV completo en esas páginas.
+- Visores abiertos el mismo día: `/ValorDolares/inicio`, `/ValorDolaresAnual/inicio`, `/ValorDolares/seriesproducto`
+- Forma: software de consulta (embebe `tablero.banxico.org.mx`, Pyramid). No hay ZIP ni CSV completo en esas páginas.
+- `tablero.banxico.org.mx` respondió HTTP 401. `/ValorDolares/csv` y `/export` respondieron 404.
 - Unidad que declara la bienvenida: valor en dólares (tratamiento estadístico). Volumen solo a nivel fracción, sin tratamiento estadístico.
 - Periodo: el tutorial usa desde enero 1993; las páginas abiertas no publican la fecha final.
 
-Ayuda en la misma página: clic derecho → copiar datos, o Imprimir → Excel. Si la consulta cabe en más celdas que el máximo de filas de Microsoft Office, Excel trunca. La página no nombró ese máximo; no se inventa aquí. Notas en `datos/extractos/BANXICO_cubo.md`.
+Ayuda en la misma página: clic derecho → copiar datos, o Imprimir → Excel. Si la consulta cabe en más celdas que el máximo de filas de Microsoft Office, Excel trunca. La página no nombró ese máximo; no se inventa aquí. No se publica un Excel truncado. Notas en `datos/extractos/BANXICO_cubo.md`.
 
 ## Catálogos y diccionarios
 

@@ -462,11 +462,11 @@
       <div>
         <p class="kicker">Inventario 3 oct 2026 · ZIP oficiales y cubos</p>
         <h1>Cubos públicos y las tablas oficiales de INEGI</h1>
-        <p class="lead">Catálogo de cubos y los ZIP de datos abiertos de la BCMM y de ETEF que se comprobaron en vivo el 3 de octubre de 2026. Cada entrada lleva URL oficial, unidad, periodo y si es ZIP o extracto de cubo. OLAP y Banxico no publicaron un CSV completo.</p>
+        <p class="lead">Catálogo de cubos y los ZIP de datos abiertos de la BCMM y de ETEF que se comprobaron en vivo el 3 de octubre de 2026. Cada entrada lleva URL oficial, unidad, periodo y si es ZIP o extracto de cubo. El OLAP 2023 sí se bajó por mes; Banxico no publicó un CSV.</p>
         <div class="rules">
           <p><strong>Capítulo y país son tablas distintas.</strong> No se juntan.</p>
           <p><strong>No se suman millones con miles ni con dólares.</strong> Cada archivo declara su unidad.</p>
-          <p>ETEF no se dobla en la BCMM. El cruce capítulo × país no está en los ZIP mensuales; el OLAP lo consulta en HTML paginado, no como CSV. El anual BCMM es tarifa × país.</p>
+          <p>ETEF no se dobla en la BCMM. El cruce tipo × país × fracción del cubo OLAP 2023 está en <a href="#extractos">datos/olap_bcmm_mensual2023/</a>, no en los ZIP mensuales. El anual BCMM es tarifa × país.</p>
         </div>
       </div>
       <div class="dock" id="descargas" aria-label="Descargas">
@@ -662,7 +662,7 @@
             </article>
             <article class="card">
               <h4>Falta confirmar dentro del visor</h4>
-              <p>Cognos: si hay carpetas médicas además de Incorporación y Recaudación. OLAP INEGI: el 3 oct 2026 la consulta a MDXQueryDatos.asp devolvió HTML paginado (65 562 B), no un CSV del cruce; falta el botón de «exportar cubo completo». Banxico: último periodo cargado (las páginas no lo nombran). 2025: el anual OLAP dice definitivas y el mensual OLAP dice revisadas.</p>
+              <p>Cognos: si hay carpetas médicas además de Incorporación y Recaudación. OLAP INEGI: el cubo 2021–2022 no se extrajo. Banxico: último periodo cargado (las páginas no lo nombran). 2025: el anual OLAP dice definitivas y el mensual OLAP dice revisadas.</p>
             </article>
           </div>
         </div>
@@ -915,19 +915,65 @@
     <section class="section" id="extractos">
       <div class="shell">
         <p class="kicker">02c · Cubos</p>
-        <h2>Extractos de cubo (incompletos)</h2>
-        <p class="lede">No son ZIP oficiales. El 3 oct 2026 no salió un CSV completo. Un recorte truncado no se publica como el cubo. Notas en <a href="datos/extractos/README.md">datos/extractos/</a>.</p>
+        <h2>Extractos de cubo</h2>
+        <p class="lede">No son ZIP oficiales. El OLAP 2023 se bajó por mes el 3 oct 2026 (filas = <code>Cant_Fil</code>). Banxico no publicó CSV. Un recorte truncado no se publica como el cubo. Notas en <a href="datos/extractos/README.md">datos/extractos/</a>.</p>
         <article class="cut">
           <div class="cut-top">
             <div>
-              <h3>INEGI OLAP · capítulo × país × fracción</h3>
+              <h3>INEGI OLAP · tipo × país × fracción</h3>
               <code>extracto de cubo · no ZIP</code>
             </div>
-            <span class="badge mill">dólares FOB y cantidad</span>
+            <span class="badge mill">dólares FOB</span>
           </div>
           <div class="cut-body">
-            <p>Página abierta el 3 oct 2026: enero 2023 – julio 2026. TIGIE 12 dic 2022. Consulta a MDXQueryDatos.asp: HTML paginado de 65 562 B, no un CSV. No hay archivo de datos en este repo.</p>
+            <p>Cubo <code>COMEX_BCMM_MENSUAL_2023</code>. Enero 2023 a julio 2026. 43 CSV. Cruce: importación o exportación × país × fracción de 8 dígitos (el capítulo es el prefijo). 4 540 560 filas en total. Cada mes igualó <code>Cant_Fil</code> del visor. No se junta con los ZIP de capítulo (millones) ni de país (miles).</p>
             <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Cubo OLAP mensual 2023</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
+            <div class="file-list">
+              <div class="file-row"><div><b>2023-01</b><small>olap_2023_01_tipo_pais_fraccion.csv · 10 204 298 bytes · 101 132 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_01_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-02</b><small>olap_2023_02_tipo_pais_fraccion.csv · 10 341 138 bytes · 102 584 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_02_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-03</b><small>olap_2023_03_tipo_pais_fraccion.csv · 10 993 360 bytes · 108 967 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_03_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-04</b><small>olap_2023_04_tipo_pais_fraccion.csv · 10 336 376 bytes · 102 475 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_04_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-05</b><small>olap_2023_05_tipo_pais_fraccion.csv · 10 808 336 bytes · 107 308 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_05_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-06</b><small>olap_2023_06_tipo_pais_fraccion.csv · 10 937 300 bytes · 108 549 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_06_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-07</b><small>olap_2023_07_tipo_pais_fraccion.csv · 10 652 918 bytes · 106 075 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_07_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-08</b><small>olap_2023_08_tipo_pais_fraccion.csv · 11 025 781 bytes · 109 551 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_08_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-09</b><small>olap_2023_09_tipo_pais_fraccion.csv · 10 733 965 bytes · 106 743 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_09_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-10</b><small>olap_2023_10_tipo_pais_fraccion.csv · 10 827 728 bytes · 107 567 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_10_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-11</b><small>olap_2023_11_tipo_pais_fraccion.csv · 10 689 292 bytes · 105 818 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_11_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2023-12</b><small>olap_2023_12_tipo_pais_fraccion.csv · 10 536 352 bytes · 104 388 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2023_12_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-01</b><small>olap_2024_01_tipo_pais_fraccion.csv · 10 244 290 bytes · 101 862 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_01_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-02</b><small>olap_2024_02_tipo_pais_fraccion.csv · 10 505 349 bytes · 104 105 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_02_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-03</b><small>olap_2024_03_tipo_pais_fraccion.csv · 10 441 952 bytes · 103 575 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_03_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-04</b><small>olap_2024_04_tipo_pais_fraccion.csv · 10 912 866 bytes · 108 451 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_04_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-05</b><small>olap_2024_05_tipo_pais_fraccion.csv · 10 812 576 bytes · 107 310 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_05_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-06</b><small>olap_2024_06_tipo_pais_fraccion.csv · 10 663 285 bytes · 105 654 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_06_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-07</b><small>olap_2024_07_tipo_pais_fraccion.csv · 10 912 707 bytes · 108 126 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_07_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-08</b><small>olap_2024_08_tipo_pais_fraccion.csv · 10 900 572 bytes · 107 885 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_08_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-09</b><small>olap_2024_09_tipo_pais_fraccion.csv · 10 608 390 bytes · 105 149 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_09_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-10</b><small>olap_2024_10_tipo_pais_fraccion.csv · 11 022 518 bytes · 109 487 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_10_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-11</b><small>olap_2024_11_tipo_pais_fraccion.csv · 10 773 439 bytes · 106 844 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_11_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2024-12</b><small>olap_2024_12_tipo_pais_fraccion.csv · 10 415 621 bytes · 103 497 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2024_12_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-01</b><small>olap_2025_01_tipo_pais_fraccion.csv · 10 177 497 bytes · 101 067 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_01_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-02</b><small>olap_2025_02_tipo_pais_fraccion.csv · 10 182 845 bytes · 101 033 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_02_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-03</b><small>olap_2025_03_tipo_pais_fraccion.csv · 10 785 764 bytes · 107 212 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_03_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-04</b><small>olap_2025_04_tipo_pais_fraccion.csv · 10 710 592 bytes · 106 701 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_04_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-05</b><small>olap_2025_05_tipo_pais_fraccion.csv · 10 573 341 bytes · 105 295 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_05_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-06</b><small>olap_2025_06_tipo_pais_fraccion.csv · 10 702 815 bytes · 106 219 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_06_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-07</b><small>olap_2025_07_tipo_pais_fraccion.csv · 11 020 993 bytes · 109 519 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_07_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-08</b><small>olap_2025_08_tipo_pais_fraccion.csv · 10 779 334 bytes · 107 299 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_08_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-09</b><small>olap_2025_09_tipo_pais_fraccion.csv · 10 629 023 bytes · 105 756 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_09_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-10</b><small>olap_2025_10_tipo_pais_fraccion.csv · 11 094 783 bytes · 110 429 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_10_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-11</b><small>olap_2025_11_tipo_pais_fraccion.csv · 10 395 577 bytes · 103 673 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_11_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2025-12</b><small>olap_2025_12_tipo_pais_fraccion.csv · 10 615 941 bytes · 105 587 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2025_12_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2026-01</b><small>olap_2026_01_tipo_pais_fraccion.csv · 9 905 604 bytes · 98 247 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2026_01_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2026-02</b><small>olap_2026_02_tipo_pais_fraccion.csv · 10 099 078 bytes · 100 338 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2026_02_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2026-03</b><small>olap_2026_03_tipo_pais_fraccion.csv · 10 671 414 bytes · 106 010 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2026_03_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2026-04</b><small>olap_2026_04_tipo_pais_fraccion.csv · 10 651 563 bytes · 105 609 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2026_04_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2026-05</b><small>olap_2026_05_tipo_pais_fraccion.csv · 10 548 095 bytes · 104 709 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2026_05_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2026-06</b><small>olap_2026_06_tipo_pais_fraccion.csv · 10 634 120 bytes · 105 331 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2026_06_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>2026-07</b><small>olap_2026_07_tipo_pais_fraccion.csv · 10 844 729 bytes · 107 424 filas · dólares FOB</small></div><a class="btn btn-dl" href="datos/olap_bcmm_mensual2023/olap_2026_07_tipo_pais_fraccion.csv" download>Descargar CSV</a></div>
+              <div class="file-row"><div><b>indice.json</b><small>manifiesto · 43 meses · filas = Cant_Fil</small></div><a class="btn btn-ghost" href="datos/olap_bcmm_mensual2023/indice.json" download>Índice</a></div>
+            </div>
             <p class="actions"><a class="btn btn-ghost" href="datos/extractos/OLAP_capitulo_pais_fraccion.md">Nota de la consulta</a></p>
           </div>
         </article>
@@ -940,7 +986,7 @@
             <span class="badge mill">dólares (tratamiento estadístico)</span>
           </div>
           <div class="cut-body">
-            <p>Páginas abiertas el 3 oct 2026. Sin ZIP ni CSV completo. El tutorial usa desde enero 1993; la fecha final no está en esas páginas. Excel puede truncar al máximo de filas de Office (la página no nombró el número).</p>
+            <p>Páginas abiertas el 3 oct 2026. Sin ZIP ni CSV. <code>tablero.banxico.org.mx</code> respondió 401. El tutorial usa desde enero 1993; la fecha final no está en esas páginas. Excel puede truncar al máximo de filas de Office (la página no nombró el número). No se publica un Excel truncado.</p>
             <a class="btn-src" href="https://www.banxico.org.mx/CuboComercioExterior/"><b>Cubo Banxico</b><span>https://www.banxico.org.mx/CuboComercioExterior/</span></a>
             <p class="actions"><a class="btn btn-ghost" href="datos/extractos/BANXICO_cubo.md">Nota de la consulta</a></p>
           </div>
@@ -953,8 +999,8 @@
       <div class="shell">
         <p class="kicker">03 · Cifras de 2025</p>
         <h2>Hechos de las tablas mensuales</h2>
-        <p class="lede">Los hechos salen de los ZIP oficiales de modo de transporte y de país (último mes julio 2026) y de <a href="hechos.json">hechos.json</a>. Consulta 3 oct 2026. Capítulo y país no se juntan. El mensual de agregados trae agosto 2026; no se usó para estos totales. El OLAP no publicó un CSV del cruce capítulo × país.</p>
-        <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp" style="margin-bottom:1.2rem"><b>Cubo OLAP · consulta HTML, no CSV</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
+        <p class="lede">Los hechos salen de los ZIP oficiales de modo de transporte y de país (último mes julio 2026) y de <a href="hechos.json">hechos.json</a>. Consulta 3 oct 2026. Capítulo y país no se juntan. El mensual de agregados trae agosto 2026; no se usó para estos totales. El extracto OLAP (dólares FOB) no se mezcla aquí.</p>
+        <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp" style="margin-bottom:1.2rem"><b>Cubo OLAP · CSV por mes en extractos</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
 
         <article class="cut" id="capitulo-exp">
           <div class="cut-top">
@@ -1189,8 +1235,8 @@
             <p>Esa liga ya no existe. El programa es <a href="https://www.inegi.org.mx/programas/exporta_ef/">/programas/exporta_ef/</a>. BIE: HTTP 500.</p>
           </article>
           <article class="card">
-            <h4>OLAP y Banxico sin CSV completo</h4>
-            <p>El OLAP contestó HTML paginado. Banxico no ofrece ZIP. Excel puede truncar. No se publica un recorte como si fuera el cubo.</p>
+            <h4>Banxico sin CSV; OLAP sí, por mes</h4>
+            <p>El cubo OLAP 2023 se bajó en 43 CSV (ene 2023–jul 2026); cada mes igualó <code>Cant_Fil</code>. Banxico no ofrece ZIP; <code>tablero.banxico.org.mx</code> respondió 401. Excel puede truncar: no se publica un recorte como si fuera el cubo.</p>
           </article>
         </div>
       </div>
@@ -1211,7 +1257,7 @@
   <footer>
     <div class="shell">
       <p>Los datos son de INEGI, IMSS, Banxico y la Secretaría de Salud. Inventario verificado el 3 oct 2026. Este repositorio guarda el catálogo y las tablas oficiales de INEGI que caben en GitHub.</p>
-      <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Cubo OLAP · no es un CSV</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
+      <a class="btn-src" href="https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp"><b>Cubo OLAP · extracto en datos/olap_bcmm_mensual2023/</b><span>https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp</span></a>
     </div>
   </footer>
 </body>

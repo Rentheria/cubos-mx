@@ -1,0 +1,358 @@
+{
+  "consulta": "2026-10-03",
+  "url": "https://www.inegi.org.mx/sistemas/Olap/Proyectos/bd/continuas/comex/comex_bcmm_mensual2023.asp",
+  "cube": "COMEX_BCMM_MENSUAL_2023",
+  "unidad": "dólares FOB",
+  "periodo": "2023-01 a 2026-07",
+  "forma": "extracto de cubo (exporta.aspx CSV), no ZIP oficial",
+  "cruce": "tipo_operacion × país × fracción (8 dígitos; el capítulo es el prefijo de la fracción)",
+  "meses": 43,
+  "filas_datos_suma": 4540560,
+  "bytes_suma": 457323517,
+  "archivos": [
+    {
+      "periodo": "2023-01",
+      "archivo": "olap_2023_01_tipo_pais_fraccion.csv",
+      "bytes": 10204298,
+      "filas_datos": 101132,
+      "cant_fil": 101132,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-02",
+      "archivo": "olap_2023_02_tipo_pais_fraccion.csv",
+      "bytes": 10341138,
+      "filas_datos": 102584,
+      "cant_fil": 102584,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-03",
+      "archivo": "olap_2023_03_tipo_pais_fraccion.csv",
+      "bytes": 10993360,
+      "filas_datos": 108967,
+      "cant_fil": 108967,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-04",
+      "archivo": "olap_2023_04_tipo_pais_fraccion.csv",
+      "bytes": 10336376,
+      "filas_datos": 102475,
+      "cant_fil": 102475,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-05",
+      "archivo": "olap_2023_05_tipo_pais_fraccion.csv",
+      "bytes": 10808336,
+      "filas_datos": 107308,
+      "cant_fil": 107308,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-06",
+      "archivo": "olap_2023_06_tipo_pais_fraccion.csv",
+      "bytes": 10937300,
+      "filas_datos": 108549,
+      "cant_fil": 108549,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-07",
+      "archivo": "olap_2023_07_tipo_pais_fraccion.csv",
+      "bytes": 10652918,
+      "filas_datos": 106075,
+      "cant_fil": 106075,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-08",
+      "archivo": "olap_2023_08_tipo_pais_fraccion.csv",
+      "bytes": 11025781,
+      "filas_datos": 109551,
+      "cant_fil": 109551,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-09",
+      "archivo": "olap_2023_09_tipo_pais_fraccion.csv",
+      "bytes": 10733965,
+      "filas_datos": 106743,
+      "cant_fil": 106743,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-10",
+      "archivo": "olap_2023_10_tipo_pais_fraccion.csv",
+      "bytes": 10827728,
+      "filas_datos": 107567,
+      "cant_fil": 107567,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-11",
+      "archivo": "olap_2023_11_tipo_pais_fraccion.csv",
+      "bytes": 10689292,
+      "filas_datos": 105818,
+      "cant_fil": 105818,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2023-12",
+      "archivo": "olap_2023_12_tipo_pais_fraccion.csv",
+      "bytes": 10536352,
+      "filas_datos": 104388,
+      "cant_fil": 104388,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-01",
+      "archivo": "olap_2024_01_tipo_pais_fraccion.csv",
+      "bytes": 10244290,
+      "filas_datos": 101862,
+      "cant_fil": 101862,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-02",
+      "archivo": "olap_2024_02_tipo_pais_fraccion.csv",
+      "bytes": 10505349,
+      "filas_datos": 104105,
+      "cant_fil": 104105,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-03",
+      "archivo": "olap_2024_03_tipo_pais_fraccion.csv",
+      "bytes": 10441952,
+      "filas_datos": 103575,
+      "cant_fil": 103575,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-04",
+      "archivo": "olap_2024_04_tipo_pais_fraccion.csv",
+      "bytes": 10912866,
+      "filas_datos": 108451,
+      "cant_fil": 108451,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-05",
+      "archivo": "olap_2024_05_tipo_pais_fraccion.csv",
+      "bytes": 10812576,
+      "filas_datos": 107310,
+      "cant_fil": 107310,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-06",
+      "archivo": "olap_2024_06_tipo_pais_fraccion.csv",
+      "bytes": 10663285,
+      "filas_datos": 105654,
+      "cant_fil": 105654,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-07",
+      "archivo": "olap_2024_07_tipo_pais_fraccion.csv",
+      "bytes": 10912707,
+      "filas_datos": 108126,
+      "cant_fil": 108126,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-08",
+      "archivo": "olap_2024_08_tipo_pais_fraccion.csv",
+      "bytes": 10900572,
+      "filas_datos": 107885,
+      "cant_fil": 107885,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-09",
+      "archivo": "olap_2024_09_tipo_pais_fraccion.csv",
+      "bytes": 10608390,
+      "filas_datos": 105149,
+      "cant_fil": 105149,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-10",
+      "archivo": "olap_2024_10_tipo_pais_fraccion.csv",
+      "bytes": 11022518,
+      "filas_datos": 109487,
+      "cant_fil": 109487,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-11",
+      "archivo": "olap_2024_11_tipo_pais_fraccion.csv",
+      "bytes": 10773439,
+      "filas_datos": 106844,
+      "cant_fil": 106844,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2024-12",
+      "archivo": "olap_2024_12_tipo_pais_fraccion.csv",
+      "bytes": 10415621,
+      "filas_datos": 103497,
+      "cant_fil": 103497,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-01",
+      "archivo": "olap_2025_01_tipo_pais_fraccion.csv",
+      "bytes": 10177497,
+      "filas_datos": 101067,
+      "cant_fil": 101067,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-02",
+      "archivo": "olap_2025_02_tipo_pais_fraccion.csv",
+      "bytes": 10182845,
+      "filas_datos": 101033,
+      "cant_fil": 101033,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-03",
+      "archivo": "olap_2025_03_tipo_pais_fraccion.csv",
+      "bytes": 10785764,
+      "filas_datos": 107212,
+      "cant_fil": 107212,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-04",
+      "archivo": "olap_2025_04_tipo_pais_fraccion.csv",
+      "bytes": 10710592,
+      "filas_datos": 106701,
+      "cant_fil": 106701,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-05",
+      "archivo": "olap_2025_05_tipo_pais_fraccion.csv",
+      "bytes": 10573341,
+      "filas_datos": 105295,
+      "cant_fil": 105295,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-06",
+      "archivo": "olap_2025_06_tipo_pais_fraccion.csv",
+      "bytes": 10702815,
+      "filas_datos": 106219,
+      "cant_fil": 106219,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-07",
+      "archivo": "olap_2025_07_tipo_pais_fraccion.csv",
+      "bytes": 11020993,
+      "filas_datos": 109519,
+      "cant_fil": 109519,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-08",
+      "archivo": "olap_2025_08_tipo_pais_fraccion.csv",
+      "bytes": 10779334,
+      "filas_datos": 107299,
+      "cant_fil": 107299,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-09",
+      "archivo": "olap_2025_09_tipo_pais_fraccion.csv",
+      "bytes": 10629023,
+      "filas_datos": 105756,
+      "cant_fil": 105756,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-10",
+      "archivo": "olap_2025_10_tipo_pais_fraccion.csv",
+      "bytes": 11094783,
+      "filas_datos": 110429,
+      "cant_fil": 110429,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-11",
+      "archivo": "olap_2025_11_tipo_pais_fraccion.csv",
+      "bytes": 10395577,
+      "filas_datos": 103673,
+      "cant_fil": 103673,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2025-12",
+      "archivo": "olap_2025_12_tipo_pais_fraccion.csv",
+      "bytes": 10615941,
+      "filas_datos": 105587,
+      "cant_fil": 105587,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2026-01",
+      "archivo": "olap_2026_01_tipo_pais_fraccion.csv",
+      "bytes": 9905604,
+      "filas_datos": 98247,
+      "cant_fil": 98247,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2026-02",
+      "archivo": "olap_2026_02_tipo_pais_fraccion.csv",
+      "bytes": 10099078,
+      "filas_datos": 100338,
+      "cant_fil": 100338,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2026-03",
+      "archivo": "olap_2026_03_tipo_pais_fraccion.csv",
+      "bytes": 10671414,
+      "filas_datos": 106010,
+      "cant_fil": 106010,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2026-04",
+      "archivo": "olap_2026_04_tipo_pais_fraccion.csv",
+      "bytes": 10651563,
+      "filas_datos": 105609,
+      "cant_fil": 105609,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2026-05",
+      "archivo": "olap_2026_05_tipo_pais_fraccion.csv",
+      "bytes": 10548095,
+      "filas_datos": 104709,
+      "cant_fil": 104709,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2026-06",
+      "archivo": "olap_2026_06_tipo_pais_fraccion.csv",
+      "bytes": 10634120,
+      "filas_datos": 105331,
+      "cant_fil": 105331,
+      "completo_del_mes": true
+    },
+    {
+      "periodo": "2026-07",
+      "archivo": "olap_2026_07_tipo_pais_fraccion.csv",
+      "bytes": 10844729,
+      "filas_datos": 107424,
+      "cant_fil": 107424,
+      "completo_del_mes": true
+    }
+  ]
+}
