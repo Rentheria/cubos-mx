@@ -67,7 +67,7 @@ ZIP oficiales (no extractos de cubo), extraídos en `datos/etef_*`:
 ## Banxico
 
 Cubo de Comercio Exterior. https://www.banxico.org.mx/CuboComercioExterior/
-Consulta 3 oct 2026: se abrió esa página y `/ValorDolares/inicio`, `/ValorDolaresAnual/inicio`. Embebe `tablero.banxico.org.mx`. No hay ZIP ni CSV completo. El tutorial usa desde enero 1993. Las páginas abiertas no publican la fecha final. Valor en dólares (tratamiento estadístico) por flujo, periodo, región o país, y producto. Volumen solo a nivel fracción. Exportar el recorte: clic derecho, copiar datos, o Imprimir → Excel. Si la consulta cabe en más celdas que el máximo de filas de Microsoft Office, Excel trunca; la página no nombró ese máximo. Preliminar; puede no coincidir con la BCMM. Notas: `datos/extractos/BANXICO_cubo.md`.
+Consulta 4 oct 2026, 02:06 UTC: la página es HTML 118 910 B sin href `.csv`/`.zip`. SIDIE `dataset?ruta=Cubo` responde 200 con «Todavía no existe ningún registro.» `tablero.banxico.org.mx` responde 401 (`YOU DON'T HAVE THE AUTHORIZATION`). `/datos.csv` y `/cubo.zip` responden 404 (103 B). El tutorial usa desde enero 1993; las páginas no publican la fecha final. Valor en dólares (tratamiento estadístico). Volumen solo a nivel fracción. La ayuda solo ofrece copiar o Imprimir → Excel de la consulta; Excel trunca si se pasa el máximo de Office (la página no nombra el número). Preliminar; puede no coincidir con la BCMM. No se publica un Excel cortado ni un scrape. Tabla HTTP: `datos/extractos/BANXICO_cubo.md`.
 
 ## No son cubos
 
